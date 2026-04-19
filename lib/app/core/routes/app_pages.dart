@@ -1,42 +1,51 @@
 import 'package:get/get.dart';
 import '../../modules/splash/views/splash_view.dart';
 import '../../modules/onboarding/views/onboarding_view.dart';
-import '../../modules/login/views/login_view.dart';
-import '../../modules/login/controllers/login_controller.dart';
+import '../../modules/auth/login/views/login_view.dart';
+import '../../modules/auth/login/controllers/login_controller.dart';
 import '../../modules/role_selection/views/role_selection_view.dart';
 import '../../modules/role_selection/controllers/role_selection_controller.dart';
-import '../../modules/sign_up/views/sign_up_view.dart';
-import '../../modules/sign_up/controllers/sign_up_controller.dart';
-import '../../modules/forgot_password/views/forgot_password_view.dart';
-import '../../modules/forgot_password/controllers/forgot_password_controller.dart';
-import '../../modules/verification/views/verification_view.dart';
-import '../../modules/verification/controllers/verification_controller.dart';
-import '../../modules/reset_password/views/reset_password_view.dart';
-import '../../modules/reset_password/controllers/reset_password_controller.dart';
-import '../../modules/reset_password/views/reset_success_view.dart';
+import '../../modules/auth/sign_up/views/sign_up_view.dart';
+import '../../modules/auth/sign_up/controllers/sign_up_controller.dart';
+import '../../modules/auth/forgot_password/views/forgot_password_view.dart';
+import '../../modules/auth/forgot_password/controllers/forgot_password_controller.dart';
+import '../../modules/auth/verification/views/verification_view.dart';
+import '../../modules/auth/verification/controllers/verification_controller.dart';
+import '../../modules/auth/reset_password/views/reset_password_view.dart';
+import '../../modules/auth/reset_password/controllers/reset_password_controller.dart';
+import '../../modules/auth/reset_password/views/reset_success_view.dart';
 import '../../modules/dashboard/views/dashboard_view.dart';
 import '../../modules/dashboard/controllers/dashboard_controller.dart';
-import '../../modules/service_details/views/service_details_view.dart';
-import '../../modules/service_details/controllers/service_details_controller.dart';
-import '../../modules/booking/views/booking_view.dart';
-import '../../modules/booking/controllers/booking_controller.dart';
-import '../../modules/chat/views/chat_view.dart';
-import '../../modules/chat/controllers/chat_controller.dart';
-import '../../modules/finding_artisan/views/finding_artisan_view.dart';
-import '../../modules/finding_artisan/controllers/finding_artisan_controller.dart';
-import '../../modules/tracking/views/tracking_view.dart';
-import '../../modules/tracking/controllers/tracking_controller.dart';
-import '../../modules/work_overview/views/work_overview_view.dart';
-import '../../modules/work_overview/controllers/work_overview_controller.dart';
-import '../../modules/payment/views/payment_view.dart';
-import '../../modules/payment/controllers/payment_controller.dart';
-import '../../modules/payment_success/views/payment_success_view.dart';
-import '../../modules/payment_success/controllers/payment_success_controller.dart';
-import '../../modules/edit_profile/views/edit_profile_view.dart';
-import '../../modules/edit_profile/controllers/edit_profile_controller.dart';
-import '../../modules/help_support/views/help_support_view.dart';
-import '../../modules/help_support/controllers/help_support_controller.dart';
-import 'app_routes.dart';
+import '../../modules/client/service_details/views/service_details_view.dart';
+import '../../modules/client/service_details/controllers/service_details_controller.dart';
+import '../../modules/client/booking/views/booking_view.dart';
+import '../../modules/client/booking/controllers/booking_controller.dart';
+import '../../modules/client/chat/views/chat_view.dart';
+import '../../modules/client/chat/controllers/chat_controller.dart';
+import '../../modules/client/finding_artisan/views/finding_artisan_view.dart';
+import '../../modules/client/finding_artisan/controllers/finding_artisan_controller.dart';
+import '../../modules/client/tracking/views/tracking_view.dart';
+import '../../modules/client/tracking/controllers/tracking_controller.dart';
+import '../../modules/client/work_overview/views/work_overview_view.dart';
+import '../../modules/client/work_overview/controllers/work_overview_controller.dart';
+import '../../modules/client/payment/views/payment_view.dart';
+import '../../modules/client/payment/controllers/payment_controller.dart';
+import '../../modules/client/payment_success/views/payment_success_view.dart';
+import '../../modules/client/payment_success/controllers/payment_success_controller.dart';
+import '../../modules/client/edit_profile/views/edit_profile_view.dart';
+import '../../modules/client/edit_profile/controllers/edit_profile_controller.dart';
+import '../../modules/client/help_support/views/help_support_view.dart';
+import '../../modules/client/help_support/controllers/help_support_controller.dart';
+import './app_routes.dart';
+
+import '../../modules/worker/job_completion/views/job_completion_view.dart';
+import '../../modules/worker/job_completion/controllers/job_completion_controller.dart';
+import '../../modules/worker/chat/views/worker_chat_view.dart';
+import '../../modules/worker/chat/controllers/worker_chat_controller.dart';
+import '../../modules/worker/job_details/views/worker_job_details_view.dart';
+import '../../modules/worker/job_details/controllers/worker_job_details_controller.dart';
+import '../../modules/worker/verification/views/worker_verification_view.dart';
+import '../../modules/worker/verification/controllers/worker_verification_controller.dart';
 
 class AppPages {
   static final routes = [
@@ -169,6 +178,34 @@ class AppPages {
       page: () => const HelpSupportView(),
       binding: BindingsBuilder(() {
         Get.lazyPut<HelpSupportController>(() => HelpSupportController());
+      }),
+    ),
+    GetPage(
+      name: Routes.JOB_COMPLETION,
+      page: () => const JobCompletionView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<JobCompletionController>(() => JobCompletionController());
+      }),
+    ),
+    GetPage(
+      name: Routes.WORKER_CHAT,
+      page: () => const WorkerChatView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<WorkerChatController>(() => WorkerChatController());
+      }),
+    ),
+    GetPage(
+      name: Routes.WORKER_JOB_DETAILS,
+      page: () => const WorkerJobDetailsView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<WorkerJobDetailsController>(() => WorkerJobDetailsController());
+      }),
+    ),
+    GetPage(
+      name: Routes.WORKER_VERIFICATION,
+      page: () => const WorkerVerificationView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<WorkerVerificationController>(() => WorkerVerificationController());
       }),
     ),
   ];

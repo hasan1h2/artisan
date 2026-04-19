@@ -5,14 +5,23 @@ import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 import '../constants/static/app_images.dart';
 
+class NavItemData {
+  final String label;
+  final String svgPath;
+
+  NavItemData({required this.label, required this.svgPath});
+}
+
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
+  final List<NavItemData> items;
 
   const CustomBottomNavBar({
     super.key,
     required this.currentIndex,
     required this.onTap,
+    required this.items,
   });
 
   @override
@@ -34,12 +43,9 @@ class CustomBottomNavBar extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 24.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildNavItem(0, 'Home', AppImages.navHome),
-              _buildNavItem(1, 'Services', AppImages.navServices),
-              _buildNavItem(2, 'Activity', AppImages.navActivity),
-              _buildNavItem(3, 'Account', AppImages.navProfile),
-            ],
+            children: List.generate(items.length, (index) {
+              return _buildNavItem(index, items[index].label, items[index].svgPath);
+            }),
           ),
         ),
       ),

@@ -22,5 +22,9 @@ abstract class Routes {
   static const PAYMENT_SUCCESS = '/payment-success';
   static const EDIT_PROFILE = '/edit-profile';
   static const HELP_SUPPORT = '/help-support';
+  static const JOB_COMPLETION = '/job-completion';
+  static const WORKER_CHAT = '/worker-chat';
+  static const WORKER_JOB_DETAILS = '/worker-job-details';
+  static const WORKER_VERIFICATION = '/worker-verification';
 }
 

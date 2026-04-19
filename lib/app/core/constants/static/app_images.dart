@@ -64,4 +64,18 @@ class AppImages {
   static const String iconReceipt = '$_iconRoot/receipt.svg';
   static const String iconEditPencil = '$_iconRoot/edit_pencil.svg';
   static const String iconSignOut = '$_iconRoot/sign_out.svg';
+
+  // Worker Nav Icons
+  static const String navRequests = '$_iconRoot/nav_requests.svg';
+  static const String navEarnings = '$_iconRoot/nav_earnings.svg';
+  static const String navAccount = '$_iconRoot/nav_account.svg';
+
+  // Worker Dashboard Icons
+  static const String iconUrgent = '$_iconRoot/urgent.svg';
+  static const String iconNormal = '$_iconRoot/normal.svg';
+  static const String iconCall = '$_iconRoot/call.svg';
+  static const String iconChat = '$_iconRoot/chat.svg';
+  static const String iconVerifiedBadge = '$_iconRoot/verified_badge.svg';
+  static const String iconSignature = '$_iconRoot/signature.svg';
+  static const String iconMoneySign = '$_iconRoot/money_sign.svg';
 }

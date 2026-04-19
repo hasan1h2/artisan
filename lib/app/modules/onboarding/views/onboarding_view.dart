@@ -6,8 +6,8 @@ import '../../../core/constants/static/app_colors.dart';
 import '../../../core/constants/static/app_images.dart';
 import '../../../core/constants/static/app_strings.dart';
 import '../controllers/onboarding_controller.dart';
-import 'inner_widgets/onboarding_content.dart';
-import 'inner_widgets/onboarding_indicator.dart';
+import './inner_widgets/onboarding_content.dart';
+import './inner_widgets/onboarding_indicator.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});

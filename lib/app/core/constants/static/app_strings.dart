@@ -211,6 +211,71 @@ class AppStrings extends Translations {
   static const cvv = '***';
   static const paymentMsg = 'Your payment of %s has been processed successfully.';
 
+  // Worker Role Strings
+  static const earnings = 'Earnings';
+  static const totalEarned = 'Total Earned';
+  static const jobsDoneStatus = 'Jobs Done';
+  static const avgJob = 'Avg/Job';
+  static const dailyEarnings = 'Daily Earnings';
+  static const nextPayoutLocal = 'Next Payout: %s';
+  static const processingInDays = 'Processing in %s days';
+  static const recentTransactions = 'Recent Transactions';
+  static const jobCompletion = 'Job Completion';
+  static const getClientSignature = 'Get client signature to complete';
+  static const workCompletedLocal = 'Work Completed';
+  static const clientSignatureLocal = 'Client Signature';
+  static const clientSignsHere = 'Client signs here';
+  static const confirmComplete = 'Confirm & Complete';
+  static const incomingRequests = 'Incoming Requests';
+  static const activeRequestsCount = '%s active requests';
+  static const urgentTag = 'URGENT';
+  static const normalTag = 'NORMAL';
+  static const accept = 'Accept';
+  static const decline = 'Decline';
+  static const call = 'Call';
+  static const chat = 'Chat';
+  static const verifiedArtisan = 'VERIFIED ARTISAN';
+  static const skillsServices = 'Skills & Services';
+  static const serviceArea = 'Service Area';
+  static const performance = 'Performance';
+  static const accountSettings = 'Account Settings';
+  static const topArtisanInArea = 'Top 5% in your area';
+  static const jobAlerts = 'Job alerts, payment updates';
+  static const welcomeBackName = 'Welcome back,';
+  static const youAreOnline = 'You are Online';
+  static const receivingNewRequests = 'Receiving new requests';
+  static const todaysEarnings = 'Today\'s Earnings';
+  static const todaysJobs = 'Today\'s Jobs';
+  static const newRequestIncoming = 'New Request Incoming!';
+  static const todaysSchedule = 'Today\'s Schedule';
+  static const thisWeek = 'This Week';
+  static const avgRating = 'Avg Rating';
+  static const reportAnIssue = 'Report an Issue';
+  static const problemWithThisJob = 'Problem with this job?';
+  static const jobDetailsTitle = 'Job Details';
+  static const jobChecklistTitle = 'Job Checklist';
+  static const jobLocationTitle = 'Job Location';
+  static const navigate = 'Navigate';
+  static const arriveAtLocation = 'Arrive at location';
+  static const greetClient = 'Greet client & inspect issue';
+  static const cleanUpWorkspace = 'Clean up workspace';
+
+  // Account Verification
+  static const accountVerification = 'Account Verification';
+  static const documentVerification = 'Document verification';
+  static const selectDocumentType = 'Select Document type';
+  static const idCard = 'ID Card';
+  static const passport = 'Passport';
+  static const provideIdInfo = 'Please provide your ID Card information';
+  static const dob = 'Date of birth';
+  static const idNumber = 'ID number';
+  static const takeBothSidePictures = 'Take both side pictures of your government issued ID card';
+  static const placeIdInFrame = 'Place the ID Card in the frame';
+  static const verificationSuccess = 'Verification Success';
+  static const verificationSuccessfullyCompleted = 'Your ID card verification is successfully Completed';
+  static const verificationFailed = 'Verification Failed';
+  static const pleaseTryAgainLater = 'Please try again later';
+
   @override
   Map<String, Map<String, String>> get keys => {
         'en_US': {
@@ -390,6 +455,66 @@ class AppStrings extends Translations {
           expiry: expiry,
           cvv: cvv,
           paymentMsg: paymentMsg,
+          earnings: 'Earnings',
+          totalEarned: 'Total Earned',
+          jobsDoneStatus: 'Jobs Done',
+          avgJob: 'Avg/Job',
+          dailyEarnings: 'Daily Earnings',
+          nextPayoutLocal: 'Next Payout: %s',
+          processingInDays: 'Processing in %s days',
+          recentTransactions: 'Recent Transactions',
+          jobCompletion: 'Job Completion',
+          getClientSignature: 'Get client signature to complete',
+          clientSignatureLocal: 'Client Signature',
+          clientSignsHere: 'Client signs here',
+          confirmComplete: 'Confirm & Complete',
+          incomingRequests: 'Incoming Requests',
+          activeRequestsCount: '%s active requests',
+          urgentTag: 'URGENT',
+          normalTag: 'NORMAL',
+          accept: 'Accept',
+          decline: 'Decline',
+          call: 'Call',
+          chat: 'Chat',
+          verifiedArtisan: 'VERIFIED ARTISAN',
+          skillsServices: 'Skills & Services',
+          serviceArea: 'Service Area',
+          performance: 'Performance',
+          accountSettings: 'Account Settings',
+          topArtisanInArea: 'Top 5% in your area',
+          jobAlerts: 'Job alerts, payment updates',
+          welcomeBackName: 'Welcome back,',
+          youAreOnline: 'You are Online',
+          receivingNewRequests: 'Receiving new requests',
+          todaysEarnings: 'Today\'s Earnings',
+          todaysJobs: 'Today\'s Jobs',
+          newRequestIncoming: 'New Request Incoming!',
+          todaysSchedule: 'Today\'s Schedule',
+          thisWeek: 'This Week',
+          avgRating: 'Avg Rating',
+          reportAnIssue: 'Report an Issue',
+          problemWithThisJob: 'Problem with this job?',
+          jobDetailsTitle: 'Job Details',
+          jobChecklistTitle: 'Job Checklist',
+          jobLocationTitle: 'Job Location',
+          navigate: 'Navigate',
+          arriveAtLocation: 'Arrive at location',
+          greetClient: 'Greet client & inspect issue',
+          cleanUpWorkspace: cleanUpWorkspace,
+          accountVerification: accountVerification,
+          documentVerification: documentVerification,
+          selectDocumentType: selectDocumentType,
+          idCard: idCard,
+          passport: passport,
+          provideIdInfo: provideIdInfo,
+          dob: dob,
+          idNumber: idNumber,
+          takeBothSidePictures: takeBothSidePictures,
+          placeIdInFrame: placeIdInFrame,
+          verificationSuccess: verificationSuccess,
+          verificationSuccessfullyCompleted: verificationSuccessfullyCompleted,
+          verificationFailed: verificationFailed,
+          pleaseTryAgainLater: pleaseTryAgainLater,
         }
       };
 }

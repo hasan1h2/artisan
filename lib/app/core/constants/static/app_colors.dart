@@ -57,4 +57,12 @@ class AppColors {
   static const Color promoDiscountText = Color(0xFF4CAF50); // Same as timelineActive
   static const Color receiptHeaderBg = Color(0xFF2B5292); // Muted dark blue
   static const Color ratingPromptBg = Color(0xFFFFF9E6);
+
+  // Worker Role Colors
+  static const Color onlineGreen = Color(0xFF4CAF50);
+  static const Color urgentRed = Color(0xFFF44336);
+  static const Color normalYellow = Color(0xFFFFC107);
+  static const Color payoutBannerBg = Color(0xFFE8F5E9);
+  static const Color payoutText = Color(0xFF2E7D32);
+  static const Color warningBannerIcon = Color(0xFFF57C00);
 }
