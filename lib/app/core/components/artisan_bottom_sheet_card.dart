@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 
@@ -13,6 +12,7 @@ class ArtisanBottomSheetCard extends StatelessWidget {
   final String ratingValue;
   final Widget? trailingIcon;
   final Widget actionWidget;
+  final bool isOnline;
 
   const ArtisanBottomSheetCard({
     super.key,
@@ -25,17 +25,18 @@ class ArtisanBottomSheetCard extends StatelessWidget {
     required this.ratingValue,
     this.trailingIcon,
     required this.actionWidget,
+    this.isOnline = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(24.w),
+      padding: EdgeInsets.all(24.0),
       decoration: BoxDecoration(
         color: AppColors.background,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(32.r),
-          topRight: Radius.circular(32.r),
+          topLeft: Radius.circular(32.0),
+          topRight: Radius.circular(32.0),
         ),
         boxShadow: [
           BoxShadow(
@@ -50,20 +51,38 @@ class ArtisanBottomSheetCard extends StatelessWidget {
         children: [
           if (headerWidget != null) ...[
             headerWidget!,
-            SizedBox(height: 24.h),
+            SizedBox(height: 24.0),
           ],
           Row(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12.r),
-                child: Image.asset(
-                  avatarPath,
-                  width: 56.w,
-                  height: 56.w,
-                  fit: BoxFit.cover,
-                ),
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12.0),
+                    child: Image.asset(
+                      avatarPath,
+                      width: 56.0,
+                      height: 56.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  if (isOnline)
+                    Positioned(
+                      bottom: -2.0,
+                      right: -2.0,
+                      child: Container(
+                        width: 16.0,
+                        height: 16.0,
+                        decoration: BoxDecoration(
+                          color: AppColors.statusCompletedText,
+                          shape: BoxShape.circle,
+                          border: Border.all(color: AppColors.white, width: 2.5),
+                        ),
+                      ),
+                    ),
+                ],
               ),
-              SizedBox(width: 16.w),
+              SizedBox(width: 16.0),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,23 +93,23 @@ class ArtisanBottomSheetCard extends StatelessWidget {
                           name,
                           style: GoogleFonts.poppins(
                             color: AppColors.textColor,
-                            fontSize: 16.sp,
+                            fontSize: 16.0,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                         if (badgeText != null) ...[
-                          SizedBox(width: 8.w),
+                          SizedBox(width: 8.0),
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
+                            padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
                             decoration: BoxDecoration(
                               color: AppColors.statusCompletedBg,
-                              borderRadius: BorderRadius.circular(4.r),
+                              borderRadius: BorderRadius.circular(4.0),
                             ),
                             child: Text(
                               badgeText!,
                               style: GoogleFonts.poppins(
                                 color: AppColors.statusCompletedText,
-                                fontSize: 10.sp,
+                                fontSize: 10.0,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -98,12 +117,12 @@ class ArtisanBottomSheetCard extends StatelessWidget {
                         ]
                       ],
                     ),
-                    SizedBox(height: 4.h),
+                    SizedBox(height: 4.0),
                     Text(
                       details,
                       style: GoogleFonts.poppins(
                         color: AppColors.greyText,
-                        fontSize: 14.sp,
+                        fontSize: 14.0,
                       ),
                     ),
                   ],
@@ -118,19 +137,19 @@ class ArtisanBottomSheetCard extends StatelessWidget {
                       ratingText!,
                       style: GoogleFonts.poppins(
                         color: AppColors.greyText,
-                        fontSize: 12.sp,
+                        fontSize: 12.0,
                       ),
                     ),
-                  SizedBox(height: 4.h),
+                  SizedBox(height: 4.0),
                   Row(
                     children: [
-                      Icon(Icons.star, color: AppColors.ratingStar, size: 16.w),
-                      SizedBox(width: 4.w),
+                      Icon(Icons.star, color: AppColors.ratingStar, size: 16.0),
+                      SizedBox(width: 4.0),
                       Text(
                         ratingValue,
                         style: GoogleFonts.poppins(
                           color: AppColors.textColor,
-                          fontSize: 16.sp,
+                          fontSize: 16.0,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -140,10 +159,11 @@ class ArtisanBottomSheetCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 24.h),
+          SizedBox(height: 24.0),
           actionWidget,
         ],
       ),
     );
   }
 }
+

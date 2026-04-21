@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
 
@@ -52,3 +52,4 @@ class VerificationController extends GetxController {
     }
   }
 }
+

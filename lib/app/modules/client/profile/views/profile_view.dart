@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,19 +21,19 @@ class ProfileView extends GetView<ProfileController> {
           children: [
             _buildHeader(),
             Transform.translate(
-              offset: Offset(0, -40.h),
+              offset: Offset(0, -40.0),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   children: [
                     _buildStatsRow(),
-                    SizedBox(height: 24.h),
+                    SizedBox(height: 24.0),
                     _buildMenuTiles(),
-                    SizedBox(height: 32.h),
+                    SizedBox(height: 32.0),
                     _buildRecentBookings(),
-                    SizedBox(height: 32.h),
+                    SizedBox(height: 32.0),
                     _buildSignOutButton(),
-                    SizedBox(height: 40.h),
+                    SizedBox(height: 40.0),
                   ],
                 ),
               ),
@@ -49,7 +48,7 @@ class ProfileView extends GetView<ProfileController> {
     return Container(
       width: double.infinity,
       color: AppColors.primary,
-      padding: EdgeInsets.only(top: 60.h, left: 24.w, right: 24.w, bottom: 80.h),
+      padding: EdgeInsets.only(top: 60.0, left: 24.0, right: 24.0, bottom: 80.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -60,21 +59,21 @@ class ProfileView extends GetView<ProfileController> {
                 AppStrings.myProfile.tr,
                 style: GoogleFonts.poppins(
                   color: AppColors.white,
-                  fontSize: 18.sp,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(8.w),
+                padding: EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   color: AppColors.white.withAlpha(25),
-                  borderRadius: BorderRadius.circular(8.r),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: Icon(Icons.edit_outlined, color: AppColors.white, size: 20.w),
+                child: Icon(Icons.edit_outlined, color: AppColors.white, size: 20.0),
               ),
             ],
           ),
-          SizedBox(height: 24.h),
+          SizedBox(height: 24.0),
           Row(
             children: [
               Stack(
@@ -82,20 +81,20 @@ class ProfileView extends GetView<ProfileController> {
                   Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      border: Border.all(color: AppColors.white, width: 2.w),
+                      border: Border.all(color: AppColors.white, width: 2.0),
                     ),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(50.r),
+                      borderRadius: BorderRadius.circular(50.0),
                       child: Image.asset(
                         AppImages.placeholderAvatar,
-                        width: 70.w,
-                        height: 70.w,
+                        width: 70.0,
+                        height: 70.0,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) => Container(
-                          width: 70.w,
-                          height: 70.w,
+                          width: 70.0,
+                          height: 70.0,
                           color: AppColors.white.withAlpha(50),
-                          child: Icon(Icons.person, color: AppColors.white, size: 40.w),
+                          child: Icon(Icons.person, color: AppColors.white, size: 40.0),
                         ),
                       ),
                     ),
@@ -104,17 +103,17 @@ class ProfileView extends GetView<ProfileController> {
                     bottom: 0,
                     right: 0,
                     child: Container(
-                      padding: EdgeInsets.all(4.w),
+                      padding: EdgeInsets.all(4.0),
                       decoration: const BoxDecoration(
                         color: AppColors.statusCompletedText,
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(Icons.edit, color: AppColors.white, size: 10.w),
+                      child: Icon(Icons.edit, color: AppColors.white, size: 10.0),
                     ),
                   ),
                 ],
               ),
-              SizedBox(width: 16.w),
+              SizedBox(width: 16.0),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,24 +122,24 @@ class ProfileView extends GetView<ProfileController> {
                       controller.userName.value,
                       style: GoogleFonts.poppins(
                         color: AppColors.white,
-                        fontSize: 20.sp,
+                        fontSize: 20.0,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(height: 2.h),
+                    SizedBox(height: 2.0),
                     Text(
                       controller.userEmail.value,
                       style: GoogleFonts.poppins(
                         color: AppColors.white.withAlpha(200),
-                        fontSize: 12.sp,
+                        fontSize: 12.0,
                       ),
                     ),
-                    SizedBox(height: 2.h),
+                    SizedBox(height: 2.0),
                     Text(
                       controller.userPhone.value,
                       style: GoogleFonts.poppins(
                         color: AppColors.white.withAlpha(200),
-                        fontSize: 12.sp,
+                        fontSize: 12.0,
                       ),
                     ),
                   ],
@@ -155,10 +154,10 @@ class ProfileView extends GetView<ProfileController> {
 
   Widget _buildStatsRow() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 16.w),
+      padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
       decoration: BoxDecoration(
         color: AppColors.primary.withAlpha(200), // Slightly lighter than background primary based on image. The image shows a darker blue container. Actually, #2c5991 style color, let's just use withAlpha or a similar tone. Wait, the background is primary, stats box is a bit lighter.
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withAlpha(20),
@@ -171,10 +170,10 @@ class ProfileView extends GetView<ProfileController> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           _buildStatItem(controller.stats['bookings'].toString(), AppStrings.bookings.tr),
-          Container(width: 1.w, height: 40.h, color: AppColors.white.withAlpha(50)),
+          Container(width: 1.0, height: 40.0, color: AppColors.white.withAlpha(50)),
           _buildStatItem(controller.stats['reviews'].toString(), AppStrings.reviews.tr),
-          Container(width: 1.w, height: 40.h, color: AppColors.white.withAlpha(50)),
-          _buildStatItem('${controller.stats['rating']} ★', AppStrings.ratingGiven.tr),
+          Container(width: 1.0, height: 40.0, color: AppColors.white.withAlpha(50)),
+          _buildStatItem('${controller.stats['rating']} â˜…', AppStrings.ratingGiven.tr),
         ],
       )),
     );
@@ -187,16 +186,16 @@ class ProfileView extends GetView<ProfileController> {
           value,
           style: GoogleFonts.poppins(
             color: AppColors.white,
-            fontSize: 20.sp,
+            fontSize: 20.0,
             fontWeight: FontWeight.w700,
           ),
         ),
-        SizedBox(height: 4.h),
+        SizedBox(height: 4.0),
         Text(
           label,
           style: GoogleFonts.poppins(
             color: AppColors.white.withAlpha(200),
-            fontSize: 12.sp,
+            fontSize: 12.0,
           ),
         ),
       ],
@@ -207,7 +206,7 @@ class ProfileView extends GetView<ProfileController> {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
         boxShadow: [
           BoxShadow(
@@ -220,9 +219,9 @@ class ProfileView extends GetView<ProfileController> {
       child: Obx(() => ListView.separated(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        padding: EdgeInsets.all(16.w),
+        padding: EdgeInsets.all(16.0),
         itemCount: controller.menuItems.length,
-        separatorBuilder: (context, index) => Divider(color: AppColors.border, height: 1.h),
+        separatorBuilder: (context, index) => Divider(color: AppColors.border, height: 1.0),
         itemBuilder: (context, index) {
           final item = controller.menuItems[index];
           return ProfileMenuTile(
@@ -246,7 +245,7 @@ class ProfileView extends GetView<ProfileController> {
             Text(
               AppStrings.recentBookings.tr,
               style: GoogleFonts.poppins(
-                fontSize: 18.sp,
+                fontSize: 18.0,
                 fontWeight: FontWeight.w600,
                 color: AppColors.textColor,
               ),
@@ -254,14 +253,14 @@ class ProfileView extends GetView<ProfileController> {
             Text(
               AppStrings.seeAll.tr,
               style: GoogleFonts.poppins(
-                fontSize: 14.sp,
+                fontSize: 14.0,
                 color: AppColors.primary,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ],
         ),
-        SizedBox(height: 16.h),
+        SizedBox(height: 16.0),
         Obx(() => ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -269,25 +268,25 @@ class ProfileView extends GetView<ProfileController> {
           itemBuilder: (context, index) {
             final order = controller.recentBookings[index];
             return Container(
-              margin: EdgeInsets.only(bottom: 12.h),
-              padding: EdgeInsets.all(16.w),
+              margin: EdgeInsets.only(bottom: 12.0),
+              padding: EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                 color: AppColors.white,
-                borderRadius: BorderRadius.circular(16.r),
+                borderRadius: BorderRadius.circular(16.0),
                 border: Border.all(color: AppColors.border),
               ),
               child: Row(
                 children: [
                   Container(
-                    width: 48.w,
-                    height: 48.w,
+                    width: 48.0,
+                    height: 48.0,
                     decoration: BoxDecoration(
                       color: AppColors.background,
-                      borderRadius: BorderRadius.circular(8.r),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
-                    child: Icon(Icons.build, color: AppColors.greyText, size: 24.w),
+                    child: Icon(Icons.build, color: AppColors.greyText, size: 24.0),
                   ),
-                  SizedBox(width: 16.w),
+                  SizedBox(width: 16.0),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -295,16 +294,16 @@ class ProfileView extends GetView<ProfileController> {
                         Text(
                           order['title'],
                           style: GoogleFonts.poppins(
-                            fontSize: 16.sp,
+                            fontSize: 16.0,
                             fontWeight: FontWeight.w600,
                             color: AppColors.textColor,
                           ),
                         ),
-                        SizedBox(height: 4.h),
+                        SizedBox(height: 4.0),
                         Text(
                           order['date'],
                           style: GoogleFonts.poppins(
-                            fontSize: 12.sp,
+                            fontSize: 12.0,
                             color: AppColors.greyText,
                           ),
                         ),
@@ -317,16 +316,16 @@ class ProfileView extends GetView<ProfileController> {
                       Text(
                         order['status'],
                         style: GoogleFonts.poppins(
-                          fontSize: 12.sp,
+                          fontSize: 12.0,
                           fontWeight: FontWeight.w500,
                           color: AppColors.statusCompletedText,
                         ),
                       ),
-                      SizedBox(height: 4.h),
+                      SizedBox(height: 4.0),
                       Text(
                         order['price'],
                         style: GoogleFonts.poppins(
-                          fontSize: 16.sp,
+                          fontSize: 16.0,
                           fontWeight: FontWeight.w700,
                           color: AppColors.primary,
                         ),
@@ -349,22 +348,22 @@ class ProfileView extends GetView<ProfileController> {
         onPressed: controller.signOut,
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.statusCancelledBg,
-          padding: EdgeInsets.symmetric(vertical: 16.h),
+          padding: EdgeInsets.symmetric(vertical: 16.0),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(12.0),
           ),
           elevation: 0,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.logout, color: AppColors.errorText, size: 24.w),
-            SizedBox(width: 8.w),
+            Icon(Icons.logout, color: AppColors.errorText, size: 24.0),
+            SizedBox(width: 8.0),
             Text(
               AppStrings.signOut.tr,
               style: GoogleFonts.poppins(
                 color: AppColors.errorText,
-                fontSize: 16.sp,
+                fontSize: 16.0,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -374,3 +373,4 @@ class ProfileView extends GetView<ProfileController> {
     );
   }
 }
+

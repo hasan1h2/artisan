@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class EditProfileController extends GetxController {
@@ -22,3 +22,4 @@ class EditProfileController extends GetxController {
     super.onClose();
   }
 }
+

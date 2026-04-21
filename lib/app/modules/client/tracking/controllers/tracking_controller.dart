@@ -13,6 +13,7 @@ class TrackingController extends GetxController {
   }
 
   void viewCompletionWork() {
-    // Action when completed
+    Get.toNamed(Routes.WORK_OVERVIEW);
   }
 }
+

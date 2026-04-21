@@ -28,7 +28,7 @@ class ChatController extends GetxController {
     },
     {
       'isMe': false,
-      'text': "Understood! I have all the tools needed. See you soon 👍",
+      'text': "Understood! I have all the tools needed. See you soon ðŸ‘",
       'time': "10:09 AM",
     },
     {
@@ -37,6 +37,9 @@ class ChatController extends GetxController {
       'time': "10:10 AM",
     },
   ].obs;
+
+  // Add typing indicator observable
+  final isTyping = true.obs;
 
   @override
   void onClose() {
@@ -59,3 +62,4 @@ class ChatController extends GetxController {
     Get.toNamed(Routes.TRACKING);
   }
 }
+

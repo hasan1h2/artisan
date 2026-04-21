@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import '../constants/static/app_colors.dart';
 
 class PhotoThumbnailTile extends StatelessWidget {
@@ -13,15 +12,16 @@ class PhotoThumbnailTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 80.w,
-      height: 80.w,
-      margin: EdgeInsets.only(right: 12.w),
+      width: 80.0,
+      height: 80.0,
+      margin: EdgeInsets.only(right: 12.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(12.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Center(child: child),
     );
   }
 }
+

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../views/faqs_view.dart';
 import '../views/feedback_view.dart';
@@ -43,3 +43,4 @@ class HelpSupportController extends GetxController {
     super.onClose();
   }
 }
+

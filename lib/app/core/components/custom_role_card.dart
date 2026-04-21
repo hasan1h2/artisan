@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,14 +25,14 @@ class CustomRoleCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.only(bottom: 16.h),
-        padding: EdgeInsets.all(20.w),
+        margin: EdgeInsets.only(bottom: 16.0),
+        padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
           color: AppColors.white,
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16.0),
           border: Border.all(
             color: isSelected ? AppColors.primary : AppColors.border,
-            width: isSelected ? 2.w : 1.w,
+            width: isSelected ? 2.0 : 1.0,
           ),
           boxShadow: const [
             BoxShadow(
@@ -48,10 +47,10 @@ class CustomRoleCard extends StatelessWidget {
           children: [
             SvgPicture.asset(
               iconPath,
-              width: 48.w,
-              height: 48.w,
+              width: 48.0,
+              height: 48.0,
             ),
-            SizedBox(width: 16.w),
+            SizedBox(width: 16.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,32 +59,32 @@ class CustomRoleCard extends StatelessWidget {
                     title,
                     style: GoogleFonts.poppins(
                       color: isSelected ? AppColors.primary : AppColors.textColor,
-                      fontSize: 16.sp,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(height: 4.h),
+                  SizedBox(height: 4.0),
                   Text(
                     subtitle,
                     style: GoogleFonts.poppins(
                       color: AppColors.greyText,
-                      fontSize: 12.sp,
+                      fontSize: 12.0,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(width: 12.w),
+            SizedBox(width: 12.0),
             Container(
-              width: 24.w,
-              height: 24.w,
-              padding: EdgeInsets.all(3.w),
+              width: 24.0,
+              height: 24.0,
+              padding: EdgeInsets.all(3.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected ? AppColors.primary : AppColors.border,
-                  width: 2.w,
+                  width: 2.0,
                 ),
               ),
               child: isSelected 
@@ -103,3 +102,4 @@ class CustomRoleCard extends StatelessWidget {
     );
   }
 }
+

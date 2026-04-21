@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/constants/static/app_colors.dart';
 import '../../../../core/constants/static/app_strings.dart';
-import '../../../../core/constants/static/app_images.dart';
+import 'package:artisan/app/core/constants/static/app_images.dart';
 import '../../../../core/components/fixed_bottom_action_bar.dart';
 import '../controllers/service_details_controller.dart';
 
@@ -22,7 +21,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
           AppStrings.serviceDetails.tr,
           style: GoogleFonts.poppins(
             color: AppColors.white,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -38,24 +37,24 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.only(bottom: 24.h),
+              padding: EdgeInsets.only(bottom: 24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildHeroImage(),
                   Padding(
-                    padding: EdgeInsets.all(24.w),
+                    padding: EdgeInsets.all(24.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         _buildTitleSection(),
-                        SizedBox(height: 24.h),
+                        SizedBox(height: 24.0),
                         _buildTabs(),
-                        SizedBox(height: 24.h),
+                        SizedBox(height: 24.0),
                         _buildDescription(),
-                        SizedBox(height: 24.h),
+                        SizedBox(height: 24.0),
                         _buildWhatsIncluded(),
-                        SizedBox(height: 24.h),
+                        SizedBox(height: 24.0),
                         _buildTopArtisan(),
                       ],
                     ),
@@ -77,24 +76,24 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
 
   Widget _buildHeroImage() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w),
+      padding: EdgeInsets.symmetric(horizontal: 24.0),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         child: Stack(
           children: [
             Image.asset(
-              AppImages.placeholderService, // Should be a hero image, reusing placeholder
+              AppImages.servicePlaceholder, // Should be a hero image, reusing placeholder
               width: double.infinity,
-              height: 220.h,
+              height: 220.0,
               fit: BoxFit.cover,
             ),
             Positioned(
-              top: 16.h,
-              right: 16.w,
+              top: 16.0,
+              right: 16.0,
               child: Row(
                 children: [
                   _buildIconButton(Icons.share, () {}),
-                  SizedBox(width: 12.w),
+                  SizedBox(width: 12.0),
                   Obx(() => _buildIconButton(
                         controller.isFavorite.value ? Icons.favorite : Icons.favorite_border,
                         controller.toggleFavorite,
@@ -104,32 +103,32 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
               ),
             ),
             Positioned(
-              bottom: 16.h,
-              left: 16.w,
+              bottom: 16.0,
+              left: 16.0,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
                 decoration: BoxDecoration(
                   color: AppColors.textColor.withAlpha(180),
-                  borderRadius: BorderRadius.circular(20.r),
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.star, color: AppColors.ratingStar, size: 16.w),
-                    SizedBox(width: 4.w),
+                    Icon(Icons.star, color: AppColors.ratingStar, size: 16.0),
+                    SizedBox(width: 4.0),
                     Text(
                       '4.7',
                       style: GoogleFonts.poppins(
                         color: AppColors.white,
-                        fontSize: 14.sp,
+                        fontSize: 14.0,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(width: 4.w),
+                    SizedBox(width: 4.0),
                     Text(
                       '(54 reviews)',
                       style: GoogleFonts.poppins(
                         color: AppColors.white,
-                        fontSize: 12.sp,
+                        fontSize: 12.0,
                       ),
                     ),
                   ],
@@ -146,12 +145,12 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(8.w),
+        padding: EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           color: AppColors.textColor.withAlpha(100),
           shape: BoxShape.circle,
         ),
-        child: Icon(icon, color: color, size: 20.w),
+        child: Icon(icon, color: color, size: 20.0),
       ),
     );
   }
@@ -168,26 +167,26 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
                 'Pipe Leak Repair',
                 style: GoogleFonts.poppins(
                   color: AppColors.textColor,
-                  fontSize: 22.sp,
+                  fontSize: 22.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
               decoration: BoxDecoration(
                 color: AppColors.badgePopularBg,
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(12.0),
               ),
               child: Row(
                 children: [
-                  Text('🔥', style: TextStyle(fontSize: 12.sp)),
-                  SizedBox(width: 4.w),
+                  Text('ðŸ”¥', style: TextStyle(fontSize: 12.0)),
+                  SizedBox(width: 4.0),
                   Text(
                     AppStrings.popular.tr,
                     style: GoogleFonts.poppins(
                       color: AppColors.badgePopularText,
-                      fontSize: 10.sp,
+                      fontSize: 10.0,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -196,28 +195,28 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
             ),
           ],
         ),
-        SizedBox(height: 12.h),
+        SizedBox(height: 12.0),
         Row(
           children: [
-            Icon(Icons.access_time, color: AppColors.greyText, size: 16.w),
-            SizedBox(width: 4.w),
+            Icon(Icons.access_time, color: AppColors.greyText, size: 16.0),
+            SizedBox(width: 4.0),
             Text(
               AppStrings.hr1.tr,
-              style: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.sp),
+              style: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.0),
             ),
-            SizedBox(width: 16.w),
-            Icon(Icons.shield_outlined, color: AppColors.statusCompletedText, size: 16.w),
-            SizedBox(width: 4.w),
+            SizedBox(width: 16.0),
+            Icon(Icons.shield_outlined, color: AppColors.statusCompletedText, size: 16.0),
+            SizedBox(width: 4.0),
             Text(
               AppStrings.insured.tr,
-              style: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.sp),
+              style: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.0),
             ),
-            SizedBox(width: 16.w),
+            SizedBox(width: 16.0),
             Text(
               '\$35-\$65',
               style: GoogleFonts.poppins(
                 color: AppColors.primary,
-                fontSize: 16.sp,
+                fontSize: 16.0,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -229,10 +228,10 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
 
   Widget _buildTabs() {
     return Container(
-      padding: EdgeInsets.all(4.w),
+      padding: EdgeInsets.all(4.0),
       decoration: BoxDecoration(
         color: AppColors.background, // actually light grey border wrapping it
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Obx(() => Row(
@@ -252,10 +251,10 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
     return GestureDetector(
       onTap: () => controller.changeTab(isSelected ? '' : title.split(' ').last == 'Reviews' ? 'Reviews' : 'Overview'), // Simplified toggle
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 12.h),
+        padding: EdgeInsets.symmetric(vertical: 12.0),
         decoration: BoxDecoration(
           color: isSelected ? AppColors.white : Colors.transparent,
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(12.0),
           boxShadow: isSelected
               ? [
                   BoxShadow(
@@ -271,7 +270,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
           title,
           style: GoogleFonts.poppins(
             color: isSelected ? AppColors.textColor : AppColors.greyText,
-            fontSize: 14.sp,
+            fontSize: 14.0,
             fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
           ),
         ),
@@ -284,7 +283,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
       'Complete toilet repair and replacement services including flush systems, seals, and fittings.',
       style: GoogleFonts.poppins(
         color: AppColors.greyText,
-        fontSize: 14.sp,
+        fontSize: 14.0,
         height: 1.5,
       ),
     );
@@ -292,10 +291,10 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
 
   Widget _buildWhatsIncluded() {
     return Container(
-      padding: EdgeInsets.all(16.w),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
@@ -305,23 +304,23 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
             AppStrings.whatsIncluded.tr,
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
-              fontSize: 16.sp,
+              fontSize: 16.0,
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           ...controller.whatsIncluded.map((item) => Padding(
-                padding: EdgeInsets.only(bottom: 12.h),
+                padding: EdgeInsets.only(bottom: 12.0),
                 child: Row(
                   children: [
-                    Icon(Icons.check_circle_outline, color: AppColors.statusCompletedText, size: 20.w),
-                    SizedBox(width: 12.w),
+                    Icon(Icons.check_circle_outline, color: AppColors.statusCompletedText, size: 20.0),
+                    SizedBox(width: 12.0),
                     Expanded(
                       child: Text(
                         item,
                         style: GoogleFonts.poppins(
                           color: AppColors.greyText,
-                          fontSize: 14.sp,
+                          fontSize: 14.0,
                         ),
                       ),
                     ),
@@ -335,10 +334,10 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
 
   Widget _buildTopArtisan() {
     return Container(
-      padding: EdgeInsets.all(16.w),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
@@ -348,21 +347,21 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
             AppStrings.topArtisanForThis.tr,
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
-              fontSize: 16.sp,
+              fontSize: 16.0,
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           Row(
             children: [
               Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(8.r),
+                    borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
                       AppImages.placeholderAvatar,
-                      width: 48.w,
-                      height: 48.w,
+                      width: 48.0,
+                      height: 48.0,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -370,8 +369,8 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
                     bottom: -2,
                     right: -2,
                     child: Container(
-                      width: 14.w,
-                      height: 14.w,
+                      width: 14.0,
+                      height: 14.0,
                       decoration: BoxDecoration(
                         color: AppColors.statusCompletedText,
                         shape: BoxShape.circle,
@@ -381,7 +380,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
                   ),
                 ],
               ),
-              SizedBox(width: 12.w),
+              SizedBox(width: 12.0),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -390,29 +389,29 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
                       'Marcus Johnson',
                       style: GoogleFonts.poppins(
                         color: AppColors.textColor,
-                        fontSize: 14.sp,
+                        fontSize: 14.0,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(height: 4.h),
+                    SizedBox(height: 4.0),
                     Row(
                       children: [
-                        Icon(Icons.star, color: AppColors.ratingStar, size: 14.w),
-                        SizedBox(width: 4.w),
+                        Icon(Icons.star, color: AppColors.ratingStar, size: 14.0),
+                        SizedBox(width: 4.0),
                         Text(
                           '4.9',
                           style: GoogleFonts.poppins(
                             color: AppColors.textColor,
-                            fontSize: 12.sp,
+                            fontSize: 12.0,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                         Expanded(
                           child: Text(
-                            ' · 127 jobs',
+                            ' Â· 127 jobs',
                             style: GoogleFonts.poppins(
                               color: AppColors.greyText,
-                              fontSize: 12.sp,
+                              fontSize: 12.0,
                             ),
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -426,7 +425,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
                 AppStrings.view.tr,
                 style: GoogleFonts.poppins(
                   color: AppColors.primary,
-                  fontSize: 14.sp,
+                  fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -437,3 +436,4 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
     );
   }
 }
+

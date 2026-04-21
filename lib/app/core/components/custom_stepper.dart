@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 import '../constants/static/app_colors.dart';
@@ -16,11 +15,12 @@ class CustomStepper extends StatelessWidget {
       AppStrings.dateTime.tr,
       AppStrings.address.tr,
       AppStrings.notes.tr,
+      AppStrings.imageUpload.tr,
       AppStrings.confirm.tr,
     ];
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 24.h),
+      padding: EdgeInsets.symmetric(vertical: 24.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: List.generate(steps.length, (index) {
@@ -36,32 +36,32 @@ class CustomStepper extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        width: 32.w,
-                        height: 32.w,
+                        width: 32.0,
+                        height: 32.0,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: isCompleted || isActive ? AppColors.stepperActive : AppColors.stepperInactive,
                         ),
                         child: isCompleted
-                            ? Icon(Icons.check, color: AppColors.white, size: 16.w)
+                            ? Icon(Icons.check, color: AppColors.white, size: 16.0)
                             : Center(
                                 child: Text(
                                   '$stepNumber',
                                   style: GoogleFonts.poppins(
                                     color: isCompleted || isActive ? AppColors.white : AppColors.greyText,
-                                    fontSize: 14.sp,
+                                    fontSize: 14.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               ),
                       ),
-                      SizedBox(height: 8.h),
+                      SizedBox(height: 8.0),
                       Text(
                         steps[index],
                         textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
                           color: isCompleted || isActive ? AppColors.stepperActive : AppColors.greyText,
-                          fontSize: 10.sp,
+                          fontSize: 10.0,
                           fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
                         ),
                       ),
@@ -71,8 +71,8 @@ class CustomStepper extends StatelessWidget {
                 if (index < steps.length - 1)
                   Expanded(
                     child: Container(
-                      margin: EdgeInsets.only(top: 16.h),
-                      height: 2.h,
+                      margin: EdgeInsets.only(top: 16.0),
+                      height: 2.0,
                       color: isCompleted ? AppColors.stepperActive : AppColors.stepperInactive,
                     ),
                   ),
@@ -84,3 +84,4 @@ class CustomStepper extends StatelessWidget {
     );
   }
 }
+

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 
@@ -36,10 +35,10 @@ class CostBreakdownCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.w),
+      padding: EdgeInsets.all(20.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
@@ -49,24 +48,24 @@ class CostBreakdownCard extends StatelessWidget {
             Row(
               children: [
                 if (icon != null) ...[
-                  Icon(icon, color: AppColors.primary, size: 20.w),
-                  SizedBox(width: 8.w),
+                  Icon(icon, color: AppColors.primary, size: 20.0),
+                  SizedBox(width: 8.0),
                 ],
                 if (cardTitle != null)
                   Text(
                     cardTitle!,
                     style: GoogleFonts.poppins(
                       color: AppColors.textColor,
-                      fontSize: 16.sp,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
               ],
             ),
-            SizedBox(height: 16.h),
+            SizedBox(height: 16.0),
           ],
           ...items.map((item) => Padding(
-                padding: EdgeInsets.only(bottom: 12.h),
+                padding: EdgeInsets.only(bottom: 12.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -75,7 +74,7 @@ class CostBreakdownCard extends StatelessWidget {
                         item.title,
                         style: GoogleFonts.poppins(
                           color: AppColors.greyText,
-                          fontSize: 14.sp,
+                          fontSize: 14.0,
                         ),
                       ),
                     ),
@@ -83,7 +82,7 @@ class CostBreakdownCard extends StatelessWidget {
                       item.amount,
                       style: GoogleFonts.poppins(
                         color: item.amountColor ?? AppColors.textColor,
-                        fontSize: 14.sp,
+                        fontSize: 14.0,
                         fontWeight: item.isBold ? FontWeight.w600 : FontWeight.w500,
                       ),
                     ),
@@ -91,7 +90,7 @@ class CostBreakdownCard extends StatelessWidget {
                 ),
               )),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.h),
+            padding: EdgeInsets.symmetric(vertical: 8.0),
             child: Divider(color: AppColors.border),
           ),
           Row(
@@ -101,7 +100,7 @@ class CostBreakdownCard extends StatelessWidget {
                 totalLabel,
                 style: GoogleFonts.poppins(
                   color: AppColors.textColor,
-                  fontSize: 16.sp,
+                  fontSize: 16.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -109,7 +108,7 @@ class CostBreakdownCard extends StatelessWidget {
                 totalAmount,
                 style: GoogleFonts.poppins(
                   color: AppColors.primary,
-                  fontSize: 20.sp,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -120,3 +119,4 @@ class CostBreakdownCard extends StatelessWidget {
     );
   }
 }
+

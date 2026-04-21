@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 
@@ -20,10 +19,10 @@ class SelectableTimeChip extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 12.h),
+        padding: EdgeInsets.symmetric(vertical: 12.0),
         decoration: BoxDecoration(
           color: isSelected ? AppColors.primary : AppColors.background,
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(12.0),
           border: isSelected ? null : Border.all(color: AppColors.border),
           boxShadow: isSelected
               ? [
@@ -40,7 +39,7 @@ class SelectableTimeChip extends StatelessWidget {
           time,
           style: GoogleFonts.poppins(
             color: isSelected ? AppColors.white : AppColors.textColor,
-            fontSize: 14.sp,
+            fontSize: 14.0,
             fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
           ),
         ),
@@ -48,3 +47,4 @@ class SelectableTimeChip extends StatelessWidget {
     );
   }
 }
+

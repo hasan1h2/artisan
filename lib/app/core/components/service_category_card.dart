@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/static/app_colors.dart';
@@ -21,10 +21,10 @@ class ServiceCategoryCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
         decoration: BoxDecoration(
           color: AppColors.background,
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16.0),
           border: Border.all(color: AppColors.border),
           boxShadow: [
             BoxShadow(
@@ -39,16 +39,19 @@ class ServiceCategoryCard extends StatelessWidget {
           children: [
             Image.asset(
               imagePath,
-              height: 50.h,
-              errorBuilder: (context, error, stackTrace) =>
-                  Icon(Icons.home_repair_service, size: 50.h, color: AppColors.greyText),
+              height: 50.0,
+              fit: BoxFit.contain,
+              errorBuilder: (context, error, stackTrace) => Container(
+                  height: 50.0,
+                  alignment: Alignment.center,
+                  child: const Icon(Icons.broken_image, color: Colors.grey)),
             ),
-            SizedBox(height: 12.h),
+            SizedBox(height: 12.0),
             Text(
               title,
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
-                fontSize: 14.sp,
+                fontSize: 14.0,
                 fontWeight: FontWeight.w500,
                 color: AppColors.textColor,
               ),
@@ -61,3 +64,4 @@ class ServiceCategoryCard extends StatelessWidget {
     );
   }
 }
+

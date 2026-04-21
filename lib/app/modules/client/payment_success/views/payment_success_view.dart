@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,7 +20,7 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
           AppStrings.paymentSuccessful.tr,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -34,30 +33,30 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
         ),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 16.w),
-            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+            margin: EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
             decoration: BoxDecoration(
               color: AppColors.timelineActive.withAlpha(20),
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16.0),
               border: Border.all(color: AppColors.timelineActive.withAlpha(50)),
             ),
             child: Center(
               child: Row(
                 children: [
                   Container(
-                    width: 6.w,
-                    height: 6.w,
+                    width: 6.0,
+                    height: 6.0,
                     decoration: const BoxDecoration(
                       color: AppColors.timelineActive,
                       shape: BoxShape.circle,
                     ),
                   ),
-                  SizedBox(width: 4.w),
+                  SizedBox(width: 4.0),
                   Text(
                     AppStrings.live.tr,
                     style: GoogleFonts.poppins(
                       color: AppColors.timelineActive,
-                      fontSize: 12.sp,
+                      fontSize: 12.0,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -68,15 +67,15 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(24.w),
+        padding: EdgeInsets.all(24.0),
         child: Column(
           children: [
             _buildSuccessAnimation(),
-            SizedBox(height: 32.h),
+            SizedBox(height: 32.0),
             _buildReceiptCard(),
-            SizedBox(height: 24.h),
+            SizedBox(height: 24.0),
             _buildRatingPrompt(),
-            SizedBox(height: 32.h),
+            SizedBox(height: 32.0),
             _buildActionButtons(),
           ],
         ),
@@ -88,35 +87,35 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
     return Column(
       children: [
         Container(
-          width: 100.w,
-          height: 100.w,
+          width: 100.0,
+          height: 100.0,
           decoration: BoxDecoration(
             color: AppColors.statusCompletedBg,
             shape: BoxShape.circle,
           ),
-          child: Icon(Icons.check, color: AppColors.statusCompletedText, size: 50.w),
+          child: Icon(Icons.check, color: AppColors.statusCompletedText, size: 50.0),
         ),
-        SizedBox(height: 24.h),
+        SizedBox(height: 24.0),
         Text(
           AppStrings.paymentSuccessful.tr,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 24.sp,
+            fontSize: 24.0,
             fontWeight: FontWeight.w700,
           ),
         ),
-        SizedBox(height: 8.h),
+        SizedBox(height: 8.0),
         Text(
-          '🥳',
-          style: TextStyle(fontSize: 24.sp),
+          'ðŸ¥³',
+          style: TextStyle(fontSize: 24.0),
         ),
-        SizedBox(height: 12.h),
+        SizedBox(height: 12.0),
         Text(
           AppStrings.paymentMsg.tr.replaceFirst('%s', '\$121.25'),
           textAlign: TextAlign.center,
           style: GoogleFonts.poppins(
             color: AppColors.greyText,
-            fontSize: 14.sp,
+            fontSize: 14.0,
           ),
         ),
       ],
@@ -130,8 +129,8 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
         'Service': 'Pipe Repair',
         'Artisan': 'James Wilson',
         'Date': 'April 7, 2026',
-        'Time': '10:18 AM – 11:54 AM',
-        'Payment Method': 'Visa •••• 4242',
+        'Time': '10:18 AM â€“ 11:54 AM',
+        'Payment Method': 'Visa â€¢â€¢â€¢â€¢ 4242',
       },
       amountPaid: '\$121.25',
     );
@@ -139,16 +138,16 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
 
   Widget _buildRatingPrompt() {
     return Container(
-      padding: EdgeInsets.all(20.w),
+      padding: EdgeInsets.all(20.0),
       decoration: BoxDecoration(
         color: AppColors.ratingPromptBg,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.ratingStar.withAlpha(20)),
       ),
       child: Row(
         children: [
-          Icon(Icons.star, color: AppColors.ratingStar, size: 24.w),
-          SizedBox(width: 16.w),
+          Icon(Icons.star, color: AppColors.ratingStar, size: 24.0),
+          SizedBox(width: 16.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,7 +156,7 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
                   AppStrings.howWasExperience.tr,
                   style: GoogleFonts.poppins(
                     color: AppColors.ratingStar.withAlpha(150), // Brownish looking orange in image
-                    fontSize: 14.sp,
+                    fontSize: 14.0,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -165,7 +164,7 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
                   'Rate James Wilson and the service',
                   style: GoogleFonts.poppins(
                     color: AppColors.ratingStar.withAlpha(150),
-                    fontSize: 12.sp,
+                    fontSize: 12.0,
                   ),
                 ),
               ],
@@ -177,15 +176,15 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
               backgroundColor: AppColors.ratingStar,
               elevation: 0,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.r),
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             ),
             child: Text(
               AppStrings.rateNow.tr,
               style: GoogleFonts.poppins(
                 color: AppColors.white,
-                fontSize: 12.sp,
+                fontSize: 12.0,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -201,45 +200,45 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
         OutlinedButton(
           onPressed: controller.downloadReceipt,
           style: OutlinedButton.styleFrom(
-            minimumSize: Size(double.infinity, 56.h),
+            minimumSize: Size(double.infinity, 56.0),
             side: BorderSide(color: AppColors.border),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.download, color: AppColors.primary, size: 20.w),
-              SizedBox(width: 8.w),
+              Icon(Icons.download, color: AppColors.primary, size: 20.0),
+              SizedBox(width: 8.0),
               Text(
                 AppStrings.downloadReceipt.tr,
                 style: GoogleFonts.poppins(
                   color: AppColors.textColor,
-                  fontSize: 16.sp,
+                  fontSize: 16.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ],
           ),
         ),
-        SizedBox(height: 16.h),
+        SizedBox(height: 16.0),
         ElevatedButton(
           onPressed: controller.backToHome,
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
-            minimumSize: Size(double.infinity, 56.h),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+            minimumSize: Size(double.infinity, 56.0),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
             elevation: 0,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.home_outlined, color: AppColors.white, size: 20.w),
-              SizedBox(width: 8.w),
+              Icon(Icons.home_outlined, color: AppColors.white, size: 20.0),
+              SizedBox(width: 8.0),
               Text(
                 AppStrings.backToHome.tr,
                 style: GoogleFonts.poppins(
                   color: AppColors.white,
-                  fontSize: 16.sp,
+                  fontSize: 16.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -250,3 +249,4 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
     );
   }
 }
+

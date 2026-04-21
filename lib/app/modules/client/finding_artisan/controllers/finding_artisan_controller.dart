@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
 
 class FindingArtisanController extends GetxController {
@@ -17,3 +17,4 @@ class FindingArtisanController extends GetxController {
     Get.offNamed(Routes.TRACKING);
   }
 }
+

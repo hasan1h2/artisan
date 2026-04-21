@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constants/static/app_colors.dart';
@@ -82,3 +82,4 @@ class DashboardView extends GetView<DashboardController> {
     });
   }
 }
+

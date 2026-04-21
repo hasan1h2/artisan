@@ -4,6 +4,7 @@ import '../../../../core/routes/app_routes.dart';
 
 class BookingController extends GetxController {
   final currentStep = 1.obs;
+  final capturedImagePath = ''.obs;
 
   // Date & Time
   final dates = [
@@ -68,9 +69,12 @@ class BookingController extends GetxController {
   }
 
   void nextStep() {
-    if (currentStep.value < 4) {
+    if (currentStep.value < 3) {
       currentStep.value++;
-    } else {
+    } else if (currentStep.value == 3) {
+      Get.toNamed(Routes.CAMERA);
+    } else if (currentStep.value == 5) {
+      // In a real app, this would submit the payload to an API
       Get.offAllNamed(Routes.DASHBOARD);
     }
   }
@@ -93,3 +97,4 @@ class BookingController extends GetxController {
     }
   }
 }
+

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
@@ -27,7 +26,7 @@ class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80.h,
+      height: 80.0,
       decoration: BoxDecoration(
         color: AppColors.white,
         boxShadow: [
@@ -40,7 +39,7 @@ class CustomBottomNavBar extends StatelessWidget {
       ),
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          padding: EdgeInsets.symmetric(horizontal: 24.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(items.length, (index) {
@@ -59,34 +58,34 @@ class CustomBottomNavBar extends StatelessWidget {
       onTap: () => onTap(index),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        padding: isActive ? EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h) : EdgeInsets.all(10.r),
+        padding: isActive ? EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0) : EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           color: isActive ? AppColors.bottomNavActiveBg : Colors.transparent,
-          borderRadius: BorderRadius.circular(30.r),
+          borderRadius: BorderRadius.circular(30.0),
         ),
         child: Row(
           children: [
             SvgPicture.asset(
               svgPath,
-              width: 24.w,
-              height: 24.w,
+              width: 24.0,
+              height: 24.0,
               colorFilter: ColorFilter.mode(
                 isActive ? AppColors.primary : AppColors.greyText,
                 BlendMode.srcIn,
               ),
               placeholderBuilder: (context) => Icon(
                 Icons.circle,
-                size: 24.w,
+                size: 24.0,
                 color: isActive ? AppColors.primary : AppColors.greyText,
               ),
             ),
             if (isActive) ...[
-              SizedBox(width: 8.w),
+              SizedBox(width: 8.0),
               Text(
                 label,
                 style: GoogleFonts.poppins(
                   color: AppColors.primary,
-                  fontSize: 14.sp,
+                  fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -97,3 +96,4 @@ class CustomBottomNavBar extends StatelessWidget {
     );
   }
 }
+

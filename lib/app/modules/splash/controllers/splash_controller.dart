@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 import '../../../core/routes/app_routes.dart';
 
 class SplashController extends GetxController {
@@ -14,3 +14,4 @@ class SplashController extends GetxController {
     Get.offAllNamed(Routes.ONBOARDING);
   }
 }
+

@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/static/app_colors.dart';
@@ -71,8 +70,8 @@ class _CustomOtpInputState extends State<CustomOtpInput> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: List.generate(widget.length, (index) {
         return SizedBox(
-          width: 48.w,
-          height: 56.h,
+          width: 48.0,
+          height: 56.0,
           child: TextFormField(
             controller: _controllers[index],
             focusNode: _focusNodes[index],
@@ -84,21 +83,21 @@ class _CustomOtpInputState extends State<CustomOtpInput> {
             ],
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
-              fontSize: 20.sp,
+              fontSize: 20.0,
               fontWeight: FontWeight.w600,
             ),
             decoration: InputDecoration(
               contentPadding: EdgeInsets.zero,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.r),
+                borderRadius: BorderRadius.circular(10.0),
                 borderSide: const BorderSide(color: AppColors.border),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.r),
+                borderRadius: BorderRadius.circular(10.0),
                 borderSide: const BorderSide(color: AppColors.border),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.r),
+                borderRadius: BorderRadius.circular(10.0),
                 borderSide: const BorderSide(color: AppColors.primary, width: 2),
               ),
             ),
@@ -109,3 +108,4 @@ class _CustomOtpInputState extends State<CustomOtpInput> {
     );
   }
 }
+

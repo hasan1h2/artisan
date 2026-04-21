@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -34,7 +33,7 @@ class TrackingView extends GetView<TrackingController> {
           AppStrings.tracking.tr,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -47,30 +46,30 @@ class TrackingView extends GetView<TrackingController> {
         ),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 16.w),
-            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+            margin: EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
             decoration: BoxDecoration(
               color: AppColors.timelineActive.withAlpha(20),
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16.0),
               border: Border.all(color: AppColors.timelineActive.withAlpha(50)),
             ),
             child: Center(
               child: Row(
                 children: [
                   Container(
-                    width: 6.w,
-                    height: 6.w,
+                    width: 6.0,
+                    height: 6.0,
                     decoration: const BoxDecoration(
                       color: AppColors.timelineActive,
                       shape: BoxShape.circle,
                     ),
                   ),
-                  SizedBox(width: 4.w),
+                  SizedBox(width: 4.0),
                   Text(
                     AppStrings.live.tr,
                     style: GoogleFonts.poppins(
                       color: AppColors.timelineActive,
-                      fontSize: 12.sp,
+                      fontSize: 12.0,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -84,16 +83,16 @@ class TrackingView extends GetView<TrackingController> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(24.w),
+              padding: EdgeInsets.all(24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   _buildArtisanHeader(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildProgressCircle(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildTimeline(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildServiceDetails(),
                 ],
               ),
@@ -101,14 +100,14 @@ class TrackingView extends GetView<TrackingController> {
           ),
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.all(24.w),
+              padding: EdgeInsets.all(24.0),
               child: ElevatedButton(
                 onPressed: controller.viewCompletionWork,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
+                  padding: EdgeInsets.symmetric(vertical: 16.0),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r),
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   elevation: 0,
                 ),
@@ -116,7 +115,7 @@ class TrackingView extends GetView<TrackingController> {
                   AppStrings.viewCompletionWork.tr,
                   style: GoogleFonts.poppins(
                     color: AppColors.white,
-                    fontSize: 16.sp,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -132,15 +131,15 @@ class TrackingView extends GetView<TrackingController> {
     return Row(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(12.0),
           child: Image.asset(
             AppImages.placeholderAvatar,
-            width: 50.w,
-            height: 50.w,
+            width: 50.0,
+            height: 50.0,
             fit: BoxFit.cover,
           ),
         ),
-        SizedBox(width: 16.w),
+        SizedBox(width: 16.0),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,19 +148,19 @@ class TrackingView extends GetView<TrackingController> {
                 'James Wilson',
                 style: GoogleFonts.poppins(
                   color: AppColors.textColor,
-                  fontSize: 16.sp,
+                  fontSize: 16.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               Row(
                 children: [
-                  Icon(Icons.star, color: AppColors.ratingStar, size: 14.w),
-                  SizedBox(width: 4.w),
+                  Icon(Icons.star, color: AppColors.ratingStar, size: 14.0),
+                  SizedBox(width: 4.0),
                   Text(
-                    '4.9 · Plumbing Expert',
+                    '4.9 Â· Plumbing Expert',
                     style: GoogleFonts.poppins(
                       color: AppColors.greyText,
-                      fontSize: 12.sp,
+                      fontSize: 12.0,
                     ),
                   ),
                 ],
@@ -172,12 +171,12 @@ class TrackingView extends GetView<TrackingController> {
         GestureDetector(
           onTap: controller.goToChat,
           child: Container(
-            padding: EdgeInsets.all(12.w),
+            padding: EdgeInsets.all(12.0),
             decoration: BoxDecoration(
               color: AppColors.primary.withAlpha(10),
-              borderRadius: BorderRadius.circular(12.r),
+              borderRadius: BorderRadius.circular(12.0),
             ),
-            child: Icon(Icons.chat_bubble_outline, color: AppColors.primary, size: 24.w),
+            child: Icon(Icons.chat_bubble_outline, color: AppColors.primary, size: 24.0),
           ),
         ),
       ],
@@ -186,23 +185,23 @@ class TrackingView extends GetView<TrackingController> {
 
   Widget _buildProgressCircle() {
     return Container(
-      padding: EdgeInsets.all(24.w),
+      padding: EdgeInsets.all(24.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
         children: [
           SizedBox(
-            width: 120.w,
-            height: 120.w,
+            width: 120.0,
+            height: 120.0,
             child: Stack(
               fit: StackFit.expand,
               children: [
                 CircularProgressIndicator(
                   value: 0.6,
-                  strokeWidth: 8.w,
+                  strokeWidth: 8.0,
                   backgroundColor: AppColors.primary.withAlpha(20),
                   valueColor: const AlwaysStoppedAnimation<Color>(AppColors.timelineCurrent),
                   strokeCap: StrokeCap.round,
@@ -211,13 +210,13 @@ class TrackingView extends GetView<TrackingController> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.build_circle_outlined, color: AppColors.timelineCurrent, size: 32.w),
-                      SizedBox(height: 4.h),
+                      Icon(Icons.build_circle_outlined, color: AppColors.timelineCurrent, size: 32.0),
+                      SizedBox(height: 4.0),
                       Text(
                         '34 min',
                         style: GoogleFonts.poppins(
                           color: AppColors.textColor,
-                          fontSize: 14.sp,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -227,21 +226,21 @@ class TrackingView extends GetView<TrackingController> {
               ],
             ),
           ),
-          SizedBox(height: 24.h),
+          SizedBox(height: 24.0),
           Text(
             AppStrings.serviceInProgress.tr,
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
-              fontSize: 18.sp,
+              fontSize: 18.0,
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 4.h),
+          SizedBox(height: 4.0),
           Text(
-            'Started at 10:18 AM · 34 min elapsed',
+            'Started at 10:18 AM Â· 34 min elapsed',
             style: GoogleFonts.poppins(
               color: AppColors.greyText,
-              fontSize: 12.sp,
+              fontSize: 12.0,
             ),
           ),
         ],
@@ -251,10 +250,10 @@ class TrackingView extends GetView<TrackingController> {
 
   Widget _buildTimeline() {
     return Container(
-      padding: EdgeInsets.all(24.w),
+      padding: EdgeInsets.all(24.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
@@ -264,11 +263,11 @@ class TrackingView extends GetView<TrackingController> {
             AppStrings.statusTimeline.tr,
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
-              fontSize: 16.sp,
+              fontSize: 16.0,
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 24.h),
+          SizedBox(height: 24.0),
           const StatusTimelineTile(
             title: 'Booking Confirmed',
             subtitle: 'Your booking has been accepted',
@@ -293,21 +292,21 @@ class TrackingView extends GetView<TrackingController> {
               children: [
                 Row(
                   children: List.generate(3, (index) => Container(
-                    margin: EdgeInsets.only(right: 4.w),
-                    width: 6.w,
-                    height: 6.w,
+                    margin: EdgeInsets.only(right: 4.0),
+                    width: 6.0,
+                    height: 6.0,
                     decoration: BoxDecoration(
                       color: AppColors.timelineCurrent.withAlpha(100 + (index * 50)),
                       shape: BoxShape.circle,
                     ),
                   )),
                 ),
-                SizedBox(width: 8.w),
+                SizedBox(width: 8.0),
                 Text(
                   'In progress...',
                   style: GoogleFonts.poppins(
                     color: AppColors.timelineCurrent,
-                    fontSize: 12.sp,
+                    fontSize: 12.0,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -329,10 +328,10 @@ class TrackingView extends GetView<TrackingController> {
 
   Widget _buildServiceDetails() {
     return Container(
-      padding: EdgeInsets.all(24.w),
+      padding: EdgeInsets.all(24.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
@@ -342,17 +341,17 @@ class TrackingView extends GetView<TrackingController> {
             AppStrings.serviceDetails.tr,
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
-              fontSize: 16.sp,
+              fontSize: 16.0,
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           _buildDetailRow('Service', 'Pipe Repair'),
-          SizedBox(height: 12.h),
+          SizedBox(height: 12.0),
           _buildDetailRow('Location', '123 Main St, NY'),
-          SizedBox(height: 12.h),
+          SizedBox(height: 12.0),
           _buildDetailRow(AppStrings.estimatedCost.tr, '\$65 - \$120'),
-          SizedBox(height: 12.h),
+          SizedBox(height: 12.0),
           _buildDetailRow(AppStrings.jobStart.tr, '10:18 AM'),
         ],
       ),
@@ -367,14 +366,14 @@ class TrackingView extends GetView<TrackingController> {
           label,
           style: GoogleFonts.poppins(
             color: AppColors.greyText,
-            fontSize: 14.sp,
+            fontSize: 14.0,
           ),
         ),
         Text(
           value,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 14.sp,
+            fontSize: 14.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -387,13 +386,13 @@ class TrackingView extends GetView<TrackingController> {
       backgroundColor: AppColors.background,
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80.h),
+        preferredSize: Size.fromHeight(80.0),
         child: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: AppColors.primary,
           flexibleSpace: SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -406,28 +405,28 @@ class TrackingView extends GetView<TrackingController> {
                           'ARTISAN IS ON THE WAY',
                           style: GoogleFonts.poppins(
                             color: AppColors.white.withAlpha(150),
-                            fontSize: 10.sp,
+                            fontSize: 10.0,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 1.2,
                           ),
                         ),
-                        SizedBox(height: 2.h),
+                        SizedBox(height: 2.0),
                         Row(
                           children: [
                             Container(
-                              width: 8.w,
-                              height: 8.w,
+                              width: 8.0,
+                              height: 8.0,
                               decoration: const BoxDecoration(
                                 color: AppColors.statusCompletedText,
                                 shape: BoxShape.circle,
                               ),
                             ),
-                            SizedBox(width: 6.w),
+                            SizedBox(width: 6.0),
                             Text(
                               AppStrings.arrivingIn.tr,
                               style: GoogleFonts.poppins(
                                 color: AppColors.white,
-                                fontSize: 18.sp,
+                                fontSize: 18.0,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -452,23 +451,23 @@ class TrackingView extends GetView<TrackingController> {
              child: Stack(
                 children: [
                   Positioned(
-                    top: 100.h,
-                    left: 50.w,
+                    top: 100.0,
+                    left: 50.0,
                     child: CustomPaint(
-                      size: Size(150.w, 150.w),
+                      size: Size(150.0, 150.0),
                       painter: RouteLinePainter(),
                     ),
                   ),
                   Positioned(
-                    top: 250.h,
-                    left: 140.w,
+                    top: 250.0,
+                    left: 140.0,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
-                          width: 44.w,
-                          height: 44.w,
-                          padding: EdgeInsets.all(2.w),
+                          width: 44.0,
+                          height: 44.0,
+                          padding: EdgeInsets.all(2.0),
                           decoration: BoxDecoration(
                             color: AppColors.primary,
                             shape: BoxShape.circle,
@@ -477,48 +476,48 @@ class TrackingView extends GetView<TrackingController> {
                             ],
                           ),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(22.r),
+                            borderRadius: BorderRadius.circular(22.0),
                             child: Image.asset(AppImages.placeholderAvatar, fit: BoxFit.cover),
                           ),
                         ),
                         Container(
-                          width: 2.w,
-                          height: 12.h,
+                          width: 2.0,
+                          height: 12.0,
                           color: AppColors.primary,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+                          padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
                           decoration: BoxDecoration(
                             color: AppColors.primary,
-                            borderRadius: BorderRadius.circular(12.r),
+                            borderRadius: BorderRadius.circular(12.0),
                           ),
                           child: Text(
                             '12 min',
-                            style: GoogleFonts.poppins(color: AppColors.white, fontSize: 10.sp, fontWeight: FontWeight.w600),
+                            style: GoogleFonts.poppins(color: AppColors.white, fontSize: 10.0, fontWeight: FontWeight.w600),
                           ),
                         ),
                       ],
                     ),
                   ),
                   Positioned(
-                    top: 150.h,
-                    right: 80.w,
+                    top: 150.0,
+                    right: 80.0,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
-                          width: 32.w,
-                          height: 32.w,
+                          width: 32.0,
+                          height: 32.0,
                           decoration: BoxDecoration(
                             color: Colors.redAccent,
                             shape: BoxShape.circle,
                             boxShadow: [BoxShadow(color: Colors.redAccent.withAlpha(50), blurRadius: 10)],
                           ),
-                          child: Icon(Icons.home, color: AppColors.white, size: 16.w),
+                          child: Icon(Icons.home, color: AppColors.white, size: 16.0),
                         ),
                         Container(
-                          width: 2.w,
-                          height: 12.h,
+                          width: 2.0,
+                          height: 12.0,
                           color: Colors.redAccent,
                         ),
                       ],
@@ -534,19 +533,19 @@ class TrackingView extends GetView<TrackingController> {
             child: ArtisanBottomSheetCard(
               headerWidget: Container(
                  width: double.infinity,
-                 padding: EdgeInsets.symmetric(vertical: 12.h),
+                 padding: EdgeInsets.symmetric(vertical: 12.0),
                  decoration: BoxDecoration(
                    color: AppColors.statusCompletedText.withAlpha(20),
-                   borderRadius: BorderRadius.circular(8.r),
+                   borderRadius: BorderRadius.circular(8.0),
                  ),
                  child: Row(
                    mainAxisAlignment: MainAxisAlignment.center,
                    children: [
-                     Icon(Icons.near_me_outlined, color: AppColors.statusCompletedText, size: 18.w),
-                     SizedBox(width: 8.w),
+                     Icon(Icons.near_me_outlined, color: AppColors.statusCompletedText, size: 18.0),
+                     SizedBox(width: 8.0),
                      Text(
-                       'ETA: 12 minutes · 1.2 km away',
-                       style: GoogleFonts.poppins(color: AppColors.statusCompletedText, fontSize: 12.sp, fontWeight: FontWeight.w600),
+                       'ETA: 12 minutes Â· 1.2 km away',
+                       style: GoogleFonts.poppins(color: AppColors.statusCompletedText, fontSize: 12.0, fontWeight: FontWeight.w600),
                      ),
                    ],
                  ),
@@ -556,35 +555,19 @@ class TrackingView extends GetView<TrackingController> {
               badgeText: AppStrings.verified.tr,
               details: 'Plumber · Pipe Leak Repair',
               ratingValue: '4.9 (127 jobs)',
+              isOnline: true,
               actionWidget: const SizedBox.shrink(),
-              trailingIcon: Row(
-                children: [
-                  GestureDetector(
-                    onTap: controller.toggleState, // Added toggle for testing
-                    child: Container(
-                      padding: EdgeInsets.all(12.w),
-                      margin: EdgeInsets.only(right: 8.w),
-                      decoration: BoxDecoration(
-                        color: AppColors.timelineCurrent.withAlpha(10),
-                        borderRadius: BorderRadius.circular(12.r),
-                        border: Border.all(color: AppColors.timelineCurrent.withAlpha(20)),
-                      ),
-                      child: Icon(Icons.arrow_forward_ios, color: AppColors.timelineCurrent, size: 24.w),
-                    ),
+              trailingIcon: GestureDetector(
+                onTap: controller.goToChat,
+                child: Container(
+                  padding: const EdgeInsets.all(12.0),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary.withAlpha(10),
+                    borderRadius: BorderRadius.circular(12.0),
+                    border: Border.all(color: AppColors.primary.withAlpha(20)),
                   ),
-                  GestureDetector(
-                    onTap: controller.goToChat,
-                    child: Container(
-                      padding: EdgeInsets.all(12.w),
-                      decoration: BoxDecoration(
-                        color: AppColors.primary.withAlpha(10),
-                        borderRadius: BorderRadius.circular(12.r),
-                        border: Border.all(color: AppColors.primary.withAlpha(20)),
-                      ),
-                      child: Icon(Icons.chat_bubble_outline, color: AppColors.primary, size: 24.w),
-                    ),
-                  ),
-                ],
+                  child: const Icon(Icons.chat_bubble_outline, color: AppColors.primary, size: 24.0),
+                ),
               ),
             ),
           )
@@ -599,7 +582,7 @@ class RouteLinePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
       ..color = AppColors.primary
-      ..strokeWidth = 4.w
+      ..strokeWidth = 4.0
       ..style = PaintingStyle.stroke;
     
     // Simulating a route line
@@ -611,8 +594,8 @@ class RouteLinePainter extends CustomPainter {
 
     // Draw dotted line
     Path dashPath = Path();
-    double dashWidth = 8.w;
-    double dashSpace = 6.w;
+    double dashWidth = 8.0;
+    double dashSpace = 6.0;
     double distance = 0.0;
     
     for (var pathMetric in path.computeMetrics()) {
@@ -630,3 +613,4 @@ class RouteLinePainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
+

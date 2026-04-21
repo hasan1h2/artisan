@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import '../../../../core/constants/static/app_strings.dart';
-import '../../../../core/constants/static/app_images.dart';
+import 'package:artisan/app/core/constants/static/app_images.dart';
 
 class ActivityController extends GetxController {
   final filters = [
@@ -19,7 +19,8 @@ class ActivityController extends GetxController {
       'date': 'March 28, 2026',
       'price': '\$85',
       'status': AppStrings.completed.tr,
-      'image': AppImages.placeholderService,
+      'image': AppImages.homePipeLeak,
+      'avatar': AppImages.homeMarcusJohnson,
     },
     {
       'title': 'Full House Cleaning',
@@ -27,7 +28,8 @@ class ActivityController extends GetxController {
       'date': 'March 15, 2026',
       'price': '\$160',
       'status': AppStrings.completed.tr,
-      'image': AppImages.placeholderService,
+      'image': AppImages.homeDeepCleaning,
+      'avatar': AppImages.homeSarahWilliams,
     },
     {
       'title': 'Electrical Installation',
@@ -35,7 +37,8 @@ class ActivityController extends GetxController {
       'date': 'Feb 20, 2026',
       'price': '\$120',
       'status': AppStrings.cancelled.tr,
-      'image': AppImages.placeholderService,
+      'image': AppImages.homeElectricalWiring,
+      'avatar': AppImages.homeDanielCarter,
     },
     {
       'title': 'Garden Maintenance',
@@ -43,7 +46,8 @@ class ActivityController extends GetxController {
       'date': 'Feb 5, 2026',
       'price': '\$75',
       'status': AppStrings.completed.tr,
-      'image': AppImages.placeholderService,
+      'image': AppImages.popPipeLeak, // Just using another available image as garden placeholder if not found
+      'avatar': AppImages.placeholderAvatar,
     },
   ].obs;
 

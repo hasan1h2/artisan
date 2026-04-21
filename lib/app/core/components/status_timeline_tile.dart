@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 
@@ -46,35 +45,35 @@ class StatusTimelineTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            width: 40.w,
+            width: 40.0,
             child: Column(
               children: [
                 Container(
-                  width: 40.w,
-                  height: 40.w,
+                  width: 40.0,
+                  height: 40.0,
                   decoration: BoxDecoration(
                     color: bgColor,
                     shape: BoxShape.circle,
                   ),
                   child: Center(
-                    child: Icon(icon, color: iconColor, size: 20.w),
+                    child: Icon(icon, color: iconColor, size: 20.0),
                   ),
                 ),
                 if (!isLast)
                   Expanded(
                     child: Container(
-                      width: 2.w,
+                      width: 2.0,
                       color: isCompleted ? AppColors.timelineActive : AppColors.timelineInactive,
-                      margin: EdgeInsets.symmetric(vertical: 4.h),
+                      margin: EdgeInsets.symmetric(vertical: 4.0),
                     ),
                   ),
               ],
             ),
           ),
-          SizedBox(width: 16.w),
+          SizedBox(width: 16.0),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(bottom: isLast ? 0 : 32.h),
+              padding: EdgeInsets.only(bottom: isLast ? 0 : 32.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -86,36 +85,36 @@ class StatusTimelineTile extends StatelessWidget {
                         title,
                         style: GoogleFonts.poppins(
                           color: isCurrent || isCompleted ? AppColors.textColor : AppColors.greyText,
-                          fontSize: 16.sp,
+                          fontSize: 16.0,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       if (time.isNotEmpty)
                         Row(
                           children: [
-                            Icon(Icons.access_time, color: AppColors.greyText, size: 12.w),
-                            SizedBox(width: 4.w),
+                            Icon(Icons.access_time, color: AppColors.greyText, size: 12.0),
+                            SizedBox(width: 4.0),
                             Text(
                               time,
                               style: GoogleFonts.poppins(
                                 color: AppColors.greyText,
-                                fontSize: 12.sp,
+                                fontSize: 12.0,
                               ),
                             ),
                           ],
                         ),
                     ],
                   ),
-                  SizedBox(height: 4.h),
+                  SizedBox(height: 4.0),
                   Text(
                     subtitle,
                     style: GoogleFonts.poppins(
                       color: AppColors.greyText,
-                      fontSize: 14.sp,
+                      fontSize: 14.0,
                     ),
                   ),
                   if (trailingWidget != null) ...[
-                    SizedBox(height: 8.h),
+                    SizedBox(height: 8.0),
                     trailingWidget!
                   ]
                 ],
@@ -127,3 +126,4 @@ class StatusTimelineTile extends StatelessWidget {
     );
   }
 }
+

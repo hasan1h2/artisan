@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +17,7 @@ class TermsOfServiceView extends GetView<HelpSupportController> {
           'Terms of Service',
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -29,13 +28,13 @@ class TermsOfServiceView extends GetView<HelpSupportController> {
           child: GestureDetector(
             onTap: () => Get.back(),
             child: Container(
-              margin: EdgeInsets.only(left: 16.w),
-              padding: EdgeInsets.all(8.w),
+              margin: EdgeInsets.only(left: 16.0),
+              padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: AppColors.socialButtonBg,
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.arrow_back, color: AppColors.textColor, size: 16.w),
+              child: Icon(Icons.arrow_back, color: AppColors.textColor, size: 16.0),
             ),
           ),
         ),
@@ -44,7 +43,7 @@ class TermsOfServiceView extends GetView<HelpSupportController> {
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
               child: Column(
                 children: [
                   _buildTermItem(
@@ -59,17 +58,17 @@ class TermsOfServiceView extends GetView<HelpSupportController> {
                   _buildDivider(),
                   _buildTermItem(
                     '3. Your Account',
-                    '• You are responsible for maintaining the confidentiality of your login credentials.\n• You are responsible for all activity that occurs under your account.\n• Notify us immediately at [support@eqi30.com] if you suspect unauthorized access.',
+                    'â€¢ You are responsible for maintaining the confidentiality of your login credentials.\nâ€¢ You are responsible for all activity that occurs under your account.\nâ€¢ Notify us immediately at [support@eqi30.com] if you suspect unauthorized access.',
                   ),
                   _buildDivider(),
                   _buildTermItem(
                     '4. No Professional Liability',
-                    'You agree not to:\n• Use the app for any unlawful or harmful purpose.\n• Attempt to hack, reverse-engineer, or disrupt the app or its servers.\n• Share, copy, or distribute any app content without written permission.\n• Impersonate another person or misrepresent your identity.\n• Upload any offensive, abusive, or inappropriate content.',
+                    'You agree not to:\nâ€¢ Use the app for any unlawful or harmful purpose.\nâ€¢ Attempt to hack, reverse-engineer, or disrupt the app or its servers.\nâ€¢ Share, copy, or distribute any app content without written permission.\nâ€¢ Impersonate another person or misrepresent your identity.\nâ€¢ Upload any offensive, abusive, or inappropriate content.',
                   ),
                   _buildDivider(),
                   _buildTermItem(
                     '5. Intellectual Property',
-                    'All content within EQi30 — including the EQ framework, micro-skill content, illustrations, and app design — is the intellectual property of EQi30 and its content creators. You may not reproduce, distribute, or use any content outside the app without prior written consent.',
+                    'All content within EQi30 â€” including the EQ framework, micro-skill content, illustrations, and app design â€” is the intellectual property of EQi30 and its content creators. You may not reproduce, distribute, or use any content outside the app without prior written consent.',
                   ),
                   _buildDivider(),
                   _buildTermItem(
@@ -94,9 +93,9 @@ class TermsOfServiceView extends GetView<HelpSupportController> {
                   _buildDivider(),
                   _buildTermItem(
                     '10. Contact Us',
-                    'For any questions regarding these Terms:\n📧 privacy@eqi30.com   🌐 www.eqi30.com',
+                    'For any questions regarding these Terms:\nðŸ“§ privacy@eqi30.com   ðŸŒ www.eqi30.com',
                   ),
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 32.0),
                 ],
               ),
             ),
@@ -118,11 +117,11 @@ class TermsOfServiceView extends GetView<HelpSupportController> {
           title,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 16.sp,
+            fontSize: 16.0,
             fontWeight: FontWeight.w600,
           ),
         ),
-        childrenPadding: EdgeInsets.only(bottom: 16.h),
+        childrenPadding: EdgeInsets.only(bottom: 16.0),
         children: [
           Align(
             alignment: Alignment.centerLeft,
@@ -130,7 +129,7 @@ class TermsOfServiceView extends GetView<HelpSupportController> {
               content,
               style: GoogleFonts.poppins(
                 color: AppColors.greyText,
-                fontSize: 14.sp,
+                fontSize: 14.0,
                 height: 1.5,
               ),
             ),
@@ -144,3 +143,4 @@ class TermsOfServiceView extends GetView<HelpSupportController> {
     return Divider(color: AppColors.border, height: 1);
   }
 }
+

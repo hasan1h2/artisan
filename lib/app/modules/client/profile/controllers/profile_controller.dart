@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
-import '../../../../core/constants/static/app_images.dart';
+import 'package:artisan/app/core/constants/static/app_images.dart';
 import '../../../../core/constants/static/app_strings.dart';
 
 class ProfileController extends GetxController {
@@ -60,21 +60,21 @@ class ProfileController extends GetxController {
       'date': 'Apr 7, 2026',
       'price': '\$100',
       'status': AppStrings.completed.tr,
-      'image': AppImages.placeholderService,
+      'image': AppImages.servicePlaceholder,
     },
     {
       'title': 'Deep House Cleaning',
       'date': 'Mar 22, 2026',
       'price': '\$85',
       'status': AppStrings.completed.tr,
-      'image': AppImages.placeholderService,
+      'image': AppImages.servicePlaceholder,
     },
     {
       'title': 'Electrical Wiring',
       'date': 'Mar 10, 2026',
       'price': '\$160',
       'status': AppStrings.completed.tr,
-      'image': AppImages.placeholderService,
+      'image': AppImages.servicePlaceholder,
     },
   ].obs;
 
@@ -82,3 +82,4 @@ class ProfileController extends GetxController {
     Get.offAllNamed(Routes.LOGIN);
   }
 }
+

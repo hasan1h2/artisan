@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,14 +18,14 @@ class ResetSuccessView extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 40.h),
+          padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 40.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(),
               Container(
-                width: 150.w,
-                height: 150.w,
+                width: 150.0,
+                height: 150.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: AppColors.primary.withAlpha(25), // Light blue background
@@ -34,33 +33,33 @@ class ResetSuccessView extends StatelessWidget {
                 alignment: Alignment.center,
                 child: SvgPicture.asset(
                   AppImages.successShieldIcon,
-                  width: 80.w,
-                  height: 80.w,
+                  width: 80.0,
+                  height: 80.0,
                   // Fallback in case asset is missing
                   placeholderBuilder: (context) => Icon(
                     Icons.verified_user,
-                    size: 80.w,
+                    size: 80.0,
                     color: AppColors.primary,
                   ),
                 ),
               ),
-              SizedBox(height: 40.h),
+              SizedBox(height: 40.0),
               Text(
                 AppStrings.success.tr,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   color: AppColors.primary,
-                  fontSize: 24.sp,
+                  fontSize: 24.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 16.h),
+              SizedBox(height: 16.0),
               Text(
                 AppStrings.successSub.tr,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   color: AppColors.greyText,
-                  fontSize: 14.sp,
+                  fontSize: 14.0,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -78,3 +77,4 @@ class ResetSuccessView extends StatelessWidget {
     );
   }
 }
+

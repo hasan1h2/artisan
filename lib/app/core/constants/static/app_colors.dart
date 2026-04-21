@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 class AppColors {
   /// Primary Theme Color - Dark Blue
@@ -66,3 +66,4 @@ class AppColors {
   static const Color payoutText = Color(0xFF2E7D32);
   static const Color warningBannerIcon = Color(0xFFF57C00);
 }
+

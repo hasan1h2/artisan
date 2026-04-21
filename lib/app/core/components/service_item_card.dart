@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 
@@ -26,74 +25,80 @@ class ServiceItemCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 160.w,
+        width: 160.0,
         decoration: BoxDecoration(
-          color: AppColors.background,
-          borderRadius: BorderRadius.circular(16.r),
-          border: Border.all(color: AppColors.border),
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(20.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.04),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(15.r)),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
               child: Image.asset(
                 imagePath,
-                height: 100.h,
+                height: 100.0,
                 width: double.infinity,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(
-                  height: 100.h,
+                  height: 100.0,
                   width: double.infinity,
                   color: AppColors.border,
-                  child: Icon(Icons.image, color: AppColors.greyText, size: 40.w),
+                  child: Icon(Icons.image, color: AppColors.greyText, size: 40.0),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(12.w),
+              padding: EdgeInsets.all(12.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
                     style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
+                      fontSize: 14.0,
                       fontWeight: FontWeight.w600,
                       color: AppColors.textColor,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 8.h),
+                  SizedBox(height: 8.0),
                   Row(
                     children: [
-                      Icon(Icons.star, color: AppColors.ratingStar, size: 16.w),
-                      SizedBox(width: 4.w),
+                      Icon(Icons.star, color: AppColors.ratingStar, size: 16.0),
+                      SizedBox(width: 4.0),
                       Text(
                         '$rating',
                         style: GoogleFonts.poppins(
-                          fontSize: 12.sp,
+                          fontSize: 12.0,
                           fontWeight: FontWeight.w600,
                           color: AppColors.textColor,
                         ),
                       ),
-                      SizedBox(width: 4.w),
+                      SizedBox(width: 4.0),
                       Expanded(
                         child: Text(
                           '($reviews)',
                           style: GoogleFonts.poppins(
-                            fontSize: 12.sp,
+                            fontSize: 12.0,
                             color: AppColors.greyText,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      SizedBox(width: 4.w),
+                      SizedBox(width: 4.0),
                       Text(
                         priceRange,
                         style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.w600,
                           color: AppColors.primary,
                         ),
@@ -109,3 +114,4 @@ class ServiceItemCard extends StatelessWidget {
     );
   }
 }
+

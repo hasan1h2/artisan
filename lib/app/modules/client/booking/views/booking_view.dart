@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,7 +26,7 @@ class BookingView extends GetView<BookingController> {
           AppStrings.booking.tr,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -42,7 +41,7 @@ class BookingView extends GetView<BookingController> {
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
             child: Obx(() => CustomStepper(currentStep: controller.currentStep.value)),
           ),
           Expanded(
@@ -54,19 +53,15 @@ class BookingView extends GetView<BookingController> {
                   return _buildAddressStep();
                 case 3:
                   return _buildNotesStep();
-                case 4:
-                  return _buildSummaryStep();
                 default:
                   return const SizedBox.shrink();
               }
             }),
           ),
-          Obx(() => FixedBottomActionBar(
-                buttonText: controller.currentStep.value == 4
-                    ? AppStrings.confirmBooking.tr
-                    : AppStrings.continueBtn.tr,
-                onPressed: controller.nextStep,
-              )),
+          FixedBottomActionBar(
+            buttonText: AppStrings.continueBtn.tr,
+            onPressed: controller.nextStep,
+          ),
         ],
       ),
     );
@@ -74,15 +69,15 @@ class BookingView extends GetView<BookingController> {
 
   Widget _buildDateAndTimeStep() {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(24.w),
+      padding: EdgeInsets.all(24.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.all(20.w),
+            padding: EdgeInsets.all(20.0),
             decoration: BoxDecoration(
               color: AppColors.background,
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16.0),
               border: Border.all(color: AppColors.border),
             ),
             child: Column(
@@ -90,19 +85,19 @@ class BookingView extends GetView<BookingController> {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.calendar_today_outlined, color: AppColors.primary, size: 20.w),
-                    SizedBox(width: 8.w),
+                    Icon(Icons.calendar_today_outlined, color: AppColors.primary, size: 20.0),
+                    SizedBox(width: 8.0),
                     Text(
                       AppStrings.selectDate.tr,
                       style: GoogleFonts.poppins(
                         color: AppColors.textColor,
-                        fontSize: 16.sp,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 16.h),
+                SizedBox(height: 16.0),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Obx(() => Row(
@@ -121,12 +116,12 @@ class BookingView extends GetView<BookingController> {
               ],
             ),
           ),
-          SizedBox(height: 24.h),
+          SizedBox(height: 24.0),
           Container(
-            padding: EdgeInsets.all(20.w),
+            padding: EdgeInsets.all(20.0),
             decoration: BoxDecoration(
               color: AppColors.background,
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16.0),
               border: Border.all(color: AppColors.border),
             ),
             child: Column(
@@ -134,26 +129,26 @@ class BookingView extends GetView<BookingController> {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.access_time, color: AppColors.primary, size: 20.w),
-                    SizedBox(width: 8.w),
+                    Icon(Icons.access_time, color: AppColors.primary, size: 20.0),
+                    SizedBox(width: 8.0),
                     Text(
                       AppStrings.selectTime.tr,
                       style: GoogleFonts.poppins(
                         color: AppColors.textColor,
-                        fontSize: 16.sp,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 16.h),
+                SizedBox(height: 16.0),
                 GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        crossAxisSpacing: 16.w,
-                        mainAxisSpacing: 16.h,
+                        crossAxisSpacing: 16.0,
+                        mainAxisSpacing: 16.0,
                         childAspectRatio: 2.5,
                       ),
                       itemCount: controller.times.length,
@@ -175,7 +170,7 @@ class BookingView extends GetView<BookingController> {
 
   Widget _buildAddressStep() {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(24.w),
+      padding: EdgeInsets.all(24.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -183,17 +178,17 @@ class BookingView extends GetView<BookingController> {
             AppStrings.serviceAddress.tr,
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
-              fontSize: 18.sp,
+              fontSize: 18.0,
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           Container(
-            height: 160.h,
+            height: 160.0,
             width: double.infinity,
             decoration: BoxDecoration(
               color: AppColors.primary.withAlpha(20),
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16.0),
             ),
             child: Stack(
               children: [
@@ -208,11 +203,11 @@ class BookingView extends GetView<BookingController> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        padding: EdgeInsets.all(6.w),
+                        padding: EdgeInsets.all(6.0),
                         decoration: BoxDecoration(
                           color: AppColors.primary,
                           shape: BoxShape.circle,
-                          border: Border.all(color: AppColors.white, width: 2.w),
+                          border: Border.all(color: AppColors.white, width: 2.0),
                           boxShadow: [
                             BoxShadow(
                               color: AppColors.primary.withAlpha(50),
@@ -221,37 +216,37 @@ class BookingView extends GetView<BookingController> {
                             )
                           ],
                         ),
-                        child: Icon(Icons.location_on, color: AppColors.white, size: 20.w),
+                        child: Icon(Icons.location_on, color: AppColors.white, size: 20.0),
                       ),
                       Container(
-                        width: 2.w,
-                        height: 14.h,
+                        width: 2.0,
+                        height: 14.0,
                         color: AppColors.primary.withAlpha(80),
                       ),
                       Text(
                         'New York, NY',
                         style: GoogleFonts.poppins(
                           color: AppColors.primary.withAlpha(150),
-                          fontSize: 10.sp,
+                          fontSize: 10.0,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 10.h),
+                      SizedBox(height: 10.0),
                     ],
                   ),
                 ),
                 Positioned(
-                  bottom: 12.h,
-                  left: 12.w,
+                  bottom: 12.0,
+                  left: 12.0,
                   child: Row(
                     children: [
-                      Icon(Icons.location_on_outlined, color: AppColors.primary, size: 16.w),
-                      SizedBox(width: 4.w),
+                      Icon(Icons.location_on_outlined, color: AppColors.primary, size: 16.0),
+                      SizedBox(width: 4.0),
                       Text(
                         AppStrings.useCurrentLocation.tr,
                         style: GoogleFonts.poppins(
                           color: AppColors.primary,
-                          fontSize: 12.sp,
+                          fontSize: 12.0,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -261,16 +256,16 @@ class BookingView extends GetView<BookingController> {
               ],
             ),
           ),
-          SizedBox(height: 24.h),
+          SizedBox(height: 24.0),
           Text(
             AppStrings.savedAddresses.tr,
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
-              fontSize: 18.sp,
+              fontSize: 18.0,
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           Obx(() => Column(
                 children: List.generate(controller.addresses.length, (index) {
                   final address = controller.addresses[index];
@@ -283,14 +278,14 @@ class BookingView extends GetView<BookingController> {
                   );
                 }),
               )),
-          SizedBox(height: 8.h),
+          SizedBox(height: 8.0),
           // Add new address button dotted
           Container(
             width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 16.h),
+            padding: EdgeInsets.symmetric(vertical: 16.0),
             decoration: BoxDecoration(
               color: AppColors.background,
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16.0),
               border: Border.all(color: AppColors.primary.withAlpha(100), style: BorderStyle.none),
             ),
             child: CustomPaint(
@@ -299,19 +294,19 @@ class BookingView extends GetView<BookingController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.all(4.w),
+                    padding: EdgeInsets.all(4.0),
                     decoration: BoxDecoration(
                       color: AppColors.primary.withAlpha(20),
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(Icons.add, color: AppColors.primary, size: 16.w),
+                    child: Icon(Icons.add, color: AppColors.primary, size: 16.0),
                   ),
-                  SizedBox(width: 12.w),
+                  SizedBox(width: 12.0),
                   Text(
                     AppStrings.addNewAddress.tr,
                     style: GoogleFonts.poppins(
                       color: AppColors.primary,
-                      fontSize: 14.sp,
+                      fontSize: 14.0,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -326,7 +321,7 @@ class BookingView extends GetView<BookingController> {
 
   Widget _buildNotesStep() {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(24.w),
+      padding: EdgeInsets.all(24.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -334,24 +329,24 @@ class BookingView extends GetView<BookingController> {
             AppStrings.additionalNotes.tr,
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
-              fontSize: 18.sp,
+              fontSize: 18.0,
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 4.h),
+          SizedBox(height: 4.0),
           Text(
             AppStrings.addNotesHint.tr,
             style: GoogleFonts.poppins(
               color: AppColors.greyText,
-              fontSize: 14.sp,
+              fontSize: 14.0,
             ),
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           Container(
-            padding: EdgeInsets.all(16.w),
+            padding: EdgeInsets.all(16.0),
             decoration: BoxDecoration(
               color: AppColors.background,
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16.0),
               border: Border.all(color: AppColors.border),
             ),
             child: TextField(
@@ -360,51 +355,51 @@ class BookingView extends GetView<BookingController> {
               maxLength: 500,
               decoration: InputDecoration(
                 hintText: 'Describe your issue, specific requirements, or any other details that would help the artisan...',
-                hintStyle: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.sp),
+                hintStyle: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.0),
                 border: InputBorder.none,
                 counterText: '', // hide default counter
               ),
-              style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.sp),
+              style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.0),
             ),
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 8.0),
           Align(
             alignment: Alignment.centerRight,
             child: Obx(() => Text(
                   '${controller.notesLength}/500 characters',
                   style: GoogleFonts.poppins(
                     color: AppColors.greyText,
-                    fontSize: 12.sp,
+                    fontSize: 12.0,
                   ),
                 )),
           ),
-          SizedBox(height: 24.h),
+          SizedBox(height: 24.0),
           Text(
             AppStrings.quickAdd.tr,
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
-              fontSize: 16.sp,
+              fontSize: 16.0,
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           Wrap(
-            spacing: 12.w,
-            runSpacing: 12.h,
+            spacing: 12.0,
+            runSpacing: 12.0,
             children: controller.quickNotes.map((note) => GestureDetector(
                   onTap: () => controller.addQuickNote(note),
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                     decoration: BoxDecoration(
                       color: AppColors.primary.withAlpha(20),
-                      borderRadius: BorderRadius.circular(20.r),
+                      borderRadius: BorderRadius.circular(20.0),
                       border: Border.all(color: AppColors.primary.withAlpha(50)),
                     ),
                     child: Text(
                       note,
                       style: GoogleFonts.poppins(
                         color: AppColors.primary,
-                        fontSize: 12.sp,
+                        fontSize: 12.0,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -416,165 +411,6 @@ class BookingView extends GetView<BookingController> {
     );
   }
 
-  Widget _buildSummaryStep() {
-    return SingleChildScrollView(
-      padding: EdgeInsets.all(24.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            AppStrings.bookingSummary.tr,
-            style: GoogleFonts.poppins(
-              color: AppColors.textColor,
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          SizedBox(height: 16.h),
-          Container(
-            padding: EdgeInsets.all(16.w),
-            decoration: BoxDecoration(
-              color: AppColors.background,
-              borderRadius: BorderRadius.circular(16.r),
-              border: Border.all(color: AppColors.border),
-            ),
-            child: Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12.r),
-                  child: Image.asset(
-                    AppImages.placeholderAvatar,
-                    width: 50.w,
-                    height: 50.w,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                SizedBox(width: 16.w),
-                Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'James Wilson',
-                        style: GoogleFonts.poppins(
-                          color: AppColors.textColor,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Text(
-                        'Plumbing Expert',
-                        style: GoogleFonts.poppins(
-                          color: AppColors.greyText,
-                          fontSize: 12.sp,
-                        ),
-                      ),
-                      SizedBox(height: 4.h),
-                      Row(
-                        children: [
-                          Icon(Icons.star, color: AppColors.ratingStar, size: 14.w),
-                          SizedBox(width: 4.w),
-                          Text(
-                            '4.9',
-                            style: GoogleFonts.poppins(
-                              color: AppColors.textColor,
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Icon(Icons.check_circle_outline, color: AppColors.statusCompletedText, size: 24.w),
-              ],
-            ),
-          ),
-          SizedBox(height: 16.h),
-          SummaryDetailTile(
-            icon: Icons.calendar_today_outlined,
-            title: 'Date',
-            value: 'Tue, Apr 14',
-          ),
-          SummaryDetailTile(
-            icon: Icons.access_time,
-            title: 'Time',
-            value: '10:00 AM',
-          ),
-          SummaryDetailTile(
-            icon: Icons.location_on_outlined,
-            title: 'Address',
-            value: '123 Main Street, Apt 4B, New York, ...',
-          ),
-          SummaryDetailTile(
-            icon: Icons.description_outlined,
-            title: 'Notes',
-            value: controller.notesController.text.isEmpty ? 'No additional notes' : controller.notesController.text,
-          ),
-          SizedBox(height: 8.h),
-          Container(
-            padding: EdgeInsets.all(16.w),
-            decoration: BoxDecoration(
-              color: AppColors.primary.withAlpha(10), // Extracted slightly blueish background
-              borderRadius: BorderRadius.circular(16.r),
-            ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      AppStrings.serviceFee.tr,
-                      style: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.sp),
-                    ),
-                    Text(
-                      '\$65.00',
-                      style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.sp, fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 12.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      AppStrings.platformFee.tr,
-                      style: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.sp),
-                    ),
-                    Text(
-                      '\$5.00',
-                      style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.sp, fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 12.h),
-                  child: Divider(color: AppColors.border),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      AppStrings.estimatedTotal.tr,
-                      style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 16.sp, fontWeight: FontWeight.w700),
-                    ),
-                    Text(
-                      '\$70.00',
-                      style: GoogleFonts.poppins(color: AppColors.statusCompletedText, fontSize: 16.sp, fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 // Simple painters for custom shapes
@@ -590,7 +426,7 @@ class DashedBorderPainter extends CustomPainter {
       ..style = PaintingStyle.stroke;
     
     var path = Path();
-    path.addRRect(RRect.fromRectAndRadius(Rect.fromLTWH(0, 0, size.width, size.height), Radius.circular(16.r)));
+    path.addRRect(RRect.fromRectAndRadius(Rect.fromLTWH(0, 0, size.width, size.height), Radius.circular(16.0)));
     
     // Simplistic dash effect representation using pathMetrics (often requires external libs, but we can draw basic rects)
     // For exact dashed border, usually package 'dotted_border' is used. I'll just draw a solid border fallback if strict dash is tough in pure canvas, but here is a simple line dash.
@@ -616,7 +452,7 @@ class MapLinesPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
       ..color = Colors.white
-      ..strokeWidth = 6.w
+      ..strokeWidth = 6.0
       ..style = PaintingStyle.stroke;
     
     canvas.drawLine(Offset(0, size.height * 0.6), Offset(size.width, size.height * 0.6), paint);
@@ -626,3 +462,4 @@ class MapLinesPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
+

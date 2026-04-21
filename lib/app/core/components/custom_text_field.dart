@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/static/app_colors.dart';
@@ -29,7 +28,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.h),
+      padding: EdgeInsets.symmetric(vertical: 8.0),
       child: TextFormField(
         controller: controller,
         obscureText: obscureText,
@@ -38,43 +37,43 @@ class CustomTextField extends StatelessWidget {
         onChanged: onChanged,
         style: GoogleFonts.poppins(
           color: AppColors.textColor,
-          fontSize: 14.sp,
+          fontSize: 14.0,
           fontWeight: FontWeight.w400,
         ),
         decoration: InputDecoration(
           labelText: labelText,
           labelStyle: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 14.sp,
+            fontSize: 14.0,
             fontWeight: FontWeight.w500,
           ),
           floatingLabelStyle: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 14.sp,
+            fontSize: 14.0,
             fontWeight: FontWeight.w600,
           ),
           hintText: hintText,
           hintStyle: GoogleFonts.poppins(
             color: AppColors.greyText,
-            fontSize: 14.sp,
+            fontSize: 14.0,
             fontWeight: FontWeight.w400,
           ),
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+          contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 18.0),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(12.0),
             borderSide: const BorderSide(color: AppColors.border),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(12.0),
             borderSide: const BorderSide(color: AppColors.border),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(12.0),
             borderSide: const BorderSide(color: AppColors.primary),
           ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(12.0),
             borderSide: const BorderSide(color: Colors.red),
           ),
           suffixIcon: suffixIcon,
@@ -83,3 +82,4 @@ class CustomTextField extends StatelessWidget {
     );
   }
 }
+

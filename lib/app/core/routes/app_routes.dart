@@ -7,6 +7,12 @@ abstract class Routes {
   static const ROLE_SELECTION = '/role-selection';
   static const SIGN_UP = '/sign-up';
   
+  static const SERVICES = '/services';
+  static const SUB_CATEGORY = '/sub-category';
+  static const POPULAR_SERVICES = '/popular-services';
+  static const SELECT_LOCATION = '/select-location';
+  static const NOTIFICATIONS = '/notifications';
+  
   static const FORGOT_PASSWORD = '/forgot-password';
   static const VERIFICATION = '/verification';
   static const RESET_PASSWORD = '/reset-password';
@@ -14,6 +20,8 @@ abstract class Routes {
   static const DASHBOARD = '/dashboard';
   static const SERVICE_DETAILS = '/service-details';
   static const BOOKING = '/booking';
+  static const CAMERA = '/camera';
+  static const CONFIRM_BOOKING = '/confirm-booking';
   static const CHAT = '/chat';
   static const FINDING_ARTISAN = '/finding-artisan';
   static const TRACKING = '/tracking';
@@ -27,4 +35,5 @@ abstract class Routes {
   static const WORKER_JOB_DETAILS = '/worker-job-details';
   static const WORKER_VERIFICATION = '/worker-verification';
 }
+
 

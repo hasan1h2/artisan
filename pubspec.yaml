@@ -35,7 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   get: ^4.7.3
-  flutter_screenutil: ^5.9.3
+  device_preview: any
   flutter_svg: ^2.2.4
   google_fonts: ^8.0.2
   responsive_framework: ^1.5.1
@@ -66,7 +66,18 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/home/
+    - assets/images/popular_services/
+    - assets/images/Notification/
     - assets/icons/
+    - assets/icons/menu/
+    - assets/icons/our_world_service/
+    - assets/icons/Cleaning Service/
+    - assets/icons/Repair & Maintenance/
+    - assets/icons/Installation Service/
+    - assets/icons/Home Improvement/
+    - assets/icons/Moving & Shifting/
+    - assets/icons/Garden cleaning/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

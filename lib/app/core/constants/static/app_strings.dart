@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 class AppStrings extends Translations {
   // Page 1
   static const findTrustedHelp = 'Find Skilled Artisans Near You';
-  static const findTrustedHelpSub = 'Browse trusted professionals for plumbing, electrical work, repairs, and more — all in one place.';
+  static const findTrustedHelpSub = 'Browse trusted professionals for plumbing, electrical work, repairs, and more â€” all in one place.';
 
   // Page 2
   static const trackService = 'Track Your Service in Real-Time';
@@ -82,6 +82,7 @@ class AppStrings extends Translations {
   static const you = 'You'; // Used for colored "You" in the banner
   static const forYou = 'For You';
   static const popularServices = 'Popular Services';
+  static const allPopularServices = 'All Popular Services';
   static const recommendedArtisans = 'Recommended Artisans';
   static const verified = 'VERIFIED';
   static const perHr = '/hr';
@@ -129,6 +130,7 @@ class AppStrings extends Translations {
   static const dateTime = 'Date & Time'; // For stepper
   static const address = 'Address'; // For stepper
   static const notes = 'Notes'; // For stepper
+  static const imageUpload = 'Image upload'; // For stepper
   static const confirm = 'Confirm'; // For stepper
   static const selectDate = 'Select Date';
   static const selectTime = 'Select Time';
@@ -150,7 +152,7 @@ class AppStrings extends Translations {
   static const view = 'View';
 
   // Phase 5 Strings
-  static const onlineOnTheWay = 'Online · On the way';
+  static const onlineOnTheWay = 'Online Â· On the way';
   static const jobInProgress = 'Job in Progress';
   static const rateAfterService = 'Rate after service completion';
   static const track = 'Track ->';
@@ -275,6 +277,105 @@ class AppStrings extends Translations {
   static const verificationSuccessfullyCompleted = 'Your ID card verification is successfully Completed';
   static const verificationFailed = 'Verification Failed';
   static const pleaseTryAgainLater = 'Please try again later';
+  
+  // Sub Categories
+  static const whatDoYouNeedHelpWith = 'What do you need help with?';
+  
+  // Cleaning
+  static const subBathroomCleaning = 'Bathroom Cleaning';
+  static const subBathroomCleaningDesc = 'Sanitizing, descaling & scrubbing';
+  static const subHomeDeepCleaning = 'Home Deep Cleaning';
+  static const subHomeDeepCleaningDesc = 'Full house top-to-bottom clean';
+  static const subKitchenCleaning = 'Kitchen Cleaning';
+  static const subKitchenCleaningDesc = 'Grease, stains & appliance surfaces';
+  static const subPostConstruction = 'Post-Construction Clean';
+  static const subPostConstructionDesc = 'Dust & debris after renovation';
+  static const subSofaCarpetCleaning = 'Sofa & Carpet Cleaning';
+  static const subSofaCarpetCleaningDesc = 'Stain removal & fabric care';
+  static const subWindowCleaning = 'Window Cleaning';
+  static const subWindowCleaningDesc = 'Inside/outside glass & frames';
+
+  // Repair
+  static const subAcRepair = 'AC Repair';
+  static const subAcRepairDesc = 'Cooling, heating & home appliances';
+  static const subElectricalFix = 'Electrical Fix';
+  static const subElectricalFixDesc = 'Wiring, switches & power problems';
+  static const subLockRepair = 'Lock Repair';
+  static const subLockRepairDesc = 'Broken locks & key issues';
+  static const subPlumbingFix = 'Plumbing Fix';
+  static const subPlumbingFixDesc = 'Pipes, drains & water pressure issues';
+  static const subRoofLeakRepair = 'Roof Leak Repair';
+  static const subRoofLeakRepairDesc = 'Waterproofing & roof damage';
+  static const subWallCeilingFix = 'Wall & Ceiling Fix';
+  static const subWallCeilingFixDesc = 'Plaster, drywall & paint trim';
+
+  // Installation
+  static const subAcInstallation = 'AC Installation';
+  static const subAcInstallationDesc = 'New unit fitting & setup';
+  static const subCctvSmartHome = 'CCTV & Smart Home';
+  static const subCctvSmartHomeDesc = 'Security cameras & smart devices';
+  static const subDoorWindowFitting = 'Door & Window Fitting';
+  static const subDoorWindowFittingDesc = 'New frames, locks & handles';
+  static const subFurnitureAssembly = 'Furniture Assembly';
+  static const subFurnitureAssemblyDesc = 'Flat-pack & ready-to-assemble items';
+  static const subTvWallMount = 'TV & Wall Mount';
+  static const subTvWallMountDesc = 'Secure mounting for all screen sizes';
+  static const subWaterHeaterSetup = 'Water Heater Setup';
+  static const subWaterHeaterSetupDesc = 'Boiler & geyser installation';
+
+  // Home Improvement
+  static const subBathroomRemodeling = 'Bathroom Remodeling';
+  static const subBathroomRemodelingDesc = 'Modern upgrades & full makeovers';
+  static const subFalseCeilingWork = 'False Ceiling Work';
+  static const subFalseCeilingWorkDesc = 'Gypsum, POP & lighting setup';
+  static const subFlooringTiling = 'Flooring & Tiling';
+  static const subFlooringTilingDesc = 'Tiles, wood & laminate flooring';
+  static const subKitchenRenovation = 'Kitchen Renovation';
+  static const subKitchenRenovationDesc = 'Cabinets, countertops & fittings';
+  static const subPaintingDecoration = 'Painting & Decoration';
+  static const subPaintingDecorationDesc = 'Walls, ceilings & interior design';
+  static const subWallpaperPaneling = 'Wallpaper & Paneling';
+  static const subWallpaperPanelingDesc = 'Stylish wall treatments & coverings';
+
+  // Moving
+  static const subHomeRelocation = 'Home Relocation';
+  static const subHomeRelocationDesc = 'Full house move with packing';
+  static const subJunkRemoval = 'Junk Removal';
+  static const subJunkRemovalDesc = 'Clear out unwanted items & waste';
+  static const subOfficeShifting = 'Office Shifting';
+  static const subOfficeShiftingDesc = 'Desks, equipment & document handling';
+  static const subPackingService = 'Packing Service';
+  static const subPackingServiceDesc = 'Safe packing & wrapping of belongings';
+  static const subSingleItemMoving = 'Single Item Moving';
+  static const subSingleItemMovingDesc = 'Sofa, fridge or heavy furniture only';
+  static const subStorageService = 'Storage Service';
+  static const subStorageServiceDesc = 'Short & long-term item storage';
+
+  // Garden
+  static const subGardenWasteRemoval = 'Garden Waste Removal';
+  static const subGardenWasteRemovalDesc = 'Clear leaves, branches & debris';
+  static const subIrrigationSetup = 'Irrigation Setup';
+  static const subIrrigationSetupDesc = 'Watering system installation & repair';
+  static const subLawnMowing = 'Lawn Mowing';
+  static const subLawnMowingDesc = 'Regular grass cutting & trimming';
+  static const subPestControlGarden = 'Pest Control (Garden)';
+  static const subPestControlGardenDesc = 'Protect plants from insects & bugs';
+  static const subPlantingLandscaping = 'Planting & Landscaping';
+  static const subPlantingLandscapingDesc = 'New plants, flowers & garden design';
+  static const subTreeBushTrimming = 'Tree & Bush Trimming';
+  static const subTreeBushTrimmingDesc = 'Shape & prune overgrown plants';
+
+  // Popular Services Titles
+  static const popPipeLeakRepair = 'Pipe Leak Repair';
+  static const popToiletRepair = 'Toilet Repair';
+  static const popDeepHouseCleaning = 'Deep House Cleaning';
+  static const popElectricalWiring = 'Electrical Wiring';
+  static const popAcServiceRepair = 'AC Service & Repair';
+  static const popFurnitureAssembly = 'Furniture Assembly';
+  static const popWallPainting = 'Wall Painting';
+  static const popLockKeyService = 'Lock & Key Service';
+  static const popTvInstallation = 'TV Installation';
+  static const popWindowGlassRepair = 'Window & Glass Repair';
 
   @override
   Map<String, Map<String, String>> get keys => {
@@ -336,10 +437,21 @@ class AppStrings extends Translations {
           you: you,
           forYou: forYou,
           popularServices: popularServices,
+          allPopularServices: allPopularServices,
           recommendedArtisans: recommendedArtisans,
           verified: verified,
           perHr: perHr,
           promoTitle: promoTitle,
+          popPipeLeakRepair: popPipeLeakRepair,
+          popToiletRepair: popToiletRepair,
+          popDeepHouseCleaning: popDeepHouseCleaning,
+          popElectricalWiring: popElectricalWiring,
+          popAcServiceRepair: popAcServiceRepair,
+          popFurnitureAssembly: popFurnitureAssembly,
+          popWallPainting: popWallPainting,
+          popLockKeyService: popLockKeyService,
+          popTvInstallation: popTvInstallation,
+          popWindowGlassRepair: popWindowGlassRepair,
           promoCode: promoCode,
           claim: claim,
           ourAllServices: ourAllServices,
@@ -378,6 +490,7 @@ class AppStrings extends Translations {
           dateTime: dateTime,
           address: address,
           notes: notes,
+          imageUpload: imageUpload,
           confirm: confirm,
           selectDate: selectDate,
           selectTime: selectTime,
@@ -515,6 +628,80 @@ class AppStrings extends Translations {
           verificationSuccessfullyCompleted: verificationSuccessfullyCompleted,
           verificationFailed: verificationFailed,
           pleaseTryAgainLater: pleaseTryAgainLater,
+          whatDoYouNeedHelpWith: whatDoYouNeedHelpWith,
+          subBathroomCleaning: subBathroomCleaning,
+          subBathroomCleaningDesc: subBathroomCleaningDesc,
+          subHomeDeepCleaning: subHomeDeepCleaning,
+          subHomeDeepCleaningDesc: subHomeDeepCleaningDesc,
+          subKitchenCleaning: subKitchenCleaning,
+          subKitchenCleaningDesc: subKitchenCleaningDesc,
+          subPostConstruction: subPostConstruction,
+          subPostConstructionDesc: subPostConstructionDesc,
+          subSofaCarpetCleaning: subSofaCarpetCleaning,
+          subSofaCarpetCleaningDesc: subSofaCarpetCleaningDesc,
+          subWindowCleaning: subWindowCleaning,
+          subWindowCleaningDesc: subWindowCleaningDesc,
+          subAcRepair: subAcRepair,
+          subAcRepairDesc: subAcRepairDesc,
+          subElectricalFix: subElectricalFix,
+          subElectricalFixDesc: subElectricalFixDesc,
+          subLockRepair: subLockRepair,
+          subLockRepairDesc: subLockRepairDesc,
+          subPlumbingFix: subPlumbingFix,
+          subPlumbingFixDesc: subPlumbingFixDesc,
+          subRoofLeakRepair: subRoofLeakRepair,
+          subRoofLeakRepairDesc: subRoofLeakRepairDesc,
+          subWallCeilingFix: subWallCeilingFix,
+          subWallCeilingFixDesc: subWallCeilingFixDesc,
+          subAcInstallation: subAcInstallation,
+          subAcInstallationDesc: subAcInstallationDesc,
+          subCctvSmartHome: subCctvSmartHome,
+          subCctvSmartHomeDesc: subCctvSmartHomeDesc,
+          subDoorWindowFitting: subDoorWindowFitting,
+          subDoorWindowFittingDesc: subDoorWindowFittingDesc,
+          subFurnitureAssembly: subFurnitureAssembly,
+          subFurnitureAssemblyDesc: subFurnitureAssemblyDesc,
+          subTvWallMount: subTvWallMount,
+          subTvWallMountDesc: subTvWallMountDesc,
+          subWaterHeaterSetup: subWaterHeaterSetup,
+          subWaterHeaterSetupDesc: subWaterHeaterSetupDesc,
+          subBathroomRemodeling: subBathroomRemodeling,
+          subBathroomRemodelingDesc: subBathroomRemodelingDesc,
+          subFalseCeilingWork: subFalseCeilingWork,
+          subFalseCeilingWorkDesc: subFalseCeilingWorkDesc,
+          subFlooringTiling: subFlooringTiling,
+          subFlooringTilingDesc: subFlooringTilingDesc,
+          subKitchenRenovation: subKitchenRenovation,
+          subKitchenRenovationDesc: subKitchenRenovationDesc,
+          subPaintingDecoration: subPaintingDecoration,
+          subPaintingDecorationDesc: subPaintingDecorationDesc,
+          subWallpaperPaneling: subWallpaperPaneling,
+          subWallpaperPanelingDesc: subWallpaperPanelingDesc,
+          subHomeRelocation: subHomeRelocation,
+          subHomeRelocationDesc: subHomeRelocationDesc,
+          subJunkRemoval: subJunkRemoval,
+          subJunkRemovalDesc: subJunkRemovalDesc,
+          subOfficeShifting: subOfficeShifting,
+          subOfficeShiftingDesc: subOfficeShiftingDesc,
+          subPackingService: subPackingService,
+          subPackingServiceDesc: subPackingServiceDesc,
+          subSingleItemMoving: subSingleItemMoving,
+          subSingleItemMovingDesc: subSingleItemMovingDesc,
+          subStorageService: subStorageService,
+          subStorageServiceDesc: subStorageServiceDesc,
+          subGardenWasteRemoval: subGardenWasteRemoval,
+          subGardenWasteRemovalDesc: subGardenWasteRemovalDesc,
+          subIrrigationSetup: subIrrigationSetup,
+          subIrrigationSetupDesc: subIrrigationSetupDesc,
+          subLawnMowing: subLawnMowing,
+          subLawnMowingDesc: subLawnMowingDesc,
+          subPestControlGarden: subPestControlGarden,
+          subPestControlGardenDesc: subPestControlGardenDesc,
+          subPlantingLandscaping: subPlantingLandscaping,
+          subPlantingLandscapingDesc: subPlantingLandscapingDesc,
+          subTreeBushTrimming: subTreeBushTrimming,
+          subTreeBushTrimmingDesc: subTreeBushTrimmingDesc,
         }
       };
 }
+

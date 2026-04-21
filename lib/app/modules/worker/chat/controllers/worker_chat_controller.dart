@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class WorkerChatController extends GetxController {
@@ -25,7 +25,7 @@ class WorkerChatController extends GetxController {
       'isMe': true,
     },
     {
-      'text': 'Understood! I have all the tools needed. See you soon 👍',
+      'text': 'Understood! I have all the tools needed. See you soon ðŸ‘',
       'time': '10:09 AM',
       'isMe': false,
     },
@@ -75,3 +75,4 @@ class WorkerChatController extends GetxController {
     super.onClose();
   }
 }
+

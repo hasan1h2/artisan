@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -29,7 +28,7 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
             Text(
               AppStrings.jobDetailsTitle.tr,
               style: GoogleFonts.poppins(
-                fontSize: 18.sp,
+                fontSize: 18.0,
                 fontWeight: FontWeight.bold,
                 color: AppColors.white,
               ),
@@ -37,7 +36,7 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
             Text(
               "#J1",
               style: GoogleFonts.inter(
-                fontSize: 12.sp,
+                fontSize: 12.0,
                 color: AppColors.white.withAlpha(180),
               ),
             ),
@@ -49,19 +48,19 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
           children: [
             _buildServiceBanner(),
             Padding(
-              padding: EdgeInsets.all(20.r),
+              padding: EdgeInsets.all(20.0),
               child: Column(
                 children: [
                   _buildClientCard(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildMapCard(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildLocationCard(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildChecklistCard(),
-                  SizedBox(height: 24.h),
+                  SizedBox(height: 24.0),
                   _buildReportBanner(),
-                  SizedBox(height: 30.h),
+                  SizedBox(height: 30.0),
                 ],
               ),
             ),
@@ -74,7 +73,7 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
   Widget _buildServiceBanner() {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
       decoration: const BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.only(
@@ -83,10 +82,10 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
         ),
       ),
       child: Container(
-        padding: EdgeInsets.all(16.r),
+        padding: EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           color: AppColors.white.withAlpha(30),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16.0),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,14 +93,14 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
             Row(
               children: [
                 const Icon(Icons.build_outlined, color: AppColors.white, size: 20),
-                SizedBox(width: 8.w),
+                SizedBox(width: 8.0),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Pipe Leak Repair",
                       style: GoogleFonts.poppins(
-                        fontSize: 16.sp,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.bold,
                         color: AppColors.white,
                       ),
@@ -109,7 +108,7 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
                     Text(
                       "10:00 AM",
                       style: GoogleFonts.inter(
-                        fontSize: 12.sp,
+                        fontSize: 12.0,
                         color: AppColors.white.withAlpha(180),
                       ),
                     ),
@@ -120,7 +119,7 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
             Text(
               "\$75.00",
               style: GoogleFonts.poppins(
-                fontSize: 24.sp,
+                fontSize: 24.0,
                 fontWeight: FontWeight.bold,
                 color: const Color(0xFF4CAF50),
               ),
@@ -133,23 +132,23 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
 
   Widget _buildClientCard() {
     return Container(
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Row(
         children: [
           Container(
-            width: 50.w,
-            height: 50.w,
+            width: 50.0,
+            height: 50.0,
             decoration: BoxDecoration(
               color: const Color(0xFFD9E4F5),
-              borderRadius: BorderRadius.circular(12.r),
+              borderRadius: BorderRadius.circular(12.0),
             ),
           ),
-          SizedBox(width: 12.w),
+          SizedBox(width: 12.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,7 +156,7 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
                 Text(
                   "Alex Thompson",
                   style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                     color: AppColors.textColor,
                   ),
@@ -165,13 +164,13 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
                 Row(
                   children: [
                     Text(
-                      "Client • ",
-                      style: GoogleFonts.inter(fontSize: 12.sp, color: AppColors.greyText),
+                      "Client â€¢ ",
+                      style: GoogleFonts.inter(fontSize: 12.0, color: AppColors.greyText),
                     ),
-                    Icon(Icons.star, color: AppColors.ratingStar, size: 12.sp),
+                    Icon(Icons.star, color: AppColors.ratingStar, size: 12.0),
                     Text(
                       " 4.8 rating",
-                      style: GoogleFonts.inter(fontSize: 12.sp, color: AppColors.greyText),
+                      style: GoogleFonts.inter(fontSize: 12.0, color: AppColors.greyText),
                     ),
                   ],
                 ),
@@ -181,10 +180,10 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
           IconButton(
             onPressed: controller.chatClient,
             icon: Container(
-              padding: EdgeInsets.all(8.r),
+              padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: const Color(0xFFF1F4F8),
-                borderRadius: BorderRadius.circular(10.r),
+                borderRadius: BorderRadius.circular(10.0),
               ),
               child: const Icon(Icons.chat_bubble_outline, color: AppColors.primary, size: 20),
             ),
@@ -192,10 +191,10 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
           IconButton(
             onPressed: controller.callClient,
             icon: Container(
-              padding: EdgeInsets.all(8.r),
+              padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: const Color(0xFFE8F5E9),
-                borderRadius: BorderRadius.circular(10.r),
+                borderRadius: BorderRadius.circular(10.0),
               ),
               child: const Icon(Icons.call_outlined, color: AppColors.onlineGreen, size: 20),
             ),
@@ -207,21 +206,21 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
 
   Widget _buildMapCard() {
     return Container(
-      height: 200.h,
+      height: 200.0,
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         child: Stack(
           children: [
             Center(child: Image.asset(AppImages.logo, width: 100)), // Placeholder map
             Positioned(
-              bottom: 16.h,
-              right: 16.w,
+              bottom: 16.0,
+              right: 16.0,
               child: ElevatedButton.icon(
                 onPressed: controller.navigateToJob,
                 icon: const Icon(Icons.near_me, size: 16),
@@ -229,13 +228,13 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   foregroundColor: AppColors.white,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
                 ),
               ),
             ),
             Center(
-               child: Icon(Icons.location_on, color: AppColors.errorText, size: 40.sp),
+               child: Icon(Icons.location_on, color: AppColors.errorText, size: 40.0),
             ),
           ],
         ),
@@ -246,10 +245,10 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
   Widget _buildLocationCard() {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
@@ -257,24 +256,24 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
         children: [
           Text(
             AppStrings.jobLocationTitle.tr,
-            style: GoogleFonts.poppins(fontSize: 16.sp, fontWeight: FontWeight.bold),
+            style: GoogleFonts.poppins(fontSize: 16.0, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 12.h),
+          SizedBox(height: 12.0),
           Row(
             children: [
               const Icon(Icons.location_on_outlined, color: AppColors.primary),
-              SizedBox(width: 12.w),
+              SizedBox(width: 12.0),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "142 Oak Street, Apt 5B",
-                      style: GoogleFonts.inter(fontSize: 15.sp, fontWeight: FontWeight.w600),
+                      style: GoogleFonts.inter(fontSize: 15.0, fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      "1.8 km away • Estimated arrival: 8 min",
-                      style: GoogleFonts.inter(fontSize: 13.sp, color: AppColors.greyText),
+                      "1.8 km away â€¢ Estimated arrival: 8 min",
+                      style: GoogleFonts.inter(fontSize: 13.0, color: AppColors.greyText),
                     ),
                   ],
                 ),
@@ -289,10 +288,10 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
   Widget _buildChecklistCard() {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
@@ -300,15 +299,15 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
         children: [
           Text(
             AppStrings.jobChecklistTitle.tr,
-            style: GoogleFonts.poppins(fontSize: 16.sp, fontWeight: FontWeight.bold),
+            style: GoogleFonts.poppins(fontSize: 16.0, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           Obx(() => Column(
             children: List.generate(controller.checklist.length, (index) {
               final item = controller.checklist[index];
               bool isChecked = item['checked'] as bool;
               return Padding(
-                padding: EdgeInsets.only(bottom: 12.h),
+                padding: EdgeInsets.only(bottom: 12.0),
                 child: Row(
                   children: [
                     GestureDetector(
@@ -316,14 +315,14 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
                       child: Icon(
                         isChecked ? Icons.check_circle : Icons.radio_button_unchecked,
                         color: isChecked ? AppColors.onlineGreen : AppColors.greyText.withAlpha(100),
-                        size: 24.sp,
+                        size: 24.0,
                       ),
                     ),
-                    SizedBox(width: 12.w),
+                    SizedBox(width: 12.0),
                     Text(
                       item['title'] as String,
                       style: GoogleFonts.inter(
-                        fontSize: 14.sp,
+                        fontSize: 14.0,
                         color: isChecked ? AppColors.textColor : AppColors.greyText,
                         fontWeight: isChecked ? FontWeight.w500 : FontWeight.normal,
                       ),
@@ -340,26 +339,26 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
 
   Widget _buildReportBanner() {
     return Container(
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.ratingPromptBg,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
       ),
       child: Row(
         children: [
           const Icon(Icons.warning_amber_rounded, color: AppColors.warningBannerIcon),
-          SizedBox(width: 12.w),
+          SizedBox(width: 12.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   AppStrings.reportAnIssue.tr,
-                  style: GoogleFonts.poppins(fontSize: 15.sp, fontWeight: FontWeight.bold, color: Color(0xFFD84315)),
+                  style: GoogleFonts.poppins(fontSize: 15.0, fontWeight: FontWeight.bold, color: Color(0xFFD84315)),
                 ),
                 Text(
                   AppStrings.problemWithThisJob.tr,
-                  style: GoogleFonts.inter(fontSize: 13.sp, color: Color(0xFFD84315).withAlpha(180)),
+                  style: GoogleFonts.inter(fontSize: 13.0, color: Color(0xFFD84315).withAlpha(180)),
                 ),
               ],
             ),
@@ -369,3 +368,4 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
     );
   }
 }
+

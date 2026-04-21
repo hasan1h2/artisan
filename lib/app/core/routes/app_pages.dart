@@ -18,8 +18,15 @@ import '../../modules/dashboard/views/dashboard_view.dart';
 import '../../modules/dashboard/controllers/dashboard_controller.dart';
 import '../../modules/client/service_details/views/service_details_view.dart';
 import '../../modules/client/service_details/controllers/service_details_controller.dart';
+import '../../modules/client/services/views/services_view.dart';
+import '../../modules/client/services/controllers/services_controller.dart';
+import '../../modules/client/popular_services/views/popular_services_view.dart';
+import '../../modules/client/popular_services/controllers/popular_services_controller.dart';
 import '../../modules/client/booking/views/booking_view.dart';
 import '../../modules/client/booking/controllers/booking_controller.dart';
+import '../../modules/client/camera/views/camera_view.dart';
+import '../../modules/client/camera/controllers/camera_controller.dart';
+import '../../modules/client/booking/views/confirm_booking_view.dart';
 import '../../modules/client/chat/views/chat_view.dart';
 import '../../modules/client/chat/controllers/chat_controller.dart';
 import '../../modules/client/finding_artisan/views/finding_artisan_view.dart';
@@ -36,6 +43,12 @@ import '../../modules/client/edit_profile/views/edit_profile_view.dart';
 import '../../modules/client/edit_profile/controllers/edit_profile_controller.dart';
 import '../../modules/client/help_support/views/help_support_view.dart';
 import '../../modules/client/help_support/controllers/help_support_controller.dart';
+import '../../modules/client/sub_category/views/sub_category_view.dart';
+import '../../modules/client/sub_category/controllers/sub_category_controller.dart';
+import '../../modules/client/location/views/select_location_view.dart';
+import '../../modules/client/location/controllers/select_location_controller.dart';
+import '../../modules/client/notifications/views/notification_view.dart';
+import '../../modules/client/notifications/controllers/notification_controller.dart';
 import './app_routes.dart';
 
 import '../../modules/worker/job_completion/views/job_completion_view.dart';
@@ -111,6 +124,27 @@ class AppPages {
       }),
     ),
     GetPage(
+      name: Routes.SERVICES,
+      page: () => const ServicesView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<ServicesController>(() => ServicesController());
+      }),
+    ),
+    GetPage(
+      name: Routes.POPULAR_SERVICES,
+      page: () => const PopularServicesView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<PopularServicesController>(() => PopularServicesController());
+      }),
+    ),
+    GetPage(
+      name: Routes.SUB_CATEGORY,
+      page: () => const SubCategoryView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<SubCategoryController>(() => SubCategoryController());
+      }),
+    ),
+    GetPage(
       name: Routes.SERVICE_DETAILS,
       page: () => const ServiceDetailsView(),
       binding: BindingsBuilder(() {
@@ -122,6 +156,20 @@ class AppPages {
       page: () => const BookingView(),
       binding: BindingsBuilder(() {
         Get.lazyPut<BookingController>(() => BookingController());
+      }),
+    ),
+    GetPage(
+      name: Routes.CAMERA,
+      page: () => const CameraView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<CameraController>(() => CameraController());
+      }),
+    ),
+    GetPage(
+      name: Routes.CONFIRM_BOOKING,
+      page: () => const ConfirmBookingView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<BookingController>(() => BookingController()); // Share existing booking state
       }),
     ),
     GetPage(
@@ -208,5 +256,20 @@ class AppPages {
         Get.lazyPut<WorkerVerificationController>(() => WorkerVerificationController());
       }),
     ),
+    GetPage(
+      name: Routes.SELECT_LOCATION,
+      page: () => const SelectLocationView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<SelectLocationController>(() => SelectLocationController());
+      }),
+    ),
+    GetPage(
+      name: Routes.NOTIFICATIONS,
+      page: () => const NotificationView(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<NotificationController>(() => NotificationController());
+      }),
+    ),
   ];
 }
+

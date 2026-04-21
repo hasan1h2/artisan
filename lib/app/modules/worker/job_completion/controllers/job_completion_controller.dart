@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:signature/signature.dart';
 
@@ -31,3 +31,4 @@ class JobCompletionController extends GetxController {
     super.onClose();
   }
 }
+

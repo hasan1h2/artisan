@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class WorkerVerificationController extends GetxController {
@@ -63,3 +63,4 @@ class WorkerVerificationController extends GetxController {
     selectedDocType.value = type;
   }
 }
+

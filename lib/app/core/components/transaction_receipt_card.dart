@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 import '../constants/static/app_strings.dart';
@@ -22,7 +21,7 @@ class TransactionReceiptCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(24.r),
+        borderRadius: BorderRadius.circular(24.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withAlpha(5),
@@ -35,12 +34,12 @@ class TransactionReceiptCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            padding: EdgeInsets.all(24.w),
+            padding: EdgeInsets.all(24.0),
             decoration: BoxDecoration(
               color: AppColors.receiptHeaderBg,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(24.r),
-                topRight: Radius.circular(24.r),
+                topLeft: Radius.circular(24.0),
+                topRight: Radius.circular(24.0),
               ),
             ),
             child: Column(
@@ -49,15 +48,15 @@ class TransactionReceiptCard extends StatelessWidget {
                   AppStrings.transactionId.tr,
                   style: GoogleFonts.poppins(
                     color: AppColors.white.withAlpha(180),
-                    fontSize: 12.sp,
+                    fontSize: 12.0,
                   ),
                 ),
-                SizedBox(height: 4.h),
+                SizedBox(height: 4.0),
                 Text(
                   transactionId,
                   style: GoogleFonts.poppins(
                     color: AppColors.white,
-                    fontSize: 16.sp,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -70,9 +69,9 @@ class TransactionReceiptCard extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
                 child: CustomPaint(
-                  size: Size(double.infinity, 1.h),
+                  size: Size(double.infinity, 1.0),
                   painter: DashedLinePainter(color: AppColors.border),
                 ),
               ),
@@ -80,16 +79,16 @@ class TransactionReceiptCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: 20.w,
-                    height: 20.w,
+                    width: 20.0,
+                    height: 20.0,
                     decoration: BoxDecoration(
                       color: AppColors.background, // Should match background outside
                       shape: BoxShape.circle,
                     ),
                   ),
                   Container(
-                    width: 20.w,
-                    height: 20.w,
+                    width: 20.0,
+                    height: 20.0,
                     decoration: BoxDecoration(
                       color: AppColors.background, // Should match background outside
                       shape: BoxShape.circle,
@@ -101,11 +100,11 @@ class TransactionReceiptCard extends StatelessWidget {
           ),
 
           Padding(
-            padding: EdgeInsets.all(24.w),
+            padding: EdgeInsets.all(24.0),
             child: Column(
               children: [
                 ...details.entries.map((entry) => Padding(
-                      padding: EdgeInsets.only(bottom: 16.h),
+                      padding: EdgeInsets.only(bottom: 16.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -113,26 +112,26 @@ class TransactionReceiptCard extends StatelessWidget {
                             entry.key,
                             style: GoogleFonts.poppins(
                               color: AppColors.greyText,
-                              fontSize: 14.sp,
+                              fontSize: 14.0,
                             ),
                           ),
                           Text(
                             entry.value,
                             style: GoogleFonts.poppins(
                               color: AppColors.textColor,
-                              fontSize: 14.sp,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
                       ),
                     )),
-                SizedBox(height: 8.h),
+                SizedBox(height: 8.0),
                 Container(
-                  padding: EdgeInsets.all(16.w),
+                  padding: EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
                     color: AppColors.statusCompletedBg,
-                    borderRadius: BorderRadius.circular(16.r),
+                    borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -141,7 +140,7 @@ class TransactionReceiptCard extends StatelessWidget {
                         AppStrings.amountPaid.tr,
                         style: GoogleFonts.poppins(
                           color: AppColors.statusCompletedText,
-                          fontSize: 16.sp,
+                          fontSize: 16.0,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -149,7 +148,7 @@ class TransactionReceiptCard extends StatelessWidget {
                         amountPaid,
                         style: GoogleFonts.poppins(
                           color: AppColors.statusCompletedText,
-                          fontSize: 20.sp,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -187,3 +186,4 @@ class DashedLinePainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
+

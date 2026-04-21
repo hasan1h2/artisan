@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 
@@ -18,24 +17,24 @@ class SummaryDetailTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16.h),
-      padding: EdgeInsets.all(16.w),
+      margin: EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(10.w),
+            padding: EdgeInsets.all(10.0),
             decoration: BoxDecoration(
               color: AppColors.primary.withAlpha(20), // Light blue tint
-              borderRadius: BorderRadius.circular(12.r),
+              borderRadius: BorderRadius.circular(12.0),
             ),
-            child: Icon(icon, color: AppColors.primary, size: 20.w),
+            child: Icon(icon, color: AppColors.primary, size: 20.0),
           ),
-          SizedBox(width: 16.w),
+          SizedBox(width: 16.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,15 +43,15 @@ class SummaryDetailTile extends StatelessWidget {
                   title,
                   style: GoogleFonts.poppins(
                     color: AppColors.greyText,
-                    fontSize: 12.sp,
+                    fontSize: 12.0,
                   ),
                 ),
-                SizedBox(height: 4.h),
+                SizedBox(height: 4.0),
                 Text(
                   value,
                   style: GoogleFonts.poppins(
                     color: AppColors.textColor,
-                    fontSize: 14.sp,
+                    fontSize: 14.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -64,3 +63,4 @@ class SummaryDetailTile extends StatelessWidget {
     );
   }
 }
+

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,7 +32,7 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
           AppStrings.findingArtisan.tr,
           style: GoogleFonts.poppins(
             color: AppColors.white,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -50,38 +49,38 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
       ),
       body: Column(
         children: [
-          SizedBox(height: 20.h),
+          SizedBox(height: 20.0),
           _buildRadarAnimation(),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(width: 8.w, height: 8.w, margin: EdgeInsets.symmetric(horizontal: 4.w), decoration: const BoxDecoration(color: AppColors.white, shape: BoxShape.circle)),
-              Container(width: 8.w, height: 8.w, margin: EdgeInsets.symmetric(horizontal: 4.w), decoration: BoxDecoration(color: AppColors.white.withAlpha(100), shape: BoxShape.circle)),
-              Container(width: 8.w, height: 8.w, margin: EdgeInsets.symmetric(horizontal: 4.w), decoration: BoxDecoration(color: AppColors.white.withAlpha(100), shape: BoxShape.circle)),
+              Container(width: 8.0, height: 8.0, margin: EdgeInsets.symmetric(horizontal: 4.0), decoration: const BoxDecoration(color: AppColors.white, shape: BoxShape.circle)),
+              Container(width: 8.0, height: 8.0, margin: EdgeInsets.symmetric(horizontal: 4.0), decoration: BoxDecoration(color: AppColors.white.withAlpha(100), shape: BoxShape.circle)),
+              Container(width: 8.0, height: 8.0, margin: EdgeInsets.symmetric(horizontal: 4.0), decoration: BoxDecoration(color: AppColors.white.withAlpha(100), shape: BoxShape.circle)),
             ],
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           Text(
             AppStrings.findingBestArtisan.tr,
             style: GoogleFonts.poppins(
               color: AppColors.white,
-              fontSize: 20.sp,
+              fontSize: 20.0,
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 8.0),
           Text(
             AppStrings.checkingAvailability.tr,
             style: GoogleFonts.poppins(
               color: AppColors.white.withAlpha(150),
-              fontSize: 14.sp,
+              fontSize: 14.0,
             ),
           ),
-          SizedBox(height: 32.h),
+          SizedBox(height: 32.0),
           Expanded(
             child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
               children: [
                 _buildSearchStepNode(AppStrings.searchingNearby.tr, isCompleted: true),
                 _buildSearchStepNode(AppStrings.checkingAvailability.tr, isActive: true),
@@ -97,31 +96,31 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
 
   Widget _buildRadarAnimation() {
     return SizedBox(
-      height: 250.w,
+      height: 250.0,
       width: double.infinity,
       child: Stack(
         alignment: Alignment.center,
         children: [
           // Simulated Radar Rings
           Container(
-            width: 240.w,
-            height: 240.w,
+            width: 240.0,
+            height: 240.0,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: AppColors.radarRing.withAlpha(50), width: 1),
             ),
           ),
           Container(
-            width: 170.w,
-            height: 170.w,
+            width: 170.0,
+            height: 170.0,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: AppColors.radarRing.withAlpha(80), width: 1),
             ),
           ),
           Container(
-            width: 90.w,
-            height: 90.w,
+            width: 90.0,
+            height: 90.0,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: AppColors.radarRing.withAlpha(150), width: 1),
@@ -129,8 +128,8 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
           ),
           // Center Location Pin
           Container(
-            width: 50.w,
-            height: 50.w,
+            width: 50.0,
+            height: 50.0,
             decoration: BoxDecoration(
               color: AppColors.timelineActive, // Green pin bg in image
               shape: BoxShape.circle,
@@ -142,28 +141,28 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
                 )
               ],
             ),
-            child: Icon(Icons.location_on, color: AppColors.white, size: 24.w),
+            child: Icon(Icons.location_on, color: AppColors.white, size: 24.0),
           ),
           // Floating simulated avatars
           Positioned(
-            top: 20.h,
+            top: 20.0,
             left: MediaQuery.of(Get.context!).size.width * 0.3,
-            child: _buildAvatarNode(40.w),
+            child: _buildAvatarNode(40.0),
           ),
           Positioned(
-            top: 80.h,
-            right: 40.w,
-            child: _buildAvatarNode(45.w),
+            top: 80.0,
+            right: 40.0,
+            child: _buildAvatarNode(45.0),
           ),
           Positioned(
-            bottom: 60.h,
-            right: 120.w,
-            child: _buildAvatarNode(50.w),
+            bottom: 60.0,
+            right: 120.0,
+            child: _buildAvatarNode(50.0),
           ),
           Positioned(
-            bottom: 100.h,
-            left: 50.w,
-            child: _buildAvatarNode(45.w),
+            bottom: 100.0,
+            left: 50.0,
+            child: _buildAvatarNode(45.0),
           ),
         ],
       ),
@@ -189,8 +188,8 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
     Color bgColor = AppColors.white.withAlpha(10);
     Color borderColor = Colors.transparent;
     Widget leadingWidget = Container(
-      width: 24.w,
-      height: 24.w,
+      width: 24.0,
+      height: 24.0,
       decoration: BoxDecoration(
         color: AppColors.white.withAlpha(20),
         shape: BoxShape.circle,
@@ -198,7 +197,7 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
       child: Center(
         child: Text(
           '3', // Placeholder for index if needed, design shows 3, 4 for uncompleted
-          style: TextStyle(color: AppColors.white.withAlpha(100), fontSize: 10.sp),
+          style: TextStyle(color: AppColors.white.withAlpha(100), fontSize: 10.0),
         ),
       ),
     );
@@ -207,28 +206,28 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
       bgColor = AppColors.timelineActive.withAlpha(20);
       borderColor = AppColors.timelineActive.withAlpha(50);
       leadingWidget = Container(
-        width: 24.w,
-        height: 24.w,
+        width: 24.0,
+        height: 24.0,
         decoration: const BoxDecoration(
           color: AppColors.timelineActive,
           shape: BoxShape.circle,
         ),
-        child: Icon(Icons.check, color: AppColors.white, size: 14.w),
+        child: Icon(Icons.check, color: AppColors.white, size: 14.0),
       );
     } else if (isActive) {
       bgColor = AppColors.white.withAlpha(15);
       borderColor = AppColors.white.withAlpha(50);
       leadingWidget = Container(
-        width: 24.w,
-        height: 24.w,
+        width: 24.0,
+        height: 24.0,
         decoration: const BoxDecoration(
           color: AppColors.white,
           shape: BoxShape.circle,
         ),
         child: Center(
           child: Container(
-            width: 8.w,
-            height: 8.w,
+            width: 8.0,
+            height: 8.0,
             decoration: const BoxDecoration(
               color: AppColors.primary,
               shape: BoxShape.circle,
@@ -239,22 +238,22 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
     }
 
     return Container(
-      margin: EdgeInsets.only(bottom: 12.h),
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      margin: EdgeInsets.only(bottom: 12.0),
+      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
       decoration: BoxDecoration(
         color: bgColor,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: borderColor),
       ),
       child: Row(
         children: [
           leadingWidget,
-          SizedBox(width: 16.w),
+          SizedBox(width: 16.0),
           Text(
             text,
             style: GoogleFonts.poppins(
               color: isCompleted || isActive ? AppColors.white : AppColors.white.withAlpha(100),
-              fontSize: 14.sp,
+              fontSize: 14.0,
               fontWeight: isCompleted || isActive ? FontWeight.w500 : FontWeight.w400,
             ),
           ),
@@ -272,7 +271,7 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
           AppStrings.findingArtisan.tr,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -293,8 +292,8 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
             // Center pin simulating map avatar
             Center(
               child: Container(
-                width: 60.w,
-                height: 60.w,
+                width: 60.0,
+                height: 60.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: AppColors.primary, width: 3),
@@ -303,7 +302,7 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
                   ],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.r),
+                  borderRadius: BorderRadius.circular(30.0),
                   child: Image.asset(AppImages.placeholderAvatar, fit: BoxFit.cover),
                 ),
               ),
@@ -315,21 +314,21 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
               child: ArtisanBottomSheetCard(
                 headerWidget: Center(
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                     decoration: BoxDecoration(
                       color: AppColors.timelineActive.withAlpha(20),
-                      borderRadius: BorderRadius.circular(20.r),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.check, color: AppColors.timelineActive, size: 16.w),
-                        SizedBox(width: 8.w),
+                        Icon(Icons.check, color: AppColors.timelineActive, size: 16.0),
+                        SizedBox(width: 8.0),
                         Text(
                           'Artisan Found!',
                           style: GoogleFonts.poppins(
                             color: AppColors.timelineActive,
-                            fontSize: 14.sp,
+                            fontSize: 14.0,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -339,30 +338,55 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
                 ),
                 avatarPath: AppImages.placeholderAvatar,
                 name: 'Marcus Johnson',
-                details: 'Plumber · 1.2 km\nETA: 12 min', // Simplified styling for demo, normally use RichText.
-                ratingValue: '4.9',
-                ratingText: 'Rating',
-                actionWidget: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: controller.trackArtisan,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
-                      padding: EdgeInsets.symmetric(vertical: 16.h),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.r),
+                details: 'Plumber · 1.2 km | Rating ⭐ 4.9',
+                ratingValue: '', // Handled inline above
+                actionWidget: Column(
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: controller.trackArtisan,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          elevation: 0,
+                        ),
+                        child: Text(
+                          AppStrings.trackArtisan.tr,
+                          style: GoogleFonts.poppins(
+                            color: AppColors.white,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ),
-                      elevation: 0,
                     ),
-                    child: Text(
-                      AppStrings.trackArtisan.tr,
-                      style: GoogleFonts.poppins(
-                        color: AppColors.white,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w600,
+                    const SizedBox(height: 12.0),
+                    SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton(
+                        onPressed: () => Get.back(),
+                        style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          side: BorderSide(color: AppColors.greyText.withAlpha(50)),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
+                        child: Text(
+                          'Cancel \u2715',
+                          style: GoogleFonts.poppins(
+                            color: AppColors.greyText,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ),
@@ -372,3 +396,4 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
     );
   }
 }
+

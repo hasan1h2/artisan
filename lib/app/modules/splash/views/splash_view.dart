@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/static/app_colors.dart';
 import '../../../core/constants/static/app_images.dart';
@@ -18,7 +17,7 @@ class SplashView extends StatelessWidget {
       body: Center(
         child: Image.asset(
           AppImages.logo,
-          width: 200.w, // Approximate logo width, will scale with ScreenUtil
+          width: 200.0, // Approximate logo width
           fit: BoxFit.contain,
           errorBuilder: (context, error, stackTrace) => 
               const Icon(Icons.broken_image, size: 100),
@@ -27,3 +26,4 @@ class SplashView extends StatelessWidget {
     );
   }
 }
+

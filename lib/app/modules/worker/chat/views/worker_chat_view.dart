@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,32 +17,32 @@ class WorkerChatView extends GetView<WorkerChatController> {
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FB),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80.h),
+        preferredSize: Size.fromHeight(80.0),
         child: Container(
           color: AppColors.primary,
-          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 10.h, left: 16.w, right: 16.w, bottom: 16.h),
+          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 10.0, left: 16.0, right: 16.0, bottom: 16.0),
           child: Row(
             children: [
               GestureDetector(
                 onTap: () => Get.back(),
                 child: Container(
-                  padding: EdgeInsets.all(8.w),
+                  padding: EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     color: AppColors.white.withAlpha(20),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(Icons.arrow_back_ios_new, color: AppColors.white, size: 18.w),
+                  child: Icon(Icons.arrow_back_ios_new, color: AppColors.white, size: 18.0),
                 ),
               ),
-              SizedBox(width: 16.w),
+              SizedBox(width: 16.0),
               Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(25.r),
+                    borderRadius: BorderRadius.circular(25.0),
                     child: Image.asset(
                       AppImages.placeholderAvatar,
-                      width: 44.w,
-                      height: 44.w,
+                      width: 44.0,
+                      height: 44.0,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -51,18 +50,18 @@ class WorkerChatView extends GetView<WorkerChatController> {
                     bottom: 0,
                     right: 0,
                     child: Container(
-                      width: 12.w,
-                      height: 12.w,
+                      width: 12.0,
+                      height: 12.0,
                       decoration: BoxDecoration(
                         color: AppColors.onlineGreen,
                         shape: BoxShape.circle,
-                        border: Border.all(color: AppColors.primary, width: 2.w),
+                        border: Border.all(color: AppColors.primary, width: 2.0),
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(width: 12.w),
+              SizedBox(width: 12.0),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,27 +71,27 @@ class WorkerChatView extends GetView<WorkerChatController> {
                       'James Wilson', // In Image 1, James is the person being chatted with
                       style: GoogleFonts.poppins(
                         color: AppColors.white,
-                        fontSize: 16.sp,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(height: 2.h),
+                    SizedBox(height: 2.0),
                     Row(
                       children: [
                         Container(
-                          width: 6.w,
-                          height: 6.w,
+                          width: 6.0,
+                          height: 6.0,
                           decoration: const BoxDecoration(
                             color: AppColors.onlineGreen,
                             shape: BoxShape.circle,
                           ),
                         ),
-                        SizedBox(width: 4.w),
+                        SizedBox(width: 4.0),
                         Text(
-                          'Online · On the way',
+                          'Online Â· On the way',
                           style: GoogleFonts.poppins(
                             color: AppColors.white.withAlpha(200),
-                            fontSize: 12.sp,
+                            fontSize: 12.0,
                           ),
                         ),
                       ],
@@ -107,13 +106,13 @@ class WorkerChatView extends GetView<WorkerChatController> {
       body: Column(
         children: [
           _buildTopBanner(),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           _buildDateDivider(),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           Expanded(
             child: Obx(
               () => ListView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 itemCount: controller.messages.length,
                 itemBuilder: (context, index) {
                   final msg = controller.messages[index];
@@ -147,11 +146,11 @@ class WorkerChatView extends GetView<WorkerChatController> {
     return GestureDetector(
       onTap: controller.trackJob,
       child: Container(
-        margin: EdgeInsets.all(16.w),
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+        margin: EdgeInsets.all(16.0),
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         decoration: BoxDecoration(
           color: const Color(0xFFF1F4F8),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16.0),
           border: Border.all(color: AppColors.primary.withAlpha(30)),
           boxShadow: [
             BoxShadow(
@@ -164,14 +163,14 @@ class WorkerChatView extends GetView<WorkerChatController> {
         child: Row(
           children: [
             Container(
-              padding: EdgeInsets.all(10.r),
+              padding: EdgeInsets.all(10.0),
               decoration: const BoxDecoration(
                 color: Color(0xFFD9E4F5),
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.star, color: AppColors.primary, size: 24.w),
+              child: Icon(Icons.star, color: AppColors.primary, size: 24.0),
             ),
-            SizedBox(width: 12.w),
+            SizedBox(width: 12.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,7 +179,7 @@ class WorkerChatView extends GetView<WorkerChatController> {
                     AppStrings.jobInProgress.tr,
                     style: GoogleFonts.poppins(
                       color: AppColors.primary,
-                      fontSize: 14.sp,
+                      fontSize: 14.0,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -188,7 +187,7 @@ class WorkerChatView extends GetView<WorkerChatController> {
                     AppStrings.rateAfterService.tr,
                     style: GoogleFonts.poppins(
                       color: AppColors.greyText,
-                      fontSize: 12.sp,
+                      fontSize: 12.0,
                     ),
                   ),
                 ],
@@ -200,11 +199,11 @@ class WorkerChatView extends GetView<WorkerChatController> {
                   'Track ',
                   style: GoogleFonts.poppins(
                     color: AppColors.primary,
-                    fontSize: 14.sp,
+                    fontSize: 14.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                Icon(Icons.arrow_forward, color: AppColors.primary, size: 16.w),
+                Icon(Icons.arrow_forward, color: AppColors.primary, size: 16.0),
               ],
             ),
           ],
@@ -215,17 +214,17 @@ class WorkerChatView extends GetView<WorkerChatController> {
 
   Widget _buildDateDivider() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w),
+      padding: EdgeInsets.symmetric(horizontal: 24.0),
       child: Row(
         children: [
           const Expanded(child: Divider(color: AppColors.border)),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               'Today, April 7',
               style: GoogleFonts.poppins(
                 color: AppColors.greyText,
-                fontSize: 12.sp,
+                fontSize: 12.0,
               ),
             ),
           ),
@@ -237,7 +236,7 @@ class WorkerChatView extends GetView<WorkerChatController> {
 
   Widget _buildMessageInput() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
       decoration: BoxDecoration(
         color: AppColors.white,
         boxShadow: [
@@ -253,32 +252,32 @@ class WorkerChatView extends GetView<WorkerChatController> {
           children: [
             Expanded(
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 decoration: BoxDecoration(
                   color: const Color(0xFFF1F4F8),
-                  borderRadius: BorderRadius.circular(24.r),
+                  borderRadius: BorderRadius.circular(24.0),
                 ),
                 child: TextField(
                   controller: controller.messageController,
                   decoration: InputDecoration(
                     hintText: AppStrings.writeMessage.tr,
-                    hintStyle: GoogleFonts.poppins(color: AppColors.greyText.withAlpha(150), fontSize: 14.sp),
+                    hintStyle: GoogleFonts.poppins(color: AppColors.greyText.withAlpha(150), fontSize: 14.0),
                     border: InputBorder.none,
                   ),
-                  style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.sp),
+                  style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.0),
                 ),
               ),
             ),
-            SizedBox(width: 12.w),
+            SizedBox(width: 12.0),
             GestureDetector(
               onTap: controller.sendMessage,
               child: Container(
-                padding: EdgeInsets.all(12.w),
+                padding: EdgeInsets.all(12.0),
                 decoration: const BoxDecoration(
                   color: AppColors.primary,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(Icons.send, color: AppColors.white, size: 20.w),
+                child: Icon(Icons.send, color: AppColors.white, size: 20.0),
               ),
             ),
           ],
@@ -287,3 +286,4 @@ class WorkerChatView extends GetView<WorkerChatController> {
     );
   }
 }
+

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,7 +20,7 @@ class ServicesView extends GetView<ServicesController> {
           'Services',
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -31,44 +30,47 @@ class ServicesView extends GetView<ServicesController> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          padding: EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20.h),
+              SizedBox(height: 20.0),
               Text(
                 AppStrings.ourAllServices.tr,
                 style: GoogleFonts.poppins(
-                  fontSize: 22.sp,
+                  fontSize: 22.0,
                   fontWeight: FontWeight.w700,
                   color: AppColors.textColor,
                 ),
               ),
-              SizedBox(height: 4.h),
+              SizedBox(height: 4.0),
               Text(
                 AppStrings.goAnywhere.tr,
                 style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
+                  fontSize: 14.0,
                   color: AppColors.greyText,
                 ),
               ),
-              SizedBox(height: 24.h),
+              SizedBox(height: 24.0),
               Expanded(
                 child: Obx(() => GridView.builder(
-                  padding: EdgeInsets.only(bottom: 24.h),
+                  padding: EdgeInsets.only(bottom: 24.0),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 16.w,
-                    mainAxisSpacing: 16.h,
-                    childAspectRatio: 1.0,
+                    crossAxisSpacing: 16.0,
+                    mainAxisSpacing: 16.0,
+                    childAspectRatio: 1.0, // adjusted back to square for category cards
                   ),
-                  itemCount: controller.services.length,
+                  itemCount: controller.categories.length,
                   itemBuilder: (context, index) {
-                    final service = controller.services[index];
+                    final category = controller.categories[index];
                     return ServiceCategoryCard(
-                      title: service['title'],
-                      imagePath: service['image'],
-                      onTap: () {},
+                      title: category['title'],
+                      imagePath: category['icon'],
+                      onTap: () {
+                        // We will add Routes.SUB_CATEGORY to app_routes.dart later.
+                        Get.toNamed('/sub-category', arguments: category);
+                      },
                     );
                   },
                 )),
@@ -80,3 +82,4 @@ class ServicesView extends GetView<ServicesController> {
     );
   }
 }
+

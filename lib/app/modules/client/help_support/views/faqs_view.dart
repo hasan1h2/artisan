@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +17,7 @@ class FaqsView extends GetView<HelpSupportController> {
           'FAQs',
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -29,13 +28,13 @@ class FaqsView extends GetView<HelpSupportController> {
           child: GestureDetector(
             onTap: () => Get.back(),
             child: Container(
-              margin: EdgeInsets.only(left: 16.w),
-              padding: EdgeInsets.all(8.w),
+              margin: EdgeInsets.only(left: 16.0),
+              padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: AppColors.socialButtonBg,
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.arrow_back, color: AppColors.textColor, size: 16.w),
+              child: Icon(Icons.arrow_back, color: AppColors.textColor, size: 16.0),
             ),
           ),
         ),
@@ -44,12 +43,12 @@ class FaqsView extends GetView<HelpSupportController> {
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
               child: Column(
                 children: [
                   _buildFaqItem(
                     'What is EQi30?',
-                    'EQi30 is a mobile app that helps professionals and leaders build emotional intelligence through 30 trainable abilities — with structured daily 5-minute micro-skill practices.',
+                    'EQi30 is a mobile app that helps professionals and leaders build emotional intelligence through 30 trainable abilities â€” with structured daily 5-minute micro-skill practices.',
                   ),
                   _buildDivider(),
                   _buildFaqItem(
@@ -59,7 +58,7 @@ class FaqsView extends GetView<HelpSupportController> {
                   _buildDivider(),
                   _buildFaqItem(
                     'How much time do I need each day?',
-                    'As little as 5 minutes. You choose your own pace — 1, 2, or 3 abilities per day depending on your commitment level.',
+                    'As little as 5 minutes. You choose your own pace â€” 1, 2, or 3 abilities per day depending on your commitment level.',
                   ),
                   _buildDivider(),
                   _buildFaqItem(
@@ -72,15 +71,15 @@ class FaqsView extends GetView<HelpSupportController> {
                     'No. EQi30 is a self-development and educational tool. It is not a substitute for professional mental health support or therapy.',
                   ),
                   _buildDivider(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: RichText(
                       text: TextSpan(
-                        text: '📧 Any other questions? Reach us at\n',
+                        text: 'ðŸ“§ Any other questions? Reach us at\n',
                         style: GoogleFonts.poppins(
                           color: AppColors.textColor,
-                          fontSize: 14.sp,
+                          fontSize: 14.0,
                           height: 1.5,
                         ),
                         children: [
@@ -95,7 +94,7 @@ class FaqsView extends GetView<HelpSupportController> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 32.0),
                 ],
               ),
             ),
@@ -116,17 +115,17 @@ class FaqsView extends GetView<HelpSupportController> {
           question,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 16.sp,
+            fontSize: 16.0,
             fontWeight: FontWeight.w500,
           ),
         ),
-        childrenPadding: EdgeInsets.only(bottom: 16.h),
+        childrenPadding: EdgeInsets.only(bottom: 16.0),
         children: [
           Text(
             answer,
             style: GoogleFonts.poppins(
               color: AppColors.greyText,
-              fontSize: 14.sp,
+              fontSize: 14.0,
               height: 1.5,
             ),
           ),
@@ -139,3 +138,4 @@ class FaqsView extends GetView<HelpSupportController> {
     return Divider(color: AppColors.border, height: 1);
   }
 }
+

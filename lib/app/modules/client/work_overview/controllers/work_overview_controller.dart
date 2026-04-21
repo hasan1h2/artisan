@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
 
 class WorkOverviewController extends GetxController {
@@ -17,3 +17,4 @@ class WorkOverviewController extends GetxController {
     // Open signature dialog
   }
 }
+

@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 class IncomingRequestsController extends GetxController {
   final requests = [
@@ -30,3 +30,4 @@ class IncomingRequestsController extends GetxController {
     // Logic to decline
   }
 }
+

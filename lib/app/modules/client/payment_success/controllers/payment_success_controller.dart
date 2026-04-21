@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
 import '../views/rating_view.dart';
@@ -28,3 +28,4 @@ class PaymentSuccessController extends GetxController {
     isReviewSubmitted.value = true;
   }
 }
+

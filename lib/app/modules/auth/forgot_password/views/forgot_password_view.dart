@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,12 +22,12 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 20.h),
+          padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
                _buildHeader(),
-              SizedBox(height: 40.h),
+              SizedBox(height: 40.0),
               _buildForm(),
             ],
           ),
@@ -45,16 +44,16 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
           AppStrings.forgotPasswordTitle.tr,
           style: GoogleFonts.poppins(
             color: AppColors.primary,
-            fontSize: 28.sp,
+            fontSize: 28.0,
             fontWeight: FontWeight.w700,
           ),
         ),
-        SizedBox(height: 8.h),
+        SizedBox(height: 8.0),
         Text(
           AppStrings.forgotPasswordSub.tr,
           style: GoogleFonts.poppins(
             color: AppColors.greyText,
-            fontSize: 14.sp,
+            fontSize: 14.0,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -79,7 +78,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
               return null;
             },
           ),
-          SizedBox(height: 32.h),
+          SizedBox(height: 32.0),
           CustomButton(
             text: AppStrings.sendCode.tr,
             onPressed: controller.sendCode,
@@ -89,3 +88,4 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
     );
   }
 }
+

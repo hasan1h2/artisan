@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/static/app_colors.dart';
@@ -27,15 +26,15 @@ class IncomingRequestsView extends GetView<IncomingRequestsController> {
         title: Text(
           "Incoming Requests",
           style: GoogleFonts.poppins(
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
             color: AppColors.textColor,
           ),
         ),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 20.w),
-            padding: EdgeInsets.all(8.r),
+            margin: EdgeInsets.only(right: 20.0),
+            padding: EdgeInsets.all(8.0),
             decoration: const BoxDecoration(
               color: AppColors.urgentRed,
               shape: BoxShape.circle,
@@ -43,7 +42,7 @@ class IncomingRequestsView extends GetView<IncomingRequestsController> {
             child: Text(
               "2",
               style: GoogleFonts.inter(
-                fontSize: 12.sp,
+                fontSize: 12.0,
                 fontWeight: FontWeight.bold,
                 color: AppColors.white,
               ),
@@ -53,12 +52,12 @@ class IncomingRequestsView extends GetView<IncomingRequestsController> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20.r),
+          padding: EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildVerificationWarning(),
-              SizedBox(height: 24.h),
+              SizedBox(height: 24.0),
               Obx(() => Column(
                 children: List.generate(controller.requests.length, (index) {
                   final req = controller.requests[index];
@@ -87,31 +86,31 @@ class IncomingRequestsView extends GetView<IncomingRequestsController> {
   Widget _buildVerificationWarning() {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: const Color(0xFFE8EAF6),
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
       ),
       child: Column(
         children: [
            Container(
-             padding: EdgeInsets.all(8.r),
+             padding: EdgeInsets.all(8.0),
              decoration: const BoxDecoration(
                color: AppColors.white,
                shape: BoxShape.circle,
              ),
              child: const Icon(Icons.error_outline, color: AppColors.urgentRed),
            ),
-           SizedBox(height: 12.h),
+           SizedBox(height: 12.0),
            Text(
              "Your account isn't verified yet. To send work requests and get hired, please complete your verification.",
              textAlign: TextAlign.center,
              style: GoogleFonts.inter(
-               fontSize: 13.sp,
+               fontSize: 13.0,
                color: AppColors.textColor,
              ),
            ),
-           SizedBox(height: 16.h),
+           SizedBox(height: 16.0),
            SizedBox(
              width: double.infinity,
              child: ElevatedButton(
@@ -119,7 +118,7 @@ class IncomingRequestsView extends GetView<IncomingRequestsController> {
                style: ElevatedButton.styleFrom(
                  backgroundColor: AppColors.primary,
                  foregroundColor: AppColors.white,
-                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
+                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
                ),
                child: const Text("Verify now"),
              ),
@@ -129,3 +128,4 @@ class IncomingRequestsView extends GetView<IncomingRequestsController> {
     );
   }
 }
+

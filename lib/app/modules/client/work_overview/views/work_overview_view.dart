@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,7 +22,7 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
           AppStrings.workOverview.tr,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -36,30 +35,30 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
         ),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 16.w),
-            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+            margin: EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
             decoration: BoxDecoration(
               color: AppColors.timelineActive.withAlpha(20),
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16.0),
               border: Border.all(color: AppColors.timelineActive.withAlpha(50)),
             ),
             child: Center(
               child: Row(
                 children: [
                   Container(
-                    width: 6.w,
-                    height: 6.w,
+                    width: 6.0,
+                    height: 6.0,
                     decoration: const BoxDecoration(
                       color: AppColors.timelineActive,
                       shape: BoxShape.circle,
                     ),
                   ),
-                  SizedBox(width: 4.w),
+                  SizedBox(width: 4.0),
                   Text(
                     AppStrings.live.tr,
                     style: GoogleFonts.poppins(
                       color: AppColors.timelineActive,
-                      fontSize: 12.sp,
+                      fontSize: 12.0,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -73,20 +72,20 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(24.w),
+              padding: EdgeInsets.all(24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildSuccessBanner(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildArtisanSnippet(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildWorkCompleted(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildPhotosSection(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildCostBreakdown(),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16.0),
                   _buildGuaranteeBox(),
                 ],
               ),
@@ -100,22 +99,22 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
 
   Widget _buildSuccessBanner() {
     return Container(
-      padding: EdgeInsets.all(16.w),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.primary,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
       ),
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(8.w),
+            padding: EdgeInsets.all(8.0),
             decoration: BoxDecoration(
-              color: AppColors.white.withAlpha(20),
+              color: AppColors.statusCompletedText.withValues(alpha: 0.2),
               shape: BoxShape.circle,
             ),
-            child: Icon(Icons.check, color: AppColors.white, size: 24.w),
+            child: Icon(Icons.check_circle_outline, color: AppColors.statusCompletedText, size: 28.0),
           ),
-          SizedBox(width: 16.w),
+          SizedBox(width: 16.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,15 +123,15 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
                   AppStrings.serviceCompletedSuccess.tr,
                   style: GoogleFonts.poppins(
                     color: AppColors.white,
-                    fontSize: 16.sp,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
-                  'Completed at 11:54 AM · Duration: 1h 36min',
+                  'Completed at 11:54 AM Â· Duration: 1h 36min',
                   style: GoogleFonts.poppins(
                     color: AppColors.white.withAlpha(200),
-                    fontSize: 12.sp,
+                    fontSize: 12.0,
                   ),
                 ),
               ],
@@ -145,24 +144,24 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
 
   Widget _buildArtisanSnippet() {
     return Container(
-      padding: EdgeInsets.all(16.w),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Row(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(12.0),
             child: Image.asset(
               AppImages.placeholderAvatar,
-              width: 50.w,
-              height: 50.w,
+              width: 50.0,
+              height: 50.0,
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(width: 16.w),
+          SizedBox(width: 16.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,7 +170,7 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
                   'James Wilson',
                   style: GoogleFonts.poppins(
                     color: AppColors.textColor,
-                    fontSize: 14.sp,
+                    fontSize: 14.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -179,19 +178,19 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
                   'Plumbing Expert',
                   style: GoogleFonts.poppins(
                     color: AppColors.greyText,
-                    fontSize: 12.sp,
+                    fontSize: 12.0,
                   ),
                 ),
-                SizedBox(height: 4.h),
+                SizedBox(height: 4.0),
                 Row(
                   children: [
-                    Icon(Icons.star, color: AppColors.ratingStar, size: 14.w),
-                    SizedBox(width: 4.w),
+                    Icon(Icons.star, color: AppColors.ratingStar, size: 14.0),
+                    SizedBox(width: 4.0),
                     Text(
-                      '4.9 · Expert',
+                      '4.9 Â· Expert',
                       style: GoogleFonts.poppins(
                         color: AppColors.textColor,
-                        fontSize: 12.sp,
+                        fontSize: 12.0,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -200,7 +199,14 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
               ],
             ),
           ),
-          Icon(Icons.check_circle_outline, color: AppColors.statusCompletedText, size: 24.w),
+          Container(
+            padding: EdgeInsets.all(4.0),
+            decoration: BoxDecoration(
+              color: AppColors.statusCompletedText.withValues(alpha: 0.1),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(Icons.check, color: AppColors.statusCompletedText, size: 16.0),
+          ),
         ],
       ),
     );
@@ -208,10 +214,10 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
 
   Widget _buildWorkCompleted() {
     return Container(
-      padding: EdgeInsets.all(20.w),
+      padding: EdgeInsets.all(20.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
@@ -219,30 +225,30 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
         children: [
           Row(
             children: [
-              Icon(Icons.build_outlined, color: AppColors.primary, size: 20.w),
-              SizedBox(width: 8.w),
+              Icon(Icons.build_outlined, color: AppColors.primary, size: 20.0),
+              SizedBox(width: 8.0),
               Text(
                 AppStrings.workCompleted.tr,
                 style: GoogleFonts.poppins(
                   color: AppColors.textColor,
-                  fontSize: 16.sp,
+                  fontSize: 16.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           ...controller.completedTasks.map((task) => Padding(
-                padding: EdgeInsets.only(bottom: 12.h),
+                padding: EdgeInsets.only(bottom: 12.0),
                 child: Row(
                   children: [
-                    Icon(Icons.check_circle_outline, color: AppColors.statusCompletedText, size: 18.w),
-                    SizedBox(width: 12.w),
+                    Icon(Icons.check_circle_outline, color: AppColors.statusCompletedText, size: 18.0),
+                    SizedBox(width: 12.0),
                     Text(
                       task,
                       style: GoogleFonts.poppins(
                         color: AppColors.greyText,
-                        fontSize: 14.sp,
+                        fontSize: 14.0,
                       ),
                     ),
                   ],
@@ -261,24 +267,24 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
           AppStrings.photos.tr,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 16.sp,
+            fontSize: 16.0,
             fontWeight: FontWeight.w700,
           ),
         ),
-        SizedBox(height: 12.h),
+        SizedBox(height: 12.0),
         Row(
           children: [
-            PhotoThumbnailTile(child: Icon(Icons.build, color: AppColors.greyText, size: 24.w)),
-            PhotoThumbnailTile(child: Icon(Icons.water_drop, color: Colors.blue, size: 24.w)),
-            PhotoThumbnailTile(child: Icon(Icons.check_box, color: Colors.green, size: 24.w)),
+            PhotoThumbnailTile(child: Icon(Icons.build, color: AppColors.greyText, size: 24.0)),
+            PhotoThumbnailTile(child: Icon(Icons.water_drop, color: Colors.blue, size: 24.0)),
+            PhotoThumbnailTile(child: Icon(Icons.check_box, color: Colors.green, size: 24.0)),
           ],
         ),
-        SizedBox(height: 8.h),
+        SizedBox(height: 8.0),
         Text(
           '3 photos captured by artisan',
           style: GoogleFonts.poppins(
             color: AppColors.greyText,
-            fontSize: 12.sp,
+            fontSize: 12.0,
           ),
         ),
       ],
@@ -291,7 +297,7 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
       cardTitle: 'Cost Breakdown',
       items: [
         CostBreakdownItem(title: 'Labor (1.5 hrs @ \$55/hr)', amount: '\$82.50'),
-        CostBreakdownItem(title: 'Parts: Pipe fitting ×2', amount: '\$18.00'),
+        CostBreakdownItem(title: 'Parts: Pipe fitting Ã—2', amount: '\$18.00'),
         CostBreakdownItem(title: 'Parts: Pressure valve', amount: '\$24.50'),
         CostBreakdownItem(title: 'Platform fee (5%)', amount: '\$6.25'),
       ],
@@ -302,15 +308,15 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
 
   Widget _buildGuaranteeBox() {
     return Container(
-      padding: EdgeInsets.all(16.w),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.primary.withAlpha(10),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(12.0),
       ),
       child: Row(
         children: [
-          Icon(Icons.access_time, color: AppColors.primary, size: 18.w),
-          SizedBox(width: 12.w),
+          Icon(Icons.access_time, color: AppColors.primary, size: 18.0),
+          SizedBox(width: 12.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -319,7 +325,7 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
                   AppStrings.serviceGuarantee.tr,
                   style: GoogleFonts.poppins(
                     color: AppColors.primary,
-                    fontSize: 14.sp,
+                    fontSize: 14.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -327,7 +333,7 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
                   'If the issue recurs, we\'ll fix it for free',
                   style: GoogleFonts.poppins(
                     color: AppColors.greyText,
-                    fontSize: 12.sp,
+                    fontSize: 12.0,
                   ),
                 ),
               ],
@@ -340,65 +346,33 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
 
   Widget _buildBottomActions() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+      padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
       decoration: BoxDecoration(
         color: AppColors.background,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withAlpha(5),
-            blurRadius: 10,
-            offset: const Offset(0, -4),
-          ),
-        ],
       ),
       child: SafeArea(
-        child: Row(
-          children: [
-            Expanded(
-              child: OutlinedButton(
-                onPressed: controller.sign,
-                style: OutlinedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
-                  side: BorderSide(color: AppColors.textColor),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                ),
-                child: Text(
-                  AppStrings.sign.tr,
-                  style: GoogleFonts.poppins(
-                    color: AppColors.textColor,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
+        child: ElevatedButton(
+          onPressed: controller.goToPay,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primary,
+            padding: EdgeInsets.symmetric(vertical: 16.0),
+            minimumSize: const Size(double.infinity, 54),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
             ),
-            SizedBox(width: 16.w),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: controller.goToPay,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                  elevation: 0,
-                ),
-                child: Text(
-                  AppStrings.goToPay.tr,
-                  style: GoogleFonts.poppins(
-                    color: AppColors.white,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
+            elevation: 0,
+          ),
+          child: Text(
+            AppStrings.goToPay.tr,
+            style: GoogleFonts.poppins(
+              color: AppColors.white,
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
             ),
-          ],
+          ),
         ),
       ),
     );
   }
 }
+

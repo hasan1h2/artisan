@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 
 import '../../../../core/constants/static/app_colors.dart';
 class OnboardingIndicator extends StatelessWidget {
@@ -20,17 +19,18 @@ class OnboardingIndicator extends StatelessWidget {
         itemCount,
         (index) => AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          margin: EdgeInsets.symmetric(horizontal: 4.w),
-          width: 50.w, // Smooth long dash
-          height: 4.h,
+          margin: EdgeInsets.symmetric(horizontal: 4.0),
+          width: 50.0, // Smooth long dash
+          height: 4.0,
           decoration: BoxDecoration(
             color: currentIndex == index
                 ? AppColors.primary
                 : AppColors.indicatorInactive,
-            borderRadius: BorderRadius.circular(2.r),
+            borderRadius: BorderRadius.circular(2.0),
           ),
         ),
       ),
     );
   }
 }
+

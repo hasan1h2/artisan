@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/static/app_colors.dart';
@@ -21,25 +20,25 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            _buildHeader(),
+            _buildHeader(context),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   SizedBox(height: 20.h),
+                   SizedBox(height: 20.0),
                    _buildStatsRow(),
-                   SizedBox(height: 20.h),
+                   SizedBox(height: 20.0),
                    _buildIncomingRequestBanner(),
-                   SizedBox(height: 24.h),
+                   SizedBox(height: 24.0),
                    _buildScheduleHeader(),
-                   SizedBox(height: 12.h),
+                   SizedBox(height: 12.0),
                    _buildScheduleList(),
-                   SizedBox(height: 24.h),
+                   SizedBox(height: 24.0),
                    _buildWeeklySummaryHeader(),
-                   SizedBox(height: 12.h),
+                   SizedBox(height: 12.0),
                    _buildWeeklySummaryCards(),
-                   SizedBox(height: 30.h),
+                   SizedBox(height: 30.0),
                 ],
               ),
             ),
@@ -49,9 +48,9 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: ScreenUtil().statusBarHeight + 20.h, left: 20.w, right: 20.w, bottom: 30.h),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 20.0, left: 20.0, right: 20.0, bottom: 30.0),
       decoration: const BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.only(
@@ -64,11 +63,11 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
           Row(
             children: [
               CircleAvatar(
-                radius: 25.r,
+                radius: 25.0,
                 backgroundColor: Colors.white24,
                 backgroundImage: const AssetImage(AppImages.placeholderAvatar),
               ),
-              SizedBox(width: 12.w),
+              SizedBox(width: 12.0),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,14 +75,14 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                     Text(
                       "Welcome back,",
                       style: GoogleFonts.inter(
-                        fontSize: 14.sp,
+                        fontSize: 14.0,
                         color: Colors.white70,
                       ),
                     ),
                     Text(
                       "Marcus Johnson",
                       style: GoogleFonts.poppins(
-                        fontSize: 20.sp,
+                        fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
@@ -92,7 +91,7 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(10.r),
+                padding: EdgeInsets.all(10.0),
                 decoration: const BoxDecoration(
                   color: Colors.white24,
                   shape: BoxShape.circle,
@@ -100,38 +99,38 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                 child: Badge(
                   alignment: Alignment.topRight,
                   backgroundColor: AppColors.urgentRed,
-                  child: Icon(Icons.notifications_none, color: Colors.white, size: 24.sp),
+                  child: Icon(Icons.notifications_none, color: Colors.white, size: 24.0),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 30.h),
+          SizedBox(height: 30.0),
           Container(
-            padding: EdgeInsets.all(16.r),
+            padding: EdgeInsets.all(16.0),
             decoration: BoxDecoration(
               color: Colors.white10,
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16.0),
             ),
             child: Row(
               children: [
                 Row(
                    children: [
                      Container(
-                       width: 10.w,
-                       height: 10.w,
+                       width: 10.0,
+                       height: 10.0,
                        decoration: const BoxDecoration(
                          color: AppColors.onlineGreen,
                          shape: BoxShape.circle,
                        ),
                      ),
-                     SizedBox(width: 8.w),
+                     SizedBox(width: 8.0),
                      Column(
                        crossAxisAlignment: CrossAxisAlignment.start,
                        children: [
                          Text(
                            "You are Online",
                            style: GoogleFonts.poppins(
-                             fontSize: 16.sp,
+                             fontSize: 16.0,
                              fontWeight: FontWeight.bold,
                              color: Colors.white,
                            ),
@@ -139,7 +138,7 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                          Text(
                            "Receiving new requests",
                            style: GoogleFonts.inter(
-                             fontSize: 12.sp,
+                             fontSize: 12.0,
                              color: Colors.white70,
                            ),
                          ),
@@ -174,14 +173,14 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
             backgroundColor: AppColors.white,
           ),
         ),
-        SizedBox(width: 16.w),
+        SizedBox(width: 16.0),
         Expanded(
           child: WorkerStatCard(
             title: "Today's Jobs",
             value: "2",
             subtitle: "Rating: 4.9",
             subtitleColor: AppColors.normalYellow,
-            icon: Icon(Icons.star, color: AppColors.normalYellow, size: 14.sp),
+            icon: Icon(Icons.star, color: AppColors.normalYellow, size: 14.0),
             backgroundColor: AppColors.white,
           ),
         ),
@@ -193,24 +192,24 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
     return InkWell(
       onTap: controller.goToJobDetails,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         decoration: BoxDecoration(
           color: const Color(0xFFE8F5E9),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16.0),
           border: Border.all(color: AppColors.onlineGreen.withAlpha(75)),
         ),
         child: Row(
           children: [
             Container(
-              padding: EdgeInsets.all(10.r),
+              padding: EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 color: AppColors.white,
                 shape: BoxShape.circle,
                 border: Border.all(color: AppColors.onlineGreen.withAlpha(50)),
               ),
-              child: Icon(Icons.notifications_active_outlined, color: AppColors.onlineGreen, size: 24.sp),
+              child: Icon(Icons.notifications_active_outlined, color: AppColors.onlineGreen, size: 24.0),
             ),
-            SizedBox(width: 12.w),
+            SizedBox(width: 12.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -218,22 +217,22 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                   Text(
                     "New Request Incoming!",
                     style: GoogleFonts.poppins(
-                      fontSize: 15.sp,
+                      fontSize: 15.0,
                       fontWeight: FontWeight.bold,
                       color: AppColors.textColor,
                     ),
                   ),
                   Text(
-                    "Pipe Leak Repair • 1.2 km away",
+                    "Pipe Leak Repair â€¢ 1.2 km away",
                     style: GoogleFonts.inter(
-                      fontSize: 13.sp,
+                      fontSize: 13.0,
                       color: AppColors.greyText,
                     ),
                   ),
                 ],
               ),
             ),
-            Icon(Icons.arrow_forward_ios, color: AppColors.greyText, size: 16.sp),
+            Icon(Icons.arrow_forward_ios, color: AppColors.greyText, size: 16.0),
           ],
         ),
       ),
@@ -247,7 +246,7 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
         Text(
           "Today's Schedule",
           style: GoogleFonts.poppins(
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
             color: AppColors.textColor,
           ),
@@ -255,7 +254,7 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
         Text(
           "See all",
           style: GoogleFonts.inter(
-            fontSize: 14.sp,
+            fontSize: 14.0,
             fontWeight: FontWeight.w600,
             color: AppColors.primary,
           ),
@@ -288,7 +287,7 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
         Text(
           "This Week",
           style: GoogleFonts.poppins(
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
             color: AppColors.textColor,
           ),
@@ -296,7 +295,7 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
         Text(
           "Details",
           style: GoogleFonts.inter(
-            fontSize: 14.sp,
+            fontSize: 14.0,
             fontWeight: FontWeight.w600,
             color: AppColors.primary,
           ),
@@ -307,18 +306,18 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
 
   Widget _buildWeeklySummaryCards() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20.h),
+      padding: EdgeInsets.symmetric(vertical: 20.0),
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildSummaryItem("💰", "\$425", "Earnings"),
-          _buildSummaryItem("✅", "8", "Jobs Done"),
-          _buildSummaryItem("⭐", "4.9★", "Avg Rating"),
+          _buildSummaryItem("ðŸ’°", "\$425", "Earnings"),
+          _buildSummaryItem("âœ…", "8", "Jobs Done"),
+          _buildSummaryItem("â­", "4.9â˜…", "Avg Rating"),
         ],
       ),
     );
@@ -327,12 +326,12 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
   Widget _buildSummaryItem(String icon, String value, String label) {
     return Column(
       children: [
-        Text(icon, style: TextStyle(fontSize: 24.sp)),
-        SizedBox(height: 8.h),
+        Text(icon, style: TextStyle(fontSize: 24.0)),
+        SizedBox(height: 8.0),
         Text(
           value,
           style: GoogleFonts.poppins(
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
             color: AppColors.textColor,
           ),
@@ -340,7 +339,7 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
         Text(
           label,
           style: GoogleFonts.inter(
-            fontSize: 12.sp,
+            fontSize: 12.0,
             color: AppColors.greyText,
           ),
         ),
@@ -348,3 +347,4 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
     );
   }
 }
+

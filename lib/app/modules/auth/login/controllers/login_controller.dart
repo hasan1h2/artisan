@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+﻿import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
 
@@ -44,3 +44,4 @@ class LoginController extends GetxController {
     Get.snackbar('Social Login', 'Clicked on $provider login');
   }
 }
+

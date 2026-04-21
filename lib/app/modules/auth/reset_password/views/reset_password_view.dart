@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,12 +24,12 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 20.h),
+          padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildHeader(),
-              SizedBox(height: 40.h),
+              SizedBox(height: 40.0),
               _buildResetForm(),
             ],
           ),
@@ -47,16 +46,16 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
           AppStrings.createNewPassword.tr,
           style: GoogleFonts.poppins(
             color: AppColors.primary,
-            fontSize: 28.sp,
+            fontSize: 28.0,
             fontWeight: FontWeight.w700,
           ),
         ),
-        SizedBox(height: 8.h),
+        SizedBox(height: 8.0),
         Text(
           AppStrings.createNewPasswordSub.tr,
           style: GoogleFonts.poppins(
             color: AppColors.greyText,
-            fontSize: 14.sp,
+            fontSize: 14.0,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -71,14 +70,14 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
         children: [
           Obx(() => CustomTextField(
             labelText: AppStrings.newPassword.tr,
-            hintText: '••••••••',
+            hintText: 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢',
             controller: controller.newPasswordController,
             obscureText: controller.obscureNewPassword.value,
             suffixIcon: IconButton(
               icon: SvgPicture.asset(
                 controller.obscureNewPassword.value ? AppImages.eyeHideIcon : AppImages.eyeShowIcon,
-                width: 24.w,
-                height: 24.w,
+                width: 24.0,
+                height: 24.0,
                 colorFilter: const ColorFilter.mode(AppColors.greyText, BlendMode.srcIn),
               ),
               onPressed: controller.toggleNewPasswordVisibility,
@@ -91,17 +90,17 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
               return null;
             },
           )),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.0),
           Obx(() => CustomTextField(
             labelText: AppStrings.confirmPassword.tr,
-            hintText: '••••••••',
+            hintText: 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢',
             controller: controller.confirmPasswordController,
             obscureText: controller.obscureConfirmPassword.value,
             suffixIcon: IconButton(
               icon: SvgPicture.asset(
                 controller.obscureConfirmPassword.value ? AppImages.eyeHideIcon : AppImages.eyeShowIcon,
-                width: 24.w,
-                height: 24.w,
+                width: 24.0,
+                height: 24.0,
                 colorFilter: const ColorFilter.mode(AppColors.greyText, BlendMode.srcIn),
               ),
               onPressed: controller.toggleConfirmPasswordVisibility,
@@ -116,7 +115,7 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
               return null;
             },
           )),
-          SizedBox(height: 32.h),
+          SizedBox(height: 32.0),
           CustomButton(
             text: AppStrings.changePassword.tr,
             onPressed: controller.submit,
@@ -126,3 +125,4 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
     );
   }
 }
+

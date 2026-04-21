@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
 
 class WorkerJobDetailsController extends GetxController {
@@ -31,3 +31,4 @@ class WorkerJobDetailsController extends GetxController {
     // Logic to report
   }
 }
+

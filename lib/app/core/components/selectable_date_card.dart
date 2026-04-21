@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 
@@ -24,12 +23,12 @@ class SelectableDateCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 60.w,
-        margin: EdgeInsets.only(right: 12.w),
-        padding: EdgeInsets.symmetric(vertical: 12.h),
+        width: 60.0,
+        margin: EdgeInsets.only(right: 12.0),
+        padding: EdgeInsets.symmetric(vertical: 12.0),
         decoration: BoxDecoration(
           color: isSelected ? AppColors.primary : AppColors.background,
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16.0),
           border: isSelected ? null : Border.all(color: AppColors.border),
           boxShadow: isSelected
               ? [
@@ -48,24 +47,24 @@ class SelectableDateCard extends StatelessWidget {
               day,
               style: GoogleFonts.poppins(
                 color: isSelected ? AppColors.white.withAlpha(200) : AppColors.greyText,
-                fontSize: 12.sp,
+                fontSize: 12.0,
               ),
             ),
-            SizedBox(height: 4.h),
+            SizedBox(height: 4.0),
             Text(
               date,
               style: GoogleFonts.poppins(
                 color: isSelected ? AppColors.white : AppColors.textColor,
-                fontSize: 20.sp,
+                fontSize: 20.0,
                 fontWeight: FontWeight.w700,
               ),
             ),
-            SizedBox(height: 4.h),
+            SizedBox(height: 4.0),
             Text(
               month,
               style: GoogleFonts.poppins(
                 color: isSelected ? AppColors.white.withAlpha(200) : AppColors.greyText,
-                fontSize: 12.sp,
+                fontSize: 12.0,
               ),
             ),
           ],
@@ -74,3 +73,4 @@ class SelectableDateCard extends StatelessWidget {
     );
   }
 }
+

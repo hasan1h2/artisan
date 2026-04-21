@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../core/components/custom_button.dart';
 import '../../../core/constants/static/app_colors.dart';
@@ -64,22 +63,26 @@ class OnboardingView extends StatelessWidget {
               ),
             ),
             
-            SizedBox(height: 40.h),
+            SizedBox(height: 40.0),
             
             // Bottom Action Button
             Obx(() {
               final isLastPage = controller.currentIndex.value == pagesData.length - 1;
-              return CustomButton(
-                text: isLastPage ? AppStrings.getStarted.tr : AppStrings.next.tr,
-                trailingIconPath: AppImages.arrowRight, // Only an icon path if SVG exists, will show nothing if missing
-                onPressed: controller.onNextTapped,
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: CustomButton(
+                  text: isLastPage ? AppStrings.getStarted.tr : AppStrings.next.tr,
+                  trailingIconPath: AppImages.arrowRight,
+                  onPressed: controller.onNextTapped,
+                ),
               );
             }),
             
-            SizedBox(height: 30.h),
+            SizedBox(height: 30.0),
           ],
         ),
       ),
     );
   }
 }
+

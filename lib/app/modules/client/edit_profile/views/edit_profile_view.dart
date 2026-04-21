@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,7 +20,7 @@ class EditProfileView extends GetView<EditProfileController> {
           AppStrings.editProfile.tr,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -37,12 +36,12 @@ class EditProfileView extends GetView<EditProfileController> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(24.w),
+              padding: EdgeInsets.all(24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(child: _buildAvatarSection()),
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 32.0),
                   _buildForm(),
                 ],
               ),
@@ -50,20 +49,20 @@ class EditProfileView extends GetView<EditProfileController> {
           ),
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
               child: ElevatedButton(
                 onPressed: controller.saveChanges,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
-                  minimumSize: Size(double.infinity, 56.h),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+                  minimumSize: Size(double.infinity, 56.0),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
                   elevation: 0,
                 ),
                 child: Text(
                   AppStrings.saveChanges.tr,
                   style: GoogleFonts.poppins(
                     color: AppColors.white,
-                    fontSize: 16.sp,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -79,16 +78,16 @@ class EditProfileView extends GetView<EditProfileController> {
     return Stack(
       children: [
         Container(
-          width: 100.w,
-          height: 100.w,
+          width: 100.0,
+          height: 100.0,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(color: AppColors.primary, width: 2),
           ),
           child: Padding(
-            padding: EdgeInsets.all(4.w),
+            padding: EdgeInsets.all(4.0),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(50.r),
+              borderRadius: BorderRadius.circular(50.0),
               child: Image.asset(
                 AppImages.placeholderAvatar,
                 fit: BoxFit.cover,
@@ -102,7 +101,7 @@ class EditProfileView extends GetView<EditProfileController> {
           child: GestureDetector(
             onTap: controller.pickImage,
             child: Container(
-              padding: EdgeInsets.all(8.w),
+              padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: AppColors.white,
                 shape: BoxShape.circle,
@@ -113,7 +112,7 @@ class EditProfileView extends GetView<EditProfileController> {
                   ),
                 ],
               ),
-              child: Icon(Icons.edit_outlined, color: AppColors.primary, size: 20.w),
+              child: Icon(Icons.edit_outlined, color: AppColors.primary, size: 20.0),
             ),
           ),
         ),
@@ -126,9 +125,9 @@ class EditProfileView extends GetView<EditProfileController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildInputField(AppStrings.fullName.tr, controller.fullNameController),
-        SizedBox(height: 24.h),
+        SizedBox(height: 24.0),
         _buildInputField(AppStrings.email.tr, controller.emailController),
-        SizedBox(height: 24.h),
+        SizedBox(height: 24.0),
         _buildInputField(AppStrings.number.tr, controller.phoneController),
       ],
     );
@@ -142,26 +141,27 @@ class EditProfileView extends GetView<EditProfileController> {
           label,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 16.sp,
+            fontSize: 16.0,
             fontWeight: FontWeight.w600,
           ),
         ),
-        SizedBox(height: 12.h),
+        SizedBox(height: 12.0),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
           decoration: BoxDecoration(
             color: AppColors.primary.withAlpha(10),
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(12.0),
           ),
           child: TextField(
             controller: ctr,
             decoration: const InputDecoration(
               border: InputBorder.none,
             ),
-            style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.sp),
+            style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.0),
           ),
         ),
       ],
     );
   }
 }
+

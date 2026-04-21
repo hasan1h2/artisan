@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 class WorkerAccountController extends GetxController {
   final skills = ['Plumbing', 'Pipe Fitting', 'Drain Cleaning', 'Water Heater', 'Faucet Repair', 'Toilet Repair'].obs;
@@ -8,3 +8,4 @@ class WorkerAccountController extends GetxController {
     // Logic to sign out
   }
 }
+

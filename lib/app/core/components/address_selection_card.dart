@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 
@@ -24,11 +23,11 @@ class AddressSelectionCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.only(bottom: 16.h),
-        padding: EdgeInsets.all(16.w),
+        margin: EdgeInsets.only(bottom: 16.0),
+        padding: EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           color: isSelected ? AppColors.primary.withAlpha(10) : AppColors.background,
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(16.0),
           border: Border.all(color: isSelected ? AppColors.primary : AppColors.border),
           boxShadow: isSelected
               ? [
@@ -44,8 +43,8 @@ class AddressSelectionCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: 40.w,
-              height: 40.w,
+              width: 40.0,
+              height: 40.0,
               decoration: BoxDecoration(
                 color: isSelected ? AppColors.primary : AppColors.background,
                 shape: BoxShape.circle,
@@ -54,10 +53,10 @@ class AddressSelectionCard extends StatelessWidget {
               child: Icon(
                 Icons.location_on,
                 color: isSelected ? AppColors.white : AppColors.greyText,
-                size: 20.w,
+                size: 20.0,
               ),
             ),
-            SizedBox(width: 16.w),
+            SizedBox(width: 16.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,23 +67,23 @@ class AddressSelectionCard extends StatelessWidget {
                         title,
                         style: GoogleFonts.poppins(
                           color: AppColors.textColor,
-                          fontSize: 16.sp,
+                          fontSize: 16.0,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       if (isDefault) ...[
-                        SizedBox(width: 8.w),
+                        SizedBox(width: 8.0),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+                          padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
                           decoration: BoxDecoration(
                             color: AppColors.statusCompletedBg,
-                            borderRadius: BorderRadius.circular(8.r),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Text(
                             'Default',
                             style: GoogleFonts.poppins(
                               color: AppColors.statusCompletedText,
-                              fontSize: 10.sp,
+                              fontSize: 10.0,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -92,12 +91,12 @@ class AddressSelectionCard extends StatelessWidget {
                       ]
                     ],
                   ),
-                  SizedBox(height: 8.h),
+                  SizedBox(height: 8.0),
                   Text(
                     address,
                     style: GoogleFonts.poppins(
                       color: AppColors.greyText,
-                      fontSize: 14.sp,
+                      fontSize: 14.0,
                       height: 1.4,
                     ),
                   ),
@@ -105,10 +104,11 @@ class AddressSelectionCard extends StatelessWidget {
               ),
             ),
             if (isSelected)
-              Icon(Icons.check_circle_outline, color: AppColors.primary, size: 24.w)
+              Icon(Icons.check_circle_outline, color: AppColors.primary, size: 24.0)
           ],
         ),
       ),
     );
   }
 }
+

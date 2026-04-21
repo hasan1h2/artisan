@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
 
@@ -24,10 +23,10 @@ class WorkerStatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
@@ -37,33 +36,33 @@ class WorkerStatCard extends StatelessWidget {
             children: [
               if (icon != null) ...[
                 icon!,
-                SizedBox(width: 8.w),
+                SizedBox(width: 8.0),
               ],
               Text(
                 title,
                 style: GoogleFonts.inter(
-                  fontSize: 12.sp,
+                  fontSize: 12.0,
                   color: AppColors.greyText,
                   fontWeight: FontWeight.w500,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 8.0),
           Text(
             value,
             style: GoogleFonts.poppins(
-              fontSize: 24.sp,
+              fontSize: 24.0,
               fontWeight: FontWeight.bold,
               color: AppColors.textColor,
             ),
           ),
           if (subtitle != null) ...[
-            SizedBox(height: 4.h),
+            SizedBox(height: 4.0),
             Text(
               subtitle!,
               style: GoogleFonts.inter(
-                fontSize: 12.sp,
+                fontSize: 12.0,
                 fontWeight: FontWeight.w500,
                 color: subtitleColor ?? AppColors.onlineGreen,
               ),
@@ -74,3 +73,4 @@ class WorkerStatCard extends StatelessWidget {
     );
   }
 }
+

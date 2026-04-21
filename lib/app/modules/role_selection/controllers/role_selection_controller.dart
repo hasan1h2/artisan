@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 import '../../../core/routes/app_routes.dart';
 import '../../../core/global_controllers/role_controller.dart';
@@ -20,3 +20,4 @@ class RoleSelectionController extends GetxController {
     Get.offAllNamed(Routes.LOGIN);
   }
 }
+

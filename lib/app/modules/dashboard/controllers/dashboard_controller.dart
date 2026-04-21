@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+﻿import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
   final currentIndex = 0.obs;
@@ -7,3 +7,4 @@ class DashboardController extends GetxController {
     currentIndex.value = index;
   }
 }
+

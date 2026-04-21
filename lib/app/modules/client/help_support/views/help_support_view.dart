@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +17,7 @@ class HelpSupportView extends GetView<HelpSupportController> {
           'Help & Support',
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -29,24 +28,24 @@ class HelpSupportView extends GetView<HelpSupportController> {
           child: GestureDetector(
             onTap: () => Get.back(),
             child: Container(
-              margin: EdgeInsets.only(left: 16.w),
-              padding: EdgeInsets.all(8.w),
+              margin: EdgeInsets.only(left: 16.0),
+              padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: AppColors.socialButtonBg,
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.arrow_back, color: AppColors.textColor, size: 16.w),
+              child: Icon(Icons.arrow_back, color: AppColors.textColor, size: 16.0),
             ),
           ),
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(24.w),
+          padding: EdgeInsets.all(24.0),
           child: Container(
             decoration: BoxDecoration(
               color: AppColors.background,
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(16.0),
               border: Border.all(color: AppColors.border),
             ),
             child: Column(
@@ -71,11 +70,11 @@ class HelpSupportView extends GetView<HelpSupportController> {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.vertical(
-        top: isLast ? Radius.zero : Radius.circular(16.r),
-        bottom: isLast ? Radius.circular(16.r) : Radius.zero,
+        top: isLast ? Radius.zero : Radius.circular(16.0),
+        bottom: isLast ? Radius.circular(16.0) : Radius.zero,
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -83,11 +82,11 @@ class HelpSupportView extends GetView<HelpSupportController> {
               title,
               style: GoogleFonts.poppins(
                 color: AppColors.textColor,
-                fontSize: 16.sp,
+                fontSize: 16.0,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            Icon(Icons.chevron_right, color: AppColors.greyText, size: 20.w),
+            Icon(Icons.chevron_right, color: AppColors.greyText, size: 20.0),
           ],
         ),
       ),
@@ -96,8 +95,9 @@ class HelpSupportView extends GetView<HelpSupportController> {
 
   Widget _buildDivider() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: Divider(color: AppColors.border, height: 1),
     );
   }
 }
+

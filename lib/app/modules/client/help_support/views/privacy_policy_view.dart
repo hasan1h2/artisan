@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +17,7 @@ class PrivacyPolicyView extends GetView<HelpSupportController> {
           'Privacy Policy',
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 18.sp,
+            fontSize: 18.0,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -29,13 +28,13 @@ class PrivacyPolicyView extends GetView<HelpSupportController> {
           child: GestureDetector(
             onTap: () => Get.back(),
             child: Container(
-              margin: EdgeInsets.only(left: 16.w),
-              padding: EdgeInsets.all(8.w),
+              margin: EdgeInsets.only(left: 16.0),
+              padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: AppColors.socialButtonBg,
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.arrow_back, color: AppColors.textColor, size: 16.w),
+              child: Icon(Icons.arrow_back, color: AppColors.textColor, size: 16.0),
             ),
           ),
         ),
@@ -44,12 +43,12 @@ class PrivacyPolicyView extends GetView<HelpSupportController> {
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
               child: Column(
                 children: [
                   _buildPolicyItem(
                     '1. Information We Collect',
-                    '• Account Info — Name, email address, and password.\n• Assessment Responses — Your EQ competency ratings and reassessment results.\n• Journal & Reflections — Written responses submitted during daily practice.\n• Usage & Progress Data — Practice streaks, completed exercises, and app activity.\n• Device Info — Device type, OS version, and app version for technical support.',
+                    'â€¢ Account Info â€” Name, email address, and password.\nâ€¢ Assessment Responses â€” Your EQ competency ratings and reassessment results.\nâ€¢ Journal & Reflections â€” Written responses submitted during daily practice.\nâ€¢ Usage & Progress Data â€” Practice streaks, completed exercises, and app activity.\nâ€¢ Device Info â€” Device type, OS version, and app version for technical support.',
                   ),
                   _buildDivider(),
                   _buildPolicyItem(
@@ -59,17 +58,17 @@ class PrivacyPolicyView extends GetView<HelpSupportController> {
                   _buildDivider(),
                   _buildPolicyItem(
                     '3. How We Use Your Information',
-                    '• We do not sell your personal data to any third party.\n• Trusted service providers (hosting, analytics, notifications) access data only as needed to operate the app.\n• If you access EQi30 through a coaching program, the program administrator may see aggregated progress data — never your private journal entries.\n• Data may be disclosed if required by law or to protect user safety.',
+                    'â€¢ We do not sell your personal data to any third party.\nâ€¢ Trusted service providers (hosting, analytics, notifications) access data only as needed to operate the app.\nâ€¢ If you access EQi30 through a coaching program, the program administrator may see aggregated progress data â€” never your private journal entries.\nâ€¢ Data may be disclosed if required by law or to protect user safety.',
                   ),
                   _buildDivider(),
                   _buildPolicyItem(
                     '4. Data Storage and Security',
-                    '• Your data is stored on secure, encrypted cloud servers.\n• All data in transit is protected using HTTPS/TLS encryption.\n• If you delete your account, all personal data is permanently removed within 30 days.',
+                    'â€¢ Your data is stored on secure, encrypted cloud servers.\nâ€¢ All data in transit is protected using HTTPS/TLS encryption.\nâ€¢ If you delete your account, all personal data is permanently removed within 30 days.',
                   ),
                   _buildDivider(),
                   _buildPolicyItem(
                     '5. Your Rights',
-                    '• Access — Request a copy of your data anytime.\n• Correction — Update your profile directly from app settings.\n• Deletion — Delete your account via Profile -> Settings -> Delete Account.\n• Opt-Out — Turn off notifications anytime from Profile -> Notification Settings.',
+                    'â€¢ Access â€” Request a copy of your data anytime.\nâ€¢ Correction â€” Update your profile directly from app settings.\nâ€¢ Deletion â€” Delete your account via Profile -> Settings -> Delete Account.\nâ€¢ Opt-Out â€” Turn off notifications anytime from Profile -> Notification Settings.',
                   ),
                   _buildDivider(),
                   _buildPolicyItem(
@@ -84,9 +83,9 @@ class PrivacyPolicyView extends GetView<HelpSupportController> {
                   _buildDivider(),
                   _buildPolicyItem(
                     '8. Contact Us',
-                    'For any privacy-related questions or requests:\n📧 privacy@eqi30.com   🌐 www.eqi30.com\nWe respond to all inquiries within 5 business days.',
+                    'For any privacy-related questions or requests:\nðŸ“§ privacy@eqi30.com   ðŸŒ www.eqi30.com\nWe respond to all inquiries within 5 business days.',
                   ),
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 32.0),
                 ],
               ),
             ),
@@ -108,11 +107,11 @@ class PrivacyPolicyView extends GetView<HelpSupportController> {
           title,
           style: GoogleFonts.poppins(
             color: AppColors.textColor,
-            fontSize: 16.sp,
+            fontSize: 16.0,
             fontWeight: FontWeight.w600,
           ),
         ),
-        childrenPadding: EdgeInsets.only(bottom: 16.h),
+        childrenPadding: EdgeInsets.only(bottom: 16.0),
         children: [
           Align(
             alignment: Alignment.centerLeft,
@@ -120,7 +119,7 @@ class PrivacyPolicyView extends GetView<HelpSupportController> {
               content,
               style: GoogleFonts.poppins(
                 color: AppColors.greyText,
-                fontSize: 14.sp,
+                fontSize: 14.0,
                 height: 1.5,
               ),
             ),
@@ -134,3 +133,4 @@ class PrivacyPolicyView extends GetView<HelpSupportController> {
     return Divider(color: AppColors.border, height: 1);
   }
 }
+

@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+﻿import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
 
@@ -18,3 +18,4 @@ class ForgotPasswordController extends GetxController {
     }
   }
 }
+
