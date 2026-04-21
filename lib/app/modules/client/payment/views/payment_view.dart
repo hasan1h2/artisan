@@ -89,24 +89,27 @@ class PaymentView extends GetView<PaymentController> {
           SafeArea(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-              child: ElevatedButton(
-                onPressed: controller.processPayment,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  elevation: 0,
-                ),
-                  child: Text(
-                    'Pay Now >',
-                    style: GoogleFonts.poppins(
-                      color: AppColors.white,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w600,
+              child: Container(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: controller.processPayment,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary,
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
                     ),
+                    elevation: 0,
                   ),
+                    child: Text(
+                      'Pay Now >',
+                      style: GoogleFonts.poppins(
+                        color: AppColors.white,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                ),
               ),
             ),
           ),

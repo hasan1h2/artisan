@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../core/components/custom_dialog.dart';
 import '../../../../core/constants/static/app_colors.dart';
 import '../../../../core/constants/static/app_strings.dart';
 import '../../../../core/constants/static/app_images.dart';
@@ -336,7 +337,7 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
                     ),
                   ),
                 ),
-                avatarPath: AppImages.placeholderAvatar,
+                avatarPath: AppImages.homeSarahWilliams,
                 name: 'Marcus Johnson',
                 details: 'Plumber · 1.2 km | Rating ⭐ 4.9',
                 ratingValue: '', // Handled inline above
@@ -368,7 +369,22 @@ class FindingArtisanView extends GetView<FindingArtisanController> {
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
-                        onPressed: () => Get.back(),
+                        onPressed:() {
+                          showDialog(
+                            context: context,
+                            builder: (context) => CustomDialog(
+                              title: "Cancel this order?",
+                              subtitle: "You can't undo this later",
+                              primaryButtonText: "Confirm",
+                              secondaryButtonText: "Cancel",
+                              onPrimaryPressed: () {
+                                print("Order Cancelled");
+                                Navigator.pop(context);
+                              },
+                              onSecondaryPressed: () => Navigator.pop(context),
+                            ),
+                          );
+                        },
                         style: OutlinedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
                           side: BorderSide(color: AppColors.greyText.withAlpha(50)),

@@ -113,26 +113,20 @@ class HomeView extends GetView<HomeController> {
             ),
           SizedBox(height: 24.0),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
             decoration: BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.circular(12.0),
             ),
-            child: Row(
-              children: [
-                Icon(Icons.search, color: AppColors.greyText, size: 20.0),
-                SizedBox(width: 8.0),
-                Expanded(
-                  child: Text(
-                    AppStrings.searchService.tr,
-                    style: GoogleFonts.poppins(
-                      color: AppColors.greyText,
-                      fontSize: 14.0,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: AppStrings.searchService.tr,
+                hintStyle: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.0),
+                icon: const Icon(Icons.search, color: AppColors.greyText),
+                border: InputBorder.none,
+              ),
+            )
+
           ),
           SizedBox(height: 24.0),
           ClipRRect(
@@ -143,25 +137,7 @@ class HomeView extends GetView<HomeController> {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(height: 24.0),
-          Text(
-            AppStrings.letLocalExperts.tr,
-            style: GoogleFonts.poppins(
-              color: AppColors.white,
-              fontSize: 28.0,
-              fontWeight: FontWeight.w700,
-              height: 1.2,
-            ),
-          ),
-          Text(
-            AppStrings.you.tr,
-            style: GoogleFonts.poppins(
-              color: AppColors.statusCompletedText,
-              fontSize: 28.0,
-              fontWeight: FontWeight.w700,
-              height: 1.2,
-            ),
-          ),
+
         ],
       ),
     );
@@ -316,7 +292,7 @@ class HomeView extends GetView<HomeController> {
                 reviews: service['reviews'],
                 priceRange: service['priceRange'],
                 onTap: () {
-                  Get.toNamed(Routes.SERVICE_DETAILS);
+                  Get.toNamed(Routes.BOOKING, arguments: service);
                 },
               );
             },
@@ -368,7 +344,9 @@ class HomeView extends GetView<HomeController> {
               reviews: artisan['reviews'],
               pricePerHour: artisan['pricePerHour'],
               distanceOrTime: artisan['distanceOrTime'],
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(Routes.SERVICE_DETAILS, arguments: artisan);
+              },
             );
           },
         )),

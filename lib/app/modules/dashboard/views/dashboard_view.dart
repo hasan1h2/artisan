@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constants/static/app_colors.dart';
@@ -25,17 +25,17 @@ class DashboardView extends GetView<DashboardController> {
     final roleController = Get.find<RoleController>();
 
     final List<NavItemData> clientItems = [
-      NavItemData(label: 'Home', svgPath: AppImages.navHome),
-      NavItemData(label: 'Services', svgPath: AppImages.navServices),
-      NavItemData(label: 'Activity', svgPath: AppImages.navActivity),
-      NavItemData(label: 'Profile', svgPath: AppImages.navProfile),
+      NavItemData(label: 'Home', icon: AppImages.navHome),
+      NavItemData(label: 'Services', icon: AppImages.navServices),
+      NavItemData(label: 'Appointments', icon: AppImages.navActivity),
+      NavItemData(label: 'Account', icon: AppImages.navProfile),
     ];
 
     final List<NavItemData> workerItems = [
-      NavItemData(label: 'Dashboard', svgPath: AppImages.navHome),
-      NavItemData(label: 'Requests', svgPath: AppImages.navRequests),
-      NavItemData(label: 'Earnings', svgPath: AppImages.navEarnings),
-      NavItemData(label: 'Account', svgPath: AppImages.navAccount),
+      NavItemData(label: 'Dashboard', icon: Icons.grid_view_rounded),
+      NavItemData(label: 'Notifications', icon: Icons.notifications_none_rounded),
+      NavItemData(label: 'Earnings', icon: Icons.attach_money_rounded),
+      NavItemData(label: 'Account', icon: Icons.person_outline_rounded),
     ];
 
     return Obx(() {

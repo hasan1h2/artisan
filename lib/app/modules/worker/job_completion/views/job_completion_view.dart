@@ -1,8 +1,10 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:signature/signature.dart';
+
 import '../../../../core/constants/static/app_colors.dart';
+import '../../../../core/constants/static/app_strings.dart';
 import '../controllers/job_completion_controller.dart';
 
 class JobCompletionView extends GetView<JobCompletionController> {
@@ -13,41 +15,114 @@ class JobCompletionView extends GetView<JobCompletionController> {
     Get.put(JobCompletionController());
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FB),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: AppColors.primary,
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.white),
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 20),
           onPressed: () => Get.back(),
         ),
-        title: Text(
-          "Job Completion",
-          style: GoogleFonts.poppins(
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            color: AppColors.white,
-          ),
+        title: Column(
+          children: [
+            Text(
+              "Job Completion",
+              style: GoogleFonts.poppins(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            Text(
+              "Get client signature to complete",
+              style: GoogleFonts.poppins(
+                fontSize: 12.0,
+                color: Colors.white.withOpacity(0.7),
+              ),
+            ),
+          ],
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildJobSummaryHeader(),
+            _buildJobSummaryBanner(),
             Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   _buildWorkCompletedSection(),
-                   SizedBox(height: 24.0),
-                   _buildSignatureSection(),
-                   SizedBox(height: 40.0),
-                   _buildConfirmButton(),
-                   SizedBox(height: 30.0),
+                  _buildWorkCompletedSection(),
+                  const SizedBox(height: 32.0),
+                  Text(
+                    "Client Signature",
+                    style: GoogleFonts.poppins(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.textColor,
+                    ),
+                  ),
+                  const SizedBox(height: 16.0),
+                  _buildSignaturePad(),
+                  const SizedBox(height: 48.0),
                 ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: _buildBottomAction(),
+    );
+  }
+
+  Widget _buildJobSummaryBanner() {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(24, 16, 24, 32),
+      decoration: const BoxDecoration(
+        color: AppColors.primary,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(32),
+          bottomRight: Radius.circular(32),
+        ),
+      ),
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  controller.jobTitle.value,
+                  style: GoogleFonts.poppins(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  "${controller.clientName.value} Â· ${controller.jobDate.value}",
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    color: Colors.white.withOpacity(0.7),
+                  ),
+                ),
+              ],
+            ),
+            Text(
+              "\$${controller.jobPrice.value.toStringAsFixed(2)}",
+              style: GoogleFonts.poppins(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xFF4CAF50),
               ),
             ),
           ],
@@ -56,95 +131,47 @@ class JobCompletionView extends GetView<JobCompletionController> {
     );
   }
 
-  Widget _buildJobSummaryHeader() {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
-      decoration: const BoxDecoration(
-        color: AppColors.primary,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(24),
-          bottomRight: Radius.circular(24),
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Get client signature to complete",
-            style: GoogleFonts.inter(fontSize: 14.0, color: AppColors.white.withAlpha(180)),
-          ),
-          SizedBox(height: 16.0),
-          Container(
-            padding: EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: AppColors.white.withAlpha(30),
-              borderRadius: BorderRadius.circular(16.0),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Pipe Leak Repair",
-                      style: GoogleFonts.poppins(fontSize: 18.0, fontWeight: FontWeight.bold, color: AppColors.white),
-                    ),
-                    Text(
-                      "Jennifer Martinez â€¢ Today",
-                      style: GoogleFonts.inter(fontSize: 14.0, color: AppColors.white.withAlpha(180)),
-                    ),
-                  ],
-                ),
-                Text(
-                  "\$75.00",
-                  style: GoogleFonts.poppins(fontSize: 24.0, fontWeight: FontWeight.bold, color: const Color(0xFF4CAF50)),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildWorkCompletedSection() {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(20.0),
-        border: Border.all(color: AppColors.border),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: const Color(0xFFE5E7EB)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "Work Completed",
-            style: GoogleFonts.poppins(fontSize: 16.0, fontWeight: FontWeight.bold),
+            style: GoogleFonts.poppins(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: AppColors.textColor,
+            ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 20),
           Obx(() => Column(
             children: List.generate(controller.checklist.length, (index) {
               final item = controller.checklist[index];
               return Padding(
-                padding: EdgeInsets.only(bottom: 12.0),
+                padding: const EdgeInsets.only(bottom: 16.0),
                 child: Row(
                   children: [
                     Icon(
-                      item['checked'] as bool ? Icons.check_circle : Icons.radio_button_unchecked,
-                      color: item['checked'] as bool ? AppColors.onlineGreen : AppColors.greyText,
-                      size: 20.0,
+                      Icons.check_circle_outline_rounded,
+                      color: item['checked'] ? const Color(0xFF4CAF50) : Colors.grey[300],
+                      size: 24,
                     ),
-                    SizedBox(width: 12.0),
+                    const SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        item['title'] as String,
-                        style: GoogleFonts.inter(
-                          fontSize: 14.0,
-                          color: AppColors.textColor.withAlpha(200),
+                        item['title'],
+                        style: GoogleFonts.poppins(
+                          fontSize: 15,
+                          color: AppColors.textColor.withOpacity(0.8),
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
@@ -158,71 +185,99 @@ class JobCompletionView extends GetView<JobCompletionController> {
     );
   }
 
-  Widget _buildSignatureSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Client Signature",
-          style: GoogleFonts.poppins(fontSize: 16.0, fontWeight: FontWeight.bold),
-        ),
-        SizedBox(height: 12.0),
-        Container(
-          height: 200.0,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(20.0),
-            border: Border.all(color: AppColors.border, style: BorderStyle.solid),
+  Widget _buildSignaturePad() {
+    return Container(
+      height: 220,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: const Color(0xFFF9FAFB),
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: const Color(0xFFE5E7EB), style: BorderStyle.solid), // Fallback for dotted
+      ),
+      child: Stack(
+        children: [
+          Signature(
+            controller: controller.signatureController,
+            backgroundColor: Colors.transparent,
           ),
-          child: Column(
-            children: [
-              Expanded(
-                child: Signature(
-                  controller: controller.signatureController,
-                  backgroundColor: Colors.transparent,
-                ),
+          Center(
+            child: PointerInterceptor(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.edit_note_rounded, color: Colors.grey, size: 40),
+                  const SizedBox(height: 8),
+                  Text(
+                    "Client signs here",
+                    style: GoogleFonts.poppins(
+                      color: Colors.grey[400],
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
               ),
-              const Divider(height: 1),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0),
-                child: Text(
-                  "Client signs here",
-                  style: GoogleFonts.inter(fontSize: 12.0, color: AppColors.greyText),
-                ),
+            ),
+          ),
+          Positioned(
+            bottom: 12,
+            right: 12,
+            child: TextButton(
+              onPressed: () => controller.signatureController.clear(),
+              child: Text(
+                "Clear",
+                style: GoogleFonts.poppins(color: Colors.redAccent, fontSize: 13),
               ),
-            ],
+            ),
           ),
-        ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: TextButton(
-            onPressed: () => controller.signatureController.clear(),
-            child: Text("Clear Signature", style: TextStyle(color: AppColors.urgentRed, fontSize: 12.0)),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
-  Widget _buildConfirmButton() {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: controller.completeJob,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
-          foregroundColor: AppColors.white,
-          padding: EdgeInsets.symmetric(vertical: 16.0),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
-          elevation: 2,
-        ),
-        child: Text(
-          "Confirm & Complete",
-          style: GoogleFonts.poppins(fontSize: 16.0, fontWeight: FontWeight.bold),
+  Widget _buildBottomAction() {
+    return Container(
+      padding: const EdgeInsets.all(24.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 10,
+            offset: const Offset(0, -4),
+          ),
+        ],
+      ),
+      child: SafeArea(
+        child: ElevatedButton.icon(
+          onPressed: controller.completeJob,
+          icon: const Icon(Icons.check_circle, color: Colors.white, size: 20),
+          label: Text(
+            AppStrings.markAsComplete.tr,
+            style: GoogleFonts.poppins(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primary,
+            minimumSize: const Size(double.infinity, 56.0),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+            elevation: 0,
+          ),
         ),
       ),
     );
   }
 }
 
+// Simple helper to not overlap signature pad with center text if signed
+class PointerInterceptor extends StatelessWidget {
+  final Widget child;
+  const PointerInterceptor({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return IgnorePointer(child: child);
+  }
+}

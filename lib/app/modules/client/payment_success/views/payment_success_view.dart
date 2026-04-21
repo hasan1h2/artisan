@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/constants/static/app_colors.dart';
+import '../../../../core/constants/static/app_images.dart';
 import '../../../../core/constants/static/app_strings.dart';
 import '../../../../core/components/transaction_receipt_card.dart';
 import '../controllers/payment_success_controller.dart';
@@ -96,19 +97,26 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
           child: Icon(Icons.check, color: AppColors.statusCompletedText, size: 50.0),
         ),
         SizedBox(height: 24.0),
-        Text(
-          AppStrings.paymentSuccessful.tr,
-          style: GoogleFonts.poppins(
-            color: AppColors.textColor,
-            fontSize: 24.0,
-            fontWeight: FontWeight.w700,
-          ),
+        Row(
+          children: [
+            Text(
+              AppStrings.paymentSuccessful.tr,
+              style: GoogleFonts.poppins(
+                color: AppColors.textColor,
+                fontSize: 24.0,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            SizedBox(width: 8,),
+            Image.asset(
+              AppImages.homeFirstServicePromo,
+              width: 28.0,
+              height: 28.0,
+              fit: BoxFit.contain,
+            )
+          ],
         ),
-        SizedBox(height: 8.0),
-        Text(
-          'ðŸ¥³',
-          style: TextStyle(fontSize: 24.0),
-        ),
+
         SizedBox(height: 12.0),
         Text(
           AppStrings.paymentMsg.tr.replaceFirst('%s', '\$121.25'),
@@ -129,8 +137,8 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
         'Service': 'Pipe Repair',
         'Artisan': 'James Wilson',
         'Date': 'April 7, 2026',
-        'Time': '10:18 AM â€“ 11:54 AM',
-        'Payment Method': 'Visa â€¢â€¢â€¢â€¢ 4242',
+        'Time': '10:18 AM - 11:54 AM',
+        'Payment Method': 'Visa...4242',
       },
       amountPaid: '\$121.25',
     );

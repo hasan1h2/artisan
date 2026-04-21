@@ -75,7 +75,7 @@ class ConfirmBookingView extends GetView<BookingController> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12.0),
                           child: Image.asset(
-                            AppImages.placeholderAvatar,
+                            AppImages.homeSarahWilliams,
                             width: 50.0,
                             height: 50.0,
                             fit: BoxFit.cover,

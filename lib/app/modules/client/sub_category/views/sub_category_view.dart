@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/static/app_colors.dart';
 import '../../../../core/constants/static/app_strings.dart';
 import '../../../../core/components/sub_category_base_tile.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../controllers/sub_category_controller.dart';
 
 class SubCategoryView extends GetView<SubCategoryController> {
@@ -68,7 +69,7 @@ class SubCategoryView extends GetView<SubCategoryController> {
                       description: item['desc'] ?? '',
                       iconPath: item['icon'] ?? '',
                       onTap: () {
-                        // Action for selecting a sub-service
+                        Get.toNamed(Routes.BOOKING, arguments: item);
                       },
                     );
                   },

@@ -295,6 +295,7 @@ class BookingView extends GetView<BookingController> {
                 children: [
                   Container(
                     padding: EdgeInsets.all(4.0),
+                    height: 50,
                     decoration: BoxDecoration(
                       color: AppColors.primary.withAlpha(20),
                       shape: BoxShape.circle,

@@ -39,21 +39,29 @@ class FixedBottomActionBar extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    leadingText!,
-                    style: GoogleFonts.poppins(
-                      color: AppColors.greyText,
-                      fontSize: 12.0,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        leadingText!,
+                        style: GoogleFonts.poppins(
+                          color: AppColors.greyText,
+                          fontSize: 12.0,
+                        ),
+
+                      ),
+                      SizedBox(width: 10,),
+
+                      Text(
+                        leadingValue!,
+                        style: GoogleFonts.poppins(
+                          color: AppColors.textColor,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
                   ),
-                  Text(
-                    leadingValue!,
-                    style: GoogleFonts.poppins(
-                      color: AppColors.textColor,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
+
                 ],
               ),
               SizedBox(width: 24.0),

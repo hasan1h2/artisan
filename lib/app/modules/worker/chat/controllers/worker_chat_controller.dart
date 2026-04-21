@@ -1,5 +1,6 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../core/routes/app_routes.dart';
 
 class WorkerChatController extends GetxController {
   final messageController = TextEditingController();
@@ -66,7 +67,11 @@ class WorkerChatController extends GetxController {
   }
 
   void trackJob() {
-    // Navigate to tracking
+    Get.toNamed(Routes.WORKER_JOB_STATUS);
+  }
+
+  void completeJob() {
+    Get.toNamed(Routes.JOB_COMPLETION);
   }
 
   @override

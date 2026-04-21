@@ -261,6 +261,41 @@ class AppStrings extends Translations {
   static const arriveAtLocation = 'Arrive at location';
   static const greetClient = 'Greet client & inspect issue';
   static const cleanUpWorkspace = 'Clean up workspace';
+  static const artisanIsOnTheWay = 'ARTISAN IS ON THE WAY';
+  static const startNavigation = 'Start Navigation';
+  static const pipeLeakImage = 'Pipe leak Image';
+  static const clientNotes = 'Client Notes';
+  static const scheduledTime = 'Scheduled Time';
+  static const bookingIdLabel = 'Booking ID';
+  static const locationLabel = 'Location';
+  static const serviceInfo = 'Service Information';
+  static const iveArrived = 'I\'ve Arrived';
+  static const cancelX = 'Cancel X';
+  static const cancelOrderTitle = 'Cancel this order?';
+  static const cancelOrderSub = 'You can\'t undo this later';
+  static const minElapsed = '%s min elapsed';
+  static const jobAccepted = 'Job Accepted';
+  static const artisanAcceptedJob = 'Your accepted the job';
+  static const artisanHeadingLocation = 'Artisan is heading to your location';
+  static const serviceInProgressLocation = 'Service in progress at your location';
+  static const inProgressSub = 'In progress...';
+  static const markAsComplete = 'Client Confirmation';
+  static const workCompletedChecklist = 'Work Completed';
+  static const checkWorkArea = 'Clean the work area after finishing work.';
+  static const completeJobAndGetPaid = 'Complete Job & Get Paid';
+  static const emergency911 = 'In an emergency, call 911 immediately. Use this form to report non-emergency job issues.';
+  static const issueType = 'Issue Type';
+  static const urgencyLevel = 'Urgency Level';
+  static const low = 'Low';
+  static const medium = 'Medium';
+  static const high = 'High';
+  static const description = 'Description';
+  static const describeIssueHint = 'Describe the issue in detail...';
+  static const addPhotosDocs = 'Add photos or documents (optional)';
+  static const submitReport = 'Submit Report';
+  static const reportAProblem = 'Report a problem?';
+  static const cancel = 'Cancel';
+  static const selectIssueType = 'Select issue type...';
 
   // Account Verification
   static const accountVerification = 'Account Verification';
@@ -277,8 +312,43 @@ class AppStrings extends Translations {
   static const verificationSuccessfullyCompleted = 'Your ID card verification is successfully Completed';
   static const verificationFailed = 'Verification Failed';
   static const pleaseTryAgainLater = 'Please try again later';
-  
-  // Sub Categories
+
+  static const faqQ1 = 'What is this app?';
+  static const faqA1 = 'It\'s an on-demand platform that connects clients with verified local artisans for home services like plumbing, electrical work, repairs, and more â€” instantly or by scheduled appointment.';
+  static const faqQ2 = 'How do I book a service?';
+  static const faqA2 = 'Simply select your service, choose instant booking or a scheduled appointment, upload a photo of the issue if needed, and confirm. A verified artisan will be assigned and you can track them live on the map.';
+  static const faqQ3 = 'How does payment work?';
+  static const faqA3 = 'All payments are processed securely in-app. You can also apply promo or referral codes at checkout. No cash needed â€” everything is handled digitally.';
+  static const faqQ4 = 'Are the artisans verified?';
+  static const faqA4 = 'Yes. Every artisan goes through a profile validation process before being approved on the platform. Only verified professionals can accept service requests.';
+  static const faqQ5 = 'Is my personal data safe?';
+  static const faqA5 = 'Absolutely. Your data is stored on encrypted servers and never sold to third parties. Private chat messages are only visible between you and your assigned artisan. You can delete your account and all associated data anytime from Settings.';
+
+  static const subject = 'Subject';
+  static const subjectHint = 'Short title of your issue or suggestion';
+  static const emailAddress = 'Email Address';
+  static const emailHint = 'Write your email';
+  static const message = 'Message';
+  static const messageHint = 'Please explain what happened...';
+
+  static const privacyContent1 = 'â€¢ Account Info â€” Name, email address, phone number, and password.\nâ€¢ Service Requests â€” Service descriptions, photos uploaded, and intervention notes.\nâ€¢ Location Data â€” Real-time location during active service sessions for artisan tracking.\nâ€¢ Payment Info â€” Transaction records processed securely. We do not store full card details.\nâ€¢ Communication â€” Messages exchanged between clients and artisans within the app.\nâ€¢ Ratings & Reviews â€” Feedback submitted after service completion.\nâ€¢ Artisan Profile Data â€” Professional credentials, availability, and verification documents.\nâ€¢ Device Info â€” Device type, OS version, and app version for technical support.';
+  static const privacyContent2 = 'â€¢ To create and manage your account as a client or artisan.\nâ€¢ To process bookings, instant requests, and scheduled appointments.\nâ€¢ To enable real-time artisan tracking during active interventions.\nâ€¢ To process payments, refunds, and promotional/referral codes.\nâ€¢ To verify artisan profiles and maintain platform quality and safety.\nâ€¢ To send booking confirmations, reminders, and service notifications.\nâ€¢ To improve app features and overall user experience.';
+  static const privacyContent3 = 'â€¢ We do not sell your personal data to any third party.\nâ€¢ Trusted service providers (hosting, payments, maps, notifications) access data only as needed to operate the platform.\nâ€¢ During active bookings, clients and artisans share limited profile information with each other (name, photo, ratings).\nâ€¢ Platform administrators may access data for monitoring, dispute resolution, and quality control purposes only.\nâ€¢ Data may be disclosed if required by law or to protect user safety.';
+  static const privacyContent4 = 'Location is tracked only during active service sessions to enable real-time artisan tracking. Sharing stops automatically once the session is completed or cancelled.';
+  static const privacyContent5 = 'â€¢ Data is stored on secure, encrypted cloud servers.\nâ€¢ All data in transit is protected using HTTPS/TLS encryption.\nâ€¢ Payments are processed through PCI-DSS compliant providers.\nâ€¢ Account deletion permanently removes all personal data within 30 days.';
+  static const privacyContent6 = 'â€¢ Access â€” Request a copy of your data anytime.\nâ€¢ Correction â€” Update your profile directly from app settings.\nâ€¢ Deletion â€” Delete your account via Profile -> Settings -> Delete Account.\nâ€¢ Opt-Out â€” Manage notification preferences via Profile -> Notification Settings.';
+  static const privacyContent7 = 'We may update this policy periodically. Significant changes will be communicated via in-app notification or email. Continued use of the app after updates constitutes acceptance of the revised policy.';
+  static const privacyContent8 = 'For any privacy-related questions or requests: privacy@fixgo.com  www.fixgo.com\nWe respond to all inquiries within 5 business days.';
+
+  static const tosContent1 = 'By downloading, accessing, or using this platform, you confirm that you have read, understood, and agreed to these Terms of Service. If you do not agree, please discontinue use immediately.';
+  static const tosContent2 = 'This platform is intended for users 18 years of age or older. By creating an account, you confirm that you meet this age requirement. We reserve the right to terminate accounts found to be in violation.';
+  static const tosContent3 = 'You are solely responsible for:\nâ€¢ Keeping your login credentials confidential\nâ€¢ All activity that occurs under your account\nâ€¢ Ensuring your profile information is accurate and up to date\nIf you suspect unauthorized access, contact us immediately at support@fixgo.com';
+  static const tosContent4 = 'By using this platform, you agree not to:\nâ€¢ Prohibited Action â€” Description\nâ€¢ Fraud / Misuse â€” Using the platform for unlawful or fraudulent purposes\nâ€¢ False Identity â€” Impersonating another person or providing false information\nâ€¢ System Interference â€” Attempting to hack, reverse-engineer, or disrupt the platform\nâ€¢ Inappropriate Content â€” Uploading offensive, abusive, or misleading photos or messages\nâ€¢ System Exploitation â€” Misusing referral codes, promo codes, or payment systems';
+  static const tosContent5 = 'Artisans registering on the platform agree that:\nâ€¢ All submitted credentials, certifications, and identity documents are accurate and valid\nâ€¢ They will honor confirmed bookings and communicate promptly with clients\nâ€¢ Any on-site issues must be reported through the official in-app reporting system\nâ€¢ Profiles found to contain false information will be immediately suspended';
+  static const tosContent6 = 'â€¢ All bookings and payments are processed exclusively through the platform\nâ€¢ Both clients and artisans are expected to honor confirmed bookings\nâ€¢ Cancellations and refund eligibility are governed by the Cancellation Policy communicated at the time of booking\nâ€¢ The platform uses secure, third-party payment processing. We do not store full card details';
+  static const tosContent7 = 'This platform acts as an intermediary connecting clients with independent artisans. We do not directly employ artisans and are therefore not liable for:\nâ€¢ The quality or outcome of any service provided\nâ€¢ Any damage, loss, or injury occurring during a service session\nâ€¢ Disputes between clients and artisans outside the platformâ€™s resolution process\nUsers engage services at their own discretion and risk.';
+  static const tosContent12 = 'For any questions or concerns regarding these Terms:\nsupport@fixgo.com  www.fixgo.com\nWe respond to all inquiries within 5 business days.';
+
   static const whatDoYouNeedHelpWith = 'What do you need help with?';
   
   // Cleaning
@@ -376,6 +446,29 @@ class AppStrings extends Translations {
   static const popLockKeyService = 'Lock & Key Service';
   static const popTvInstallation = 'TV Installation';
   static const popWindowGlassRepair = 'Window & Glass Repair';
+
+  // Profile Section Flow
+  static const yourSavedCard = 'Your Saved Card';
+  static const addNewPaymentMethod = 'Add New Payment Method';
+  static const sslSecured = 'SSL Secured';
+  static const encryption256bit = '256-bit Encryption';
+  static const pciCompliant = 'PCI Compliant';
+  static const fillCardDetails = 'Fill your VISA or Master Card details and save the card';
+  static const deleteCard = 'Delete Card';
+  static const defaultTag = 'Default';
+  static const homeTag = 'Home';
+  static const officeTag = 'Office';
+  static const addCard = 'Add Card';
+  static const referAndEarn = 'Refer & Earn';
+  static const referAndEarnDesc = 'Invite your friends to join the platform and get rewarded! For every friend who signs up and completes their first service booking using your unique referral code, you\'ll receive â‚¬15 instantly credited to your account. There\'s no limit â€” the more you refer, the more you earn. Your referral balance can be used directly as a discount on your next booking. Share your code anytime from your profile and start earning today!';
+  static const invite = 'Invite';
+  static const sharePromoCode = 'Share this promo code';
+  static const currentPass = 'Current Pass';
+  static const confirmPasswordAlt = 'Confirm Password'; // Avoid collision if exists
+  static const save = 'Save';
+  static const security = 'Security';
+  static const deleteAccount = 'Delete Account';
+  static const saveCard = 'Save Card';
 
   @override
   Map<String, Map<String, String>> get keys => {
@@ -491,7 +584,6 @@ class AppStrings extends Translations {
           address: address,
           notes: notes,
           imageUpload: imageUpload,
-          confirm: confirm,
           selectDate: selectDate,
           selectTime: selectTime,
           serviceAddress: serviceAddress,
@@ -525,11 +617,7 @@ class AppStrings extends Translations {
           arrivingIn: arrivingIn,
           eta: eta,
           tracking: tracking,
-          serviceInProgress: serviceInProgress,
-          statusTimeline: statusTimeline,
           bookingConfirmed: bookingConfirmed,
-          onTheWay: onTheWay,
-          working: working,
           estimatedCost: estimatedCost,
           jobStart: jobStart,
           viewCompletionWork: viewCompletionWork,
@@ -614,6 +702,31 @@ class AppStrings extends Translations {
           arriveAtLocation: 'Arrive at location',
           greetClient: 'Greet client & inspect issue',
           cleanUpWorkspace: cleanUpWorkspace,
+          artisanIsOnTheWay: artisanIsOnTheWay,
+          startNavigation: startNavigation,
+          pipeLeakImage: pipeLeakImage,
+          clientNotes: clientNotes,
+          scheduledTime: scheduledTime,
+          bookingIdLabel: bookingIdLabel,
+          locationLabel: locationLabel,
+          serviceInfo: serviceInfo,
+          iveArrived: iveArrived,
+          cancelX: cancelX,
+          cancelOrderTitle: cancelOrderTitle,
+          cancelOrderSub: cancelOrderSub,
+          serviceInProgress: serviceInProgress,
+          minElapsed: minElapsed,
+          jobAccepted: jobAccepted,
+          artisanAcceptedJob: artisanAcceptedJob,
+          onTheWay: onTheWay,
+          artisanHeadingLocation: artisanHeadingLocation,
+          working: working,
+          serviceInProgressLocation: serviceInProgressLocation,
+          inProgressSub: inProgressSub,
+          statusTimeline: statusTimeline,
+          markAsComplete: markAsComplete,
+          workCompletedChecklist: workCompletedChecklist,
+          checkWorkArea: checkWorkArea,
           accountVerification: accountVerification,
           documentVerification: documentVerification,
           selectDocumentType: selectDocumentType,
@@ -701,6 +814,75 @@ class AppStrings extends Translations {
           subPlantingLandscapingDesc: subPlantingLandscapingDesc,
           subTreeBushTrimming: subTreeBushTrimming,
           subTreeBushTrimmingDesc: subTreeBushTrimmingDesc,
+          yourSavedCard: yourSavedCard,
+          addNewPaymentMethod: addNewPaymentMethod,
+          sslSecured: sslSecured,
+          encryption256bit: encryption256bit,
+          pciCompliant: pciCompliant,
+          fillCardDetails: fillCardDetails,
+          deleteCard: deleteCard,
+          defaultTag: defaultTag,
+          homeTag: homeTag,
+          officeTag: officeTag,
+          addCard: addCard,
+          referAndEarn: referAndEarn,
+          referAndEarnDesc: referAndEarnDesc,
+          invite: invite,
+          sharePromoCode: sharePromoCode,
+          currentPass: currentPass,
+          confirmPasswordAlt: confirmPasswordAlt,
+          save: save,
+          security: security,
+          changePassword: changePassword,
+          deleteAccount: deleteAccount,
+          saveCard: saveCard,
+          completeJobAndGetPaid: completeJobAndGetPaid,
+          emergency911: emergency911,
+          issueType: issueType,
+          urgencyLevel: urgencyLevel,
+          low: low,
+          medium: medium,
+          high: high,
+          description: description,
+          describeIssueHint: describeIssueHint,
+          addPhotosDocs: addPhotosDocs,
+          submitReport: submitReport,
+          reportAProblem: reportAProblem,
+          confirm: confirm,
+          cancel: cancel,
+          selectIssueType: selectIssueType,
+          faqQ1: faqQ1,
+          faqA1: faqA1,
+          faqQ2: faqQ2,
+          faqA2: faqA2,
+          faqQ3: faqQ3,
+          faqA3: faqA3,
+          faqQ4: faqQ4,
+          faqA4: faqA4,
+          faqQ5: faqQ5,
+          faqA5: faqA5,
+          subject: subject,
+          subjectHint: subjectHint,
+          emailAddress: emailAddress,
+          emailHint: emailHint,
+          message: message,
+          messageHint: messageHint,
+          privacyContent1: privacyContent1,
+          privacyContent2: privacyContent2,
+          privacyContent3: privacyContent3,
+          privacyContent4: privacyContent4,
+          privacyContent5: privacyContent5,
+          privacyContent6: privacyContent6,
+          privacyContent7: privacyContent7,
+          privacyContent8: privacyContent8,
+          tosContent1: tosContent1,
+          tosContent2: tosContent2,
+          tosContent3: tosContent3,
+          tosContent4: tosContent4,
+          tosContent5: tosContent5,
+          tosContent6: tosContent6,
+          tosContent7: tosContent7,
+          tosContent12: tosContent12,
         }
       };
 }

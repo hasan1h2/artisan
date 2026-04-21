@@ -44,11 +44,11 @@ class ServiceItemCard extends StatelessWidget {
               borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
               child: Image.asset(
                 imagePath,
-                height: 100.0,
+                height: 140.0,
                 width: double.infinity,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(
-                  height: 100.0,
+                  height: 130.0,
                   width: double.infinity,
                   color: AppColors.border,
                   child: Icon(Icons.image, color: AppColors.greyText, size: 40.0),

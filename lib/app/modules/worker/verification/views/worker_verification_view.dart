@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,21 +15,24 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0),
+        preferredSize: const Size.fromHeight(60.0),
         child: Obx(() {
           bool isCamera = controller.currentStep.value == 3;
+          String title = AppStrings.accountVerification.tr;
+          if (controller.currentStep.value >= 4) {
+            title = AppStrings.verificationSuccess.tr;
+          }
+
           return AppBar(
-            backgroundColor: isCamera ? Colors.black : AppColors.primary,
+            backgroundColor: isCamera ? const Color(0xFF0F172A) : AppColors.primary,
             elevation: 0,
             leading: IconButton(
-              icon: Icon(Icons.close, color: AppColors.white, size: 24.0),
+              icon: const Icon(Icons.close, color: AppColors.white, size: 24.0),
               onPressed: () => Get.back(),
             ),
             centerTitle: true,
             title: Text(
-              controller.currentStep.value >= 4 
-                  ? AppStrings.verificationSuccess.tr 
-                  : AppStrings.accountVerification.tr,
+              title,
               style: GoogleFonts.poppins(
                 color: AppColors.white,
                 fontSize: 18.0,
@@ -66,22 +69,23 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
           Obx(() {
             if (controller.currentStep.value == 3) return const SizedBox.shrink();
             return Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(24.0),
               child: ElevatedButton(
                 onPressed: controller.nextStep,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
-                  minimumSize: Size(double.infinity, 56.0),
+                  minimumSize: const Size(double.infinity, 56.0),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
+                    borderRadius: BorderRadius.circular(16.0),
                   ),
+                  elevation: 0,
                 ),
                 child: Text(
-                  AppStrings.continueBtn.tr,
+                  "Continue",
                   style: GoogleFonts.poppins(
                     fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.white,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -94,25 +98,26 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
 
   Widget _buildSuccessStep() {
     return Padding(
-      padding: EdgeInsets.all(40.0),
+      padding: const EdgeInsets.symmetric(horizontal: 40.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(20.0),
+            width: 160,
+            height: 160,
             decoration: const BoxDecoration(
-              color: Color(0xFFE8F5E9),
+              color: Color(0xFF22C55E),
               shape: BoxShape.circle,
             ),
-            child: Icon(Icons.check_circle, color: AppColors.onlineGreen, size: 140.0),
+            child: const Icon(Icons.check, color: Colors.white, size: 100.0),
           ),
-          SizedBox(height: 40.0),
+          const SizedBox(height: 48.0),
           Text(
             AppStrings.verificationSuccessfullyCompleted.tr,
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               fontSize: 22.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
               color: AppColors.textColor,
             ),
           ),
@@ -123,34 +128,37 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
 
   Widget _buildFailureStep() {
     return Padding(
-      padding: EdgeInsets.all(40.0),
+      padding: const EdgeInsets.symmetric(horizontal: 40.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(20.0),
+            width: 160,
+            height: 160,
             decoration: const BoxDecoration(
-              color: Color(0xFFFFEBEE),
+              color: Color(0xFFEF4444),
               shape: BoxShape.circle,
             ),
-            child: Icon(Icons.cancel, color: AppColors.urgentRed, size: 140.0),
+            child: const Icon(Icons.close, color: Colors.white, size: 100.0),
           ),
-          SizedBox(height: 40.0),
+          const SizedBox(height: 48.0),
           Text(
             AppStrings.verificationFailed.tr,
+            textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
               color: AppColors.textColor,
             ),
           ),
-          SizedBox(height: 12.0),
+          const SizedBox(height: 8.0),
           Text(
             AppStrings.pleaseTryAgainLater.tr,
             textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              fontSize: 18.0,
-              color: AppColors.greyText,
+            style: GoogleFonts.poppins(
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              color: AppColors.textColor,
             ),
           ),
         ],
@@ -160,37 +168,37 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
 
   Widget _buildStep1() {
     return Padding(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppStrings.documentVerification.tr,
+            "Document verification",
             style: GoogleFonts.poppins(
               fontSize: 24.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w700,
               color: AppColors.textColor,
             ),
           ),
-          SizedBox(height: 30.0),
+          const SizedBox(height: 32.0),
           Text(
-            AppStrings.selectDocumentType.tr,
+            "Select Document type",
             style: GoogleFonts.poppins(
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
               color: AppColors.textColor,
             ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           _docTypeCard(
-            title: AppStrings.idCard.tr,
-            icon: Icons.badge_outlined,
+            title: "ID Card",
+            icon: Icons.contact_mail_rounded,
             type: 'ID Card',
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           _docTypeCard(
-            title: AppStrings.passport.tr,
-            icon: Icons.public,
+            title: "Passport",
+            icon: Icons.public_rounded,
             type: 'Passport',
           ),
         ],
@@ -204,26 +212,27 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
       return GestureDetector(
         onTap: () => controller.selectDocType(type),
         child: Container(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFFF1F4F8) : const Color(0xFFF1F4F8).withAlpha(150),
+            color: isSelected ? const Color(0xFFF1F4F8) : const Color(0xFFF1F4F8).withOpacity(0.5),
             borderRadius: BorderRadius.circular(12.0),
             border: Border.all(
               color: isSelected ? AppColors.primary : Colors.transparent,
-              width: 1,
+              width: 1.5,
             ),
           ),
           child: Row(
             children: [
               Container(
-                padding: EdgeInsets.all(8.0),
+                width: 44,
+                height: 44,
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withAlpha(50),
-                  borderRadius: BorderRadius.circular(8.0),
+                  color: const Color(0xFF63B3ED).withOpacity(0.2), // Light blue circle
+                  shape: BoxShape.circle,
                 ),
-                child: Icon(icon, color: AppColors.primary, size: 24.0),
+                child: Icon(icon, color: const Color(0xFF4299E1), size: 24.0),
               ),
-              SizedBox(width: 16.0),
+              const SizedBox(width: 16.0),
               Expanded(
                 child: Text(
                   title,
@@ -236,7 +245,7 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
               ),
               Icon(
                 isSelected ? Icons.radio_button_checked : Icons.radio_button_off,
-                color: isSelected ? AppColors.primary : AppColors.greyText.withAlpha(100),
+                color: isSelected ? AppColors.primary : const Color(0xFF9CA3AF),
                 size: 24.0,
               ),
             ],
@@ -248,31 +257,33 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
 
   Widget _buildStep2() {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppStrings.documentVerification.tr,
+            "Document verification",
             style: GoogleFonts.poppins(
               fontSize: 24.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w700,
               color: AppColors.textColor,
             ),
           ),
+          const SizedBox(height: 12.0),
           Text(
-            AppStrings.provideIdInfo.tr,
-            style: GoogleFonts.inter(
+            "Please provide your ID Card information",
+            style: GoogleFonts.poppins(
               fontSize: 14.0,
-              color: AppColors.greyText,
+              fontWeight: FontWeight.w500,
+              color: AppColors.textColor,
             ),
           ),
-          SizedBox(height: 30.0),
-          _buildField(AppStrings.fullName.tr, controller.nameController, 'Alex Smith'),
-          SizedBox(height: 20.0),
-          _buildField(AppStrings.dob.tr, controller.dobController, 'mm/dd/yy'),
-          SizedBox(height: 20.0),
-          _buildField(AppStrings.idNumber.tr, controller.idNumberController, '45246282554252'),
+          const SizedBox(height: 32.0),
+          _buildField("Full name", controller.nameController, 'Alex Smith'),
+          const SizedBox(height: 24.0),
+          _buildField("Date of birth", controller.dobController, 'mm/dd/yy'),
+          const SizedBox(height: 24.0),
+          _buildField("ID  number", controller.idNumberController, '45246282554252'),
         ],
       ),
     );
@@ -290,21 +301,26 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
             color: AppColors.textColor,
           ),
         ),
-        SizedBox(height: 8.0),
-        TextFormField(
-          controller: ctrl,
-          decoration: InputDecoration(
-            hintText: hint,
-            hintStyle: GoogleFonts.inter(color: AppColors.greyText.withAlpha(100)),
-            filled: true,
-            fillColor: Colors.white,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              borderSide: BorderSide(color: AppColors.border),
+        const SizedBox(height: 12.0),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.0),
+            border: Border.all(color: const Color(0xFFE5E7EB), width: 1.0),
+          ),
+          child: TextFormField(
+            controller: ctrl,
+            decoration: InputDecoration(
+              hintText: hint,
+              hintStyle: GoogleFonts.poppins(color: const Color(0xFF9CA3AF), fontSize: 14.0),
+              filled: true,
+              fillColor: Colors.white,
+              border: InputBorder.none,
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
             ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              borderSide: BorderSide(color: AppColors.border),
+            style: GoogleFonts.poppins(
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+              color: AppColors.textColor,
             ),
           ),
         ),
@@ -314,38 +330,77 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
 
   Widget _buildStep3() {
     return Padding(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppStrings.documentVerification.tr,
+            "Document verification",
             style: GoogleFonts.poppins(
               fontSize: 24.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w700,
               color: AppColors.textColor,
             ),
           ),
+          const SizedBox(height: 12.0),
           Text(
-             AppStrings.takeBothSidePictures.tr,
-            style: GoogleFonts.inter(
+            "Take both side pictures of your government issued ID card",
+            style: GoogleFonts.poppins(
               fontSize: 14.0,
-              color: AppColors.greyText,
+              fontWeight: FontWeight.w500,
+              color: AppColors.textColor,
             ),
           ),
-          SizedBox(height: 40.0),
+          const SizedBox(height: 48.0),
           Center(
             child: Container(
-              padding: EdgeInsets.all(20.0),
+              width: double.infinity,
+              height: 240.0,
               decoration: BoxDecoration(
-                color: const Color(0xFFB3E5FC),
+                color: const Color(0xFFB3E5FC), // Mockup light blue
                 borderRadius: BorderRadius.circular(20.0),
               ),
-              child: Image.asset(
-                AppImages.logo, // Placeholder for ID illustration
-                width: 280.0,
-                height: 180.0,
-                fit: BoxFit.contain,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  // Placeholder for the illustration since we don't have the asset
+                  Container(
+                    width: 250,
+                    height: 154,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.9),
+                      borderRadius: BorderRadius.circular(12.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.05),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.account_box_rounded, size: 80, color: Color(0xFF4299E1)),
+                        const SizedBox(height: 12.0),
+                        Container(width: 100, height: 8, color: const Color(0xFFE2E8F0)),
+                        const SizedBox(height: 4.0),
+                        Container(width: 80, height: 8, color: const Color(0xFFE2E8F0)),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    top: 12,
+                    child: Text(
+                      "ID CARD",
+                      style: GoogleFonts.poppins(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -356,51 +411,59 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
 
   Widget _buildCameraStep() {
     return Container(
-      color: Colors.black,
+      color: const Color(0xFF0F172A),
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(),
+          const Spacer(flex: 3),
           Container(
-            width: 320.0,
-            height: 200.0,
+            width: 340.0,
+            height: 220.0,
             decoration: BoxDecoration(
-              border: Border.all(color: AppColors.white, width: 2),
-              borderRadius: BorderRadius.circular(16.0),
+              border: Border.all(color: Colors.white, width: 1.5),
+              borderRadius: BorderRadius.circular(12.0),
             ),
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 32.0),
           RichText(
+            textAlign: TextAlign.center,
             text: TextSpan(
-              style: GoogleFonts.poppins(color: AppColors.white, fontSize: 16.0),
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.w500,
+              ),
               children: [
                 const TextSpan(text: 'Place the '),
                 TextSpan(
                   text: 'ID Card',
-                  style: GoogleFonts.poppins(color: const Color(0xFF42A5F5), fontWeight: FontWeight.bold),
+                  style: GoogleFonts.poppins(
+                    color: const Color(0xFF4299E1),
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-                const TextSpan(text: ' in the frame'), // Fixed typo "freame" from image
+                const TextSpan(text: ' in the frame'),
               ],
             ),
           ),
-          const Spacer(),
+          const Spacer(flex: 4),
           GestureDetector(
-            onTap: controller.nextStep,
+            onTap: controller.showSuccess, // Direct to success for demo
             child: Container(
-              margin: EdgeInsets.only(bottom: 40.0),
+              margin: const EdgeInsets.only(bottom: 60.0),
               width: 80.0,
               height: 80.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: AppColors.white, width: 4),
+                border: Border.all(color: Colors.white, width: 4),
               ),
               child: Center(
                 child: Container(
                   width: 60.0,
                   height: 60.0,
                   decoration: const BoxDecoration(
-                    color: AppColors.white,
+                    color: Colors.white,
                     shape: BoxShape.circle,
                   ),
                 ),

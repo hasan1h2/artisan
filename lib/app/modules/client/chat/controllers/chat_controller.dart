@@ -59,7 +59,7 @@ class ChatController extends GetxController {
   }
 
   void trackJob() {
-    Get.toNamed(Routes.TRACKING);
+    Get.toNamed(Routes.TRACKINGSCREEN);
   }
 }
 

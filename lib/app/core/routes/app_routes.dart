@@ -25,6 +25,7 @@ abstract class Routes {
   static const CHAT = '/chat';
   static const FINDING_ARTISAN = '/finding-artisan';
   static const TRACKING = '/tracking';
+  static const TRACKINGSCREEN = '/tracking-screen';
   static const WORK_OVERVIEW = '/work-overview';
   static const PAYMENT = '/payment';
   static const PAYMENT_SUCCESS = '/payment-success';
@@ -34,6 +35,29 @@ abstract class Routes {
   static const WORKER_CHAT = '/worker-chat';
   static const WORKER_JOB_DETAILS = '/worker-job-details';
   static const WORKER_VERIFICATION = '/worker-verification';
+  static const PAYMENT_METHOD = '/payment-method';
+  static const ADD_CARD = '/add-card';
+  static const SAVED_ADDRESSES = '/saved-addresses';
+  static const SECURITY = '/security';
+  static const CHANGE_PASSWORD = '/change-password';
+  static const GET_BONUS = '/get-bonus';
+  static const ORDER_HISTORY = '/order-history';
+  static const WORKER_NAVIGATION = '/worker-navigation';
+  static const WORKER_JOB_STATUS = '/worker-job-status';
+  static const WORKER_ACTIVE_JOB = '/worker-active-job';
+  static const REPORT_ISSUE = '/report-issue';
+  static const PRIVACY_POLICY = '/privacy-policy';
+  static const TERMS_OF_SERVICE = '/terms-of-service';
+  static const FAQS = '/faqs';
+  static const FEEDBACK = '/feedback';
+  
+  static const WORKER_ACCOUNT_SETTINGS = '/worker-account-settings';
+  static const WORKER_SAVED_ADDRESSES = '/worker-saved-addresses';
+  static const WORKER_PAYMENT_METHOD = '/worker-payment-method';
+  static const WORKER_ADD_CARD = '/worker-add-card';
+  static const MY_REVIEWS = '/my-reviews';
+  static const PERFORMANCE = '/performance';
+  static const WORKER_TRACKING = '/worker-tracking';
 }
 
 

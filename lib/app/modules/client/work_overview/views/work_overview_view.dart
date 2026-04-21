@@ -155,7 +155,7 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.asset(
-              AppImages.placeholderAvatar,
+              AppImages.homeMarcusJohnson,
               width: 50.0,
               height: 50.0,
               fit: BoxFit.cover,
@@ -273,6 +273,7 @@ class WorkOverviewView extends GetView<WorkOverviewController> {
         ),
         SizedBox(height: 12.0),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             PhotoThumbnailTile(child: Icon(Icons.build, color: AppColors.greyText, size: 24.0)),
             PhotoThumbnailTile(child: Icon(Icons.water_drop, color: Colors.blue, size: 24.0)),

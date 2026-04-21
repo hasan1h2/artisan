@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,23 +12,22 @@ class EditProfileView extends GetView<EditProfileController> {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(EditProfileController());
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          AppStrings.editProfile.tr,
+          "Edit Profile", // Mockup title
           style: GoogleFonts.poppins(
-            color: AppColors.textColor,
+            color: Colors.white,
             fontSize: 18.0,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
         centerTitle: true,
-        backgroundColor: AppColors.background,
+        backgroundColor: AppColors.primary,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.textColor),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Get.back(),
         ),
       ),
@@ -36,39 +35,18 @@ class EditProfileView extends GetView<EditProfileController> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(24.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(child: _buildAvatarSection()),
-                  SizedBox(height: 32.0),
+                  const SizedBox(height: 40.0),
                   _buildForm(),
                 ],
               ),
             ),
           ),
-          SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-              child: ElevatedButton(
-                onPressed: controller.saveChanges,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  minimumSize: Size(double.infinity, 56.0),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
-                  elevation: 0,
-                ),
-                child: Text(
-                  AppStrings.saveChanges.tr,
-                  style: GoogleFonts.poppins(
-                    color: AppColors.white,
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          _buildSaveButton(),
         ],
       ),
     );
@@ -81,17 +59,10 @@ class EditProfileView extends GetView<EditProfileController> {
           width: 100.0,
           height: 100.0,
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: AppColors.primary, width: 2),
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(4.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(50.0),
-              child: Image.asset(
-                AppImages.placeholderAvatar,
-                fit: BoxFit.cover,
-              ),
+            borderRadius: BorderRadius.circular(20),
+            image: const DecorationImage(
+              image: AssetImage(AppImages.homeMarcusJohnson), // Placeholder for Alex Johnson
+              fit: BoxFit.cover,
             ),
           ),
         ),
@@ -101,18 +72,20 @@ class EditProfileView extends GetView<EditProfileController> {
           child: GestureDetector(
             onTap: controller.pickImage,
             child: Container(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(6.0),
               decoration: BoxDecoration(
-                color: AppColors.white,
+                color: Colors.white,
                 shape: BoxShape.circle,
+                border: Border.all(color: const Color(0xFFE0E0E0)),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withAlpha(10),
-                    blurRadius: 5,
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 4,
+                    offset: const Offset(0, 2),
                   ),
                 ],
               ),
-              child: Icon(Icons.edit_outlined, color: AppColors.primary, size: 20.0),
+              child: const Icon(Icons.edit_outlined, color: AppColors.greyText, size: 18.0),
             ),
           ),
         ),
@@ -124,16 +97,16 @@ class EditProfileView extends GetView<EditProfileController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildInputField(AppStrings.fullName.tr, controller.fullNameController),
-        SizedBox(height: 24.0),
-        _buildInputField(AppStrings.email.tr, controller.emailController),
-        SizedBox(height: 24.0),
-        _buildInputField(AppStrings.number.tr, controller.phoneController),
+        _buildLabeledField("Full Name", controller.fullNameController),
+        const SizedBox(height: 24.0),
+        _buildLabeledField("Email", controller.emailController),
+        const SizedBox(height: 24.0),
+        _buildLabeledField("Number", controller.phoneController),
       ],
     );
   }
 
-  Widget _buildInputField(String label, TextEditingController ctr) {
+  Widget _buildLabeledField(String label, TextEditingController ctr) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -145,22 +118,53 @@ class EditProfileView extends GetView<EditProfileController> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        SizedBox(height: 12.0),
+        const SizedBox(height: 12.0),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           decoration: BoxDecoration(
-            color: AppColors.primary.withAlpha(10),
+            color: const Color(0xFFF1F4F8),
             borderRadius: BorderRadius.circular(12.0),
+            border: Border.all(color: const Color(0xFFE5E7EB)),
           ),
           child: TextField(
             controller: ctr,
             decoration: const InputDecoration(
               border: InputBorder.none,
+              contentPadding: EdgeInsets.symmetric(vertical: 16.0),
             ),
-            style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.0),
+            style: GoogleFonts.poppins(
+              color: AppColors.greyText,
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildSaveButton() {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: ElevatedButton(
+          onPressed: controller.saveChanges,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primary,
+            minimumSize: const Size(double.infinity, 56.0),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+            elevation: 0,
+          ),
+          child: Text(
+            "Save Changes",
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

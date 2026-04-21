@@ -1,4 +1,4 @@
-﻿import 'package:get/get.dart';
+import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
 
 class WorkerHomeController extends GetxController {
@@ -44,6 +44,24 @@ class WorkerHomeController extends GetxController {
       'price': '\$200',
       'duration': '4 hrs',
       'status': 'UPCOMING',
+    },
+  ].obs;
+
+  final weeklySummary = [
+    {
+      'icon': '💰',
+      'value': '\$425',
+      'label': 'Earnings',
+    },
+    {
+      'icon': '✅',
+      'value': '8',
+      'label': 'Jobs Done',
+    },
+    {
+      'icon': '⭐',
+      'value': '4.9★',
+      'label': 'Avg Rating',
     },
   ].obs;
 }

@@ -550,7 +550,7 @@ class TrackingView extends GetView<TrackingController> {
                    ],
                  ),
               ),
-              avatarPath: AppImages.placeholderAvatar,
+              avatarPath: AppImages.homeMarcusJohnson,
               name: 'Marcus Johnson',
               badgeText: AppStrings.verified.tr,
               details: 'Plumber · Pipe Leak Repair',

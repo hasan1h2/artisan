@@ -29,7 +29,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
         backgroundColor: AppColors.primary,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.white),
+          icon: const Icon(Icons.arrow_back, color: AppColors.white),
           onPressed: () => Get.back(),
         ),
       ),
@@ -37,25 +37,27 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.only(bottom: 24.0),
+              padding: const EdgeInsets.only(bottom: 24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildHeroImage(),
                   Padding(
-                    padding: EdgeInsets.all(24.0),
+                    padding: const EdgeInsets.all(24.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         _buildTitleSection(),
-                        SizedBox(height: 24.0),
+                        const SizedBox(height: 24.0),
                         _buildTabs(),
-                        SizedBox(height: 24.0),
-                        _buildDescription(),
-                        SizedBox(height: 24.0),
-                        _buildWhatsIncluded(),
-                        SizedBox(height: 24.0),
-                        _buildTopArtisan(),
+                        const SizedBox(height: 24.0),
+                        Obx(() {
+                          if (controller.selectedTab.value == 0) {
+                            return _buildOverviewSection();
+                          } else {
+                            return _buildReviewsSection();
+                          }
+                        }),
                       ],
                     ),
                   ),
@@ -76,13 +78,13 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
 
   Widget _buildHeroImage() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.0),
+      padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16.0),
         child: Stack(
           children: [
             Image.asset(
-              AppImages.servicePlaceholder, // Should be a hero image, reusing placeholder
+              AppImages.popElectricalWiring,
               width: double.infinity,
               height: 220.0,
               fit: BoxFit.cover,
@@ -93,7 +95,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
               child: Row(
                 children: [
                   _buildIconButton(Icons.share, () {}),
-                  SizedBox(width: 12.0),
+                  const SizedBox(width: 12.0),
                   Obx(() => _buildIconButton(
                         controller.isFavorite.value ? Icons.favorite : Icons.favorite_border,
                         controller.toggleFavorite,
@@ -106,15 +108,15 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
               bottom: 16.0,
               left: 16.0,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
                 decoration: BoxDecoration(
                   color: AppColors.textColor.withAlpha(180),
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.star, color: AppColors.ratingStar, size: 16.0),
-                    SizedBox(width: 4.0),
+                    const Icon(Icons.star, color: AppColors.ratingStar, size: 16.0),
+                    const SizedBox(width: 4.0),
                     Text(
                       '4.7',
                       style: GoogleFonts.poppins(
@@ -123,7 +125,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(width: 4.0),
+                    const SizedBox(width: 4.0),
                     Text(
                       '(54 reviews)',
                       style: GoogleFonts.poppins(
@@ -145,7 +147,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           color: AppColors.textColor.withAlpha(100),
           shape: BoxShape.circle,
@@ -173,15 +175,15 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
               decoration: BoxDecoration(
                 color: AppColors.badgePopularBg,
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: Row(
                 children: [
-                  Text('ðŸ”¥', style: TextStyle(fontSize: 12.0)),
-                  SizedBox(width: 4.0),
+                  const Icon(Icons.local_fire_department, color: AppColors.badgePopularText, size: 16),
+                  const SizedBox(width: 4.0),
                   Text(
                     AppStrings.popular.tr,
                     style: GoogleFonts.poppins(
@@ -195,23 +197,23 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
             ),
           ],
         ),
-        SizedBox(height: 12.0),
+        const SizedBox(height: 12.0),
         Row(
           children: [
-            Icon(Icons.access_time, color: AppColors.greyText, size: 16.0),
-            SizedBox(width: 4.0),
+            const Icon(Icons.access_time, color: AppColors.greyText, size: 16.0),
+            const SizedBox(width: 4.0),
             Text(
               AppStrings.hr1.tr,
               style: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.0),
             ),
-            SizedBox(width: 16.0),
-            Icon(Icons.shield_outlined, color: AppColors.statusCompletedText, size: 16.0),
-            SizedBox(width: 4.0),
+            const SizedBox(width: 16.0),
+            const Icon(Icons.shield_outlined, color: AppColors.statusCompletedText, size: 16.0),
+            const SizedBox(width: 4.0),
             Text(
               AppStrings.insured.tr,
               style: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.0),
             ),
-            SizedBox(width: 16.0),
+            const SizedBox(width: 16.0),
             Text(
               '\$35-\$65',
               style: GoogleFonts.poppins(
@@ -228,37 +230,37 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
 
   Widget _buildTabs() {
     return Container(
-      padding: EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(4.0),
       decoration: BoxDecoration(
-        color: AppColors.background, // actually light grey border wrapping it
+        color: const Color(0xFFF9FAFB),
         borderRadius: BorderRadius.circular(16.0),
         border: Border.all(color: AppColors.border),
       ),
       child: Obx(() => Row(
-        children: [
-          Expanded(
-            child: _buildTab(AppStrings.overview.tr, controller.selectedTab.value == 'Overview'),
-          ),
-          Expanded(
-            child: _buildTab(AppStrings.reviews.tr, controller.selectedTab.value == 'Reviews'),
-          ),
-        ],
-      )),
+            children: [
+              Expanded(
+                child: _buildTab(AppStrings.overview.tr, controller.selectedTab.value == 0, () => controller.changeTab(0)),
+              ),
+              Expanded(
+                child: _buildTab(AppStrings.reviews.tr, controller.selectedTab.value == 1, () => controller.changeTab(1)),
+              ),
+            ],
+          )),
     );
   }
 
-  Widget _buildTab(String title, bool isSelected) {
+  Widget _buildTab(String title, bool isSelected, VoidCallback onTap) {
     return GestureDetector(
-      onTap: () => controller.changeTab(isSelected ? '' : title.split(' ').last == 'Reviews' ? 'Reviews' : 'Overview'), // Simplified toggle
+      onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 12.0),
+        padding: const EdgeInsets.symmetric(vertical: 12.0),
         decoration: BoxDecoration(
           color: isSelected ? AppColors.white : Colors.transparent,
           borderRadius: BorderRadius.circular(12.0),
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: Colors.black.withAlpha(5),
+                    color: Colors.black.withOpacity(0.04),
                     blurRadius: 4,
                     offset: const Offset(0, 2),
                   )
@@ -271,9 +273,126 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
           style: GoogleFonts.poppins(
             color: isSelected ? AppColors.textColor : AppColors.greyText,
             fontSize: 14.0,
-            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
+            fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildOverviewSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildDescription(),
+        const SizedBox(height: 24.0),
+        _buildWhatsIncluded(),
+        const SizedBox(height: 24.0),
+        _buildTopArtisan(),
+      ],
+    );
+  }
+
+  Widget _buildReviewsSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            const Icon(Icons.star_rounded, color: AppColors.ratingStar, size: 24.0),
+            const SizedBox(width: 8.0),
+            Text(
+              '4.7 Average Rating',
+              style: GoogleFonts.poppins(
+                color: AppColors.textColor,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const Spacer(),
+            Text(
+              '(54 reviews)',
+              style: GoogleFonts.poppins(
+                color: AppColors.greyText,
+                fontSize: 14.0,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 24.0),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: controller.reviews.length,
+          itemBuilder: (context, index) {
+            final review = controller.reviews[index];
+            return _buildReviewCard(review);
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _buildReviewCard(Map<String, dynamic> review) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      decoration: const BoxDecoration(
+        border: Border(bottom: BorderSide(color: Color(0xFFF1F4F8))),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 20.0,
+                backgroundImage: AssetImage(review['image']),
+              ),
+              const SizedBox(width: 12.0),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      review['name'],
+                      style: GoogleFonts.poppins(
+                        color: AppColors.textColor,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    Text(
+                      review['date'],
+                      style: GoogleFonts.poppins(
+                        color: AppColors.greyText,
+                        fontSize: 12.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                children: List.generate(
+                  5,
+                  (index) => Icon(
+                    Icons.star_rounded,
+                    color: index < review['rating'] ? AppColors.ratingStar : AppColors.border,
+                    size: 16.0,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12.0),
+          Text(
+            review['comment'],
+            style: GoogleFonts.poppins(
+              color: AppColors.greyText,
+              fontSize: 14.0,
+              height: 1.5,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -291,7 +410,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
 
   Widget _buildWhatsIncluded() {
     return Container(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.background,
         borderRadius: BorderRadius.circular(16.0),
@@ -308,13 +427,13 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           ...controller.whatsIncluded.map((item) => Padding(
-                padding: EdgeInsets.only(bottom: 12.0),
+                padding: const EdgeInsets.only(bottom: 12.0),
                 child: Row(
                   children: [
-                    Icon(Icons.check_circle_outline, color: AppColors.statusCompletedText, size: 20.0),
-                    SizedBox(width: 12.0),
+                    const Icon(Icons.check_circle_outline, color: AppColors.statusCompletedText, size: 20.0),
+                    const SizedBox(width: 12.0),
                     Expanded(
                       child: Text(
                         item,
@@ -334,7 +453,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
 
   Widget _buildTopArtisan() {
     return Container(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.background,
         borderRadius: BorderRadius.circular(16.0),
@@ -351,7 +470,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Row(
             children: [
               Stack(
@@ -359,7 +478,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      AppImages.placeholderAvatar,
+                      AppImages.homeSarahWilliams,
                       width: 48.0,
                       height: 48.0,
                       fit: BoxFit.cover,
@@ -380,7 +499,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
                   ),
                 ],
               ),
-              SizedBox(width: 12.0),
+              const SizedBox(width: 12.0),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -393,11 +512,11 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(height: 4.0),
+                    const SizedBox(height: 4.0),
                     Row(
                       children: [
-                        Icon(Icons.star, color: AppColors.ratingStar, size: 14.0),
-                        SizedBox(width: 4.0),
+                        const Icon(Icons.star, color: AppColors.ratingStar, size: 14.0),
+                        const SizedBox(width: 4.0),
                         Text(
                           '4.9',
                           style: GoogleFonts.poppins(
@@ -408,7 +527,7 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
                         ),
                         Expanded(
                           child: Text(
-                            ' Â· 127 jobs',
+                            ' \u00b7 127 jobs',
                             style: GoogleFonts.poppins(
                               color: AppColors.greyText,
                               fontSize: 12.0,
@@ -436,4 +555,3 @@ class ServiceDetailsView extends GetView<ServiceDetailsController> {
     );
   }
 }
-

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -7,7 +7,7 @@ import '../constants/static/app_colors.dart';
 class ProfileMenuTile extends StatelessWidget {
   final String title;
   final String? subtitle;
-  final String iconPath;
+  final dynamic icon; // Supports IconData or String path
   final Color iconBgColor;
   final VoidCallback onTap;
 
@@ -15,7 +15,7 @@ class ProfileMenuTile extends StatelessWidget {
     super.key,
     required this.title,
     this.subtitle,
-    required this.iconPath,
+    required this.icon,
     required this.iconBgColor,
     required this.onTap,
   });
@@ -25,8 +25,8 @@ class ProfileMenuTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        color: Colors.transparent, // Ensure full area is clickable
-        padding: EdgeInsets.symmetric(vertical: 12.0),
+        color: Colors.transparent,
+        padding: const EdgeInsets.symmetric(vertical: 12.0),
         child: Row(
           children: [
             Container(
@@ -37,19 +37,9 @@ class ProfileMenuTile extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
               alignment: Alignment.center,
-              child: SvgPicture.asset(
-                iconPath,
-                width: 24.0,
-                height: 24.0,
-                colorFilter: ColorFilter.mode(iconBgColor, BlendMode.srcIn),
-                placeholderBuilder: (context) => Icon(
-                  Icons.circle,
-                  color: iconBgColor,
-                  size: 24.0,
-                ),
-              ),
+              child: _buildIcon(),
             ),
-            SizedBox(width: 16.0),
+            const SizedBox(width: 16.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,8 +52,8 @@ class ProfileMenuTile extends StatelessWidget {
                       color: AppColors.textColor,
                     ),
                   ),
-                  if (subtitle != null) ...[
-                    SizedBox(height: 2.0),
+                  if (subtitle != null && subtitle!.isNotEmpty) ...[
+                    const SizedBox(height: 2.0),
                     Text(
                       subtitle!,
                       style: GoogleFonts.poppins(
@@ -75,7 +65,7 @@ class ProfileMenuTile extends StatelessWidget {
                 ],
               ),
             ),
-            Icon(
+            const Icon(
               Icons.chevron_right,
               color: AppColors.greyText,
               size: 24.0,
@@ -85,5 +75,32 @@ class ProfileMenuTile extends StatelessWidget {
       ),
     );
   }
-}
 
+  Widget _buildIcon() {
+    if (icon is IconData) {
+      return Icon(
+        icon as IconData,
+        color: AppColors.textColor,
+        size: 24.0,
+      );
+    } else if (icon is String) {
+      final String path = icon as String;
+      if (path.endsWith('.svg')) {
+        return SvgPicture.asset(
+          path,
+          colorFilter: const ColorFilter.mode(AppColors.textColor, BlendMode.srcIn),
+          width: 24.0,
+          height: 24.0,
+        );
+      } else {
+        return Image.asset(
+          path,
+          width: 24.0,
+          height: 24.0,
+          color: AppColors.textColor,
+        );
+      }
+    }
+    return const SizedBox();
+  }
+}

@@ -1,9 +1,9 @@
-﻿import 'package:get/get.dart';
+import 'package:get/get.dart';
 import '../../../../core/routes/app_routes.dart';
 
 class ServiceDetailsController extends GetxController {
   final isFavorite = false.obs;
-  final selectedTab = 'Overview'.obs;
+  final selectedTab = 0.obs; // 0 for Overview, 1 for Reviews
 
   final whatsIncluded = [
     'Initial inspection & diagnosis',
@@ -12,12 +12,36 @@ class ServiceDetailsController extends GetxController {
     '90-day service guarantee',
   ];
 
+  final reviews = [
+    {
+      'name': 'Sarah Williams',
+      'date': '2 days ago',
+      'rating': 5,
+      'comment': 'Excellent service, the plumber arrived on time and fixed the leak perfectly. Highly recommended!',
+      'image': 'assets/images/home/Sarah Williams.png',
+    },
+    {
+      'name': 'David Carter',
+      'date': '1 week ago',
+      'rating': 4,
+      'comment': 'Great job fixing the wiring issues. Very professional and efficient.',
+      'image': 'assets/images/home/Daniel Carter.png',
+    },
+    {
+      'name': 'Michael Jordan',
+      'date': '2 weeks ago',
+      'rating': 5,
+      'comment': 'The team was very helpful and the quality of work was outstanding.',
+      'image': 'assets/images/placeholder_avatar.png',
+    },
+  ].obs;
+
   void toggleFavorite() {
     isFavorite.value = !isFavorite.value;
   }
 
-  void changeTab(String tab) {
-    selectedTab.value = tab;
+  void changeTab(int index) {
+    selectedTab.value = index;
   }
 
   void bookNow() {

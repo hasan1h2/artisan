@@ -40,7 +40,7 @@ class ChatView extends GetView<ChatController> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(25.0),
                     child: Image.asset(
-                      AppImages.placeholderAvatar,
+                      AppImages.homeMarcusJohnson,
                       width: 44.0,
                       height: 44.0,
                       fit: BoxFit.cover,

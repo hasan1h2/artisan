@@ -42,7 +42,7 @@ class AppImages {
   static const String placeholderAvatar = '$_imageRoot/placeholder_avatar.png';
   static const String homeBanner = '$_imageRoot/home_banner.png';
   static const String bannerHome = '$_imageRoot/banar.png';
-  static const String mapPlaceholder = '$_imageRoot/🌎 Map Maker_ Dubai, Dubai, United Arab Emirates (Standard).png';
+  static const String mapPlaceholder = '$_imageRoot/map_placeholder.png';
 
   // Phase 4 Icons
   static const String iconShare = '$_iconRoot/share.svg';
@@ -107,6 +107,12 @@ class AppImages {
   static const String homePipeLeak = '$_homeImageRoot/Pipe Leak Repair.png';
   static const String homeSarahWilliams = '$_homeImageRoot/Sarah Williams.png';
   static const String homeToiletRepair = '$_homeImageRoot/Toilet Repair.png';
+  static const String adress = '$_homeImageRoot/adress.png';
+  static const String couponOutline = '$_homeImageRoot/coupon-outline.png';
+  static const String help = '$_homeImageRoot/help.png';
+  static const String order = '$_homeImageRoot/order (4).png';
+  static const String pay = '$_homeImageRoot/pay.png';
+  static const String sec = '$_homeImageRoot/sec.png';
 
   // Popular Services Images
   static const String popAcService = '$_popularServicesRoot/AC Service & Repair.png';
@@ -191,5 +197,9 @@ class AppImages {
   static const String subPestControlGarden = '$_gardenRoot/Pest Control (Garden).png';
   static const String subPlantingLandscaping = '$_gardenRoot/Planting & Landscaping.png';
   static const String subTreeBushTrimming = '$_gardenRoot/Tree & Bush Trimming.png';
+
+  // Payment Logos
+  static const String visaLogo = '$_imageRoot/visa_logo.png';
+  static const String masterLogo = '$_imageRoot/master_logo.png';
 }
 

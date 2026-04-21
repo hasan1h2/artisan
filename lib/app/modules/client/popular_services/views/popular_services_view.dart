@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -79,7 +79,7 @@ class PopularServicesView extends GetView<PopularServicesController> {
                       reviews: service['reviews'] as int,
                       priceRange: service['priceRange'] as String,
                       onTap: () {
-                        Get.toNamed(Routes.SERVICE_DETAILS);
+                        Get.toNamed(Routes.BOOKING, arguments: service);
                       },
                     );
                   },
