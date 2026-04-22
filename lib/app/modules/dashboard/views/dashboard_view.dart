@@ -27,7 +27,7 @@ class DashboardView extends GetView<DashboardController> {
     final List<NavItemData> clientItems = [
       NavItemData(label: 'Home', icon: AppImages.navHome),
       NavItemData(label: 'Services', icon: AppImages.navServices),
-      NavItemData(label: 'Appointments', icon: AppImages.navActivity),
+      NavItemData(label: 'Activity', icon: AppImages.navActivity),
       NavItemData(label: 'Account', icon: AppImages.navProfile),
     ];
 
