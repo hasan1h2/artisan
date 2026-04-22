@@ -4,13 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/constants/static/app_colors.dart';
 import '../../../../core/constants/static/app_strings.dart';
-import '../../../../core/constants/static/app_images.dart';
 import '../../../../core/components/custom_stepper.dart';
 import '../../../../core/components/fixed_bottom_action_bar.dart';
 import '../../../../core/components/selectable_date_card.dart';
 import '../../../../core/components/selectable_time_chip.dart';
 import '../../../../core/components/address_selection_card.dart';
-import '../../../../core/components/summary_detail_tile.dart';
 import '../controllers/booking_controller.dart';
 
 class BookingView extends GetView<BookingController> {
@@ -42,7 +40,9 @@ class BookingView extends GetView<BookingController> {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: Obx(() => CustomStepper(currentStep: controller.currentStep.value)),
+            child: Obx(
+              () => CustomStepper(currentStep: controller.currentStep.value),
+            ),
           ),
           Expanded(
             child: Obx(() {
@@ -85,7 +85,11 @@ class BookingView extends GetView<BookingController> {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.calendar_today_outlined, color: AppColors.primary, size: 20.0),
+                    Icon(
+                      Icons.calendar_today_outlined,
+                      color: AppColors.primary,
+                      size: 20.0,
+                    ),
                     SizedBox(width: 8.0),
                     Text(
                       AppStrings.selectDate.tr,
@@ -100,18 +104,22 @@ class BookingView extends GetView<BookingController> {
                 SizedBox(height: 16.0),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: Obx(() => Row(
-                        children: List.generate(controller.dates.length, (index) {
-                          final date = controller.dates[index];
-                          return SelectableDateCard(
-                            day: date['day']!,
-                            date: date['date']!,
-                            month: date['month']!,
-                            isSelected: controller.selectedDateIndex.value == index,
-                            onTap: () => controller.selectedDateIndex.value = index,
-                          );
-                        }),
-                      )),
+                  child: Obx(
+                    () => Row(
+                      children: List.generate(controller.dates.length, (index) {
+                        final date = controller.dates[index];
+                        return SelectableDateCard(
+                          day: date['day']!,
+                          date: date['date']!,
+                          month: date['month']!,
+                          isSelected:
+                              controller.selectedDateIndex.value == index,
+                          onTap: () =>
+                              controller.selectedDateIndex.value = index,
+                        );
+                      }),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -129,7 +137,11 @@ class BookingView extends GetView<BookingController> {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.access_time, color: AppColors.primary, size: 20.0),
+                    Icon(
+                      Icons.access_time,
+                      color: AppColors.primary,
+                      size: 20.0,
+                    ),
                     SizedBox(width: 8.0),
                     Text(
                       AppStrings.selectTime.tr,
@@ -143,23 +155,25 @@ class BookingView extends GetView<BookingController> {
                 ),
                 SizedBox(height: 16.0),
                 GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 16.0,
-                        mainAxisSpacing: 16.0,
-                        childAspectRatio: 2.5,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 16.0,
+                    mainAxisSpacing: 16.0,
+                    childAspectRatio: 2.5,
+                  ),
+                  itemCount: controller.times.length,
+                  itemBuilder: (context, index) {
+                    return Obx(
+                      () => SelectableTimeChip(
+                        time: controller.times[index],
+                        isSelected: controller.selectedTimeIndex.value == index,
+                        onTap: () => controller.selectedTimeIndex.value = index,
                       ),
-                      itemCount: controller.times.length,
-                      itemBuilder: (context, index) {
-                        return Obx(() => SelectableTimeChip(
-                          time: controller.times[index],
-                          isSelected: controller.selectedTimeIndex.value == index,
-                          onTap: () => controller.selectedTimeIndex.value = index,
-                        ));
-                      },
-                    ),
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -193,11 +207,7 @@ class BookingView extends GetView<BookingController> {
             child: Stack(
               children: [
                 // Lines to simulate map streets
-                Positioned.fill(
-                  child: CustomPaint(
-                    painter: MapLinesPainter(),
-                  ),
-                ),
+                Positioned.fill(child: CustomPaint(painter: MapLinesPainter())),
                 Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -207,16 +217,23 @@ class BookingView extends GetView<BookingController> {
                         decoration: BoxDecoration(
                           color: AppColors.primary,
                           shape: BoxShape.circle,
-                          border: Border.all(color: AppColors.white, width: 2.0),
+                          border: Border.all(
+                            color: AppColors.white,
+                            width: 2.0,
+                          ),
                           boxShadow: [
                             BoxShadow(
                               color: AppColors.primary.withAlpha(50),
                               blurRadius: 10,
                               offset: const Offset(0, 4),
-                            )
+                            ),
                           ],
                         ),
-                        child: Icon(Icons.location_on, color: AppColors.white, size: 20.0),
+                        child: Icon(
+                          Icons.location_on,
+                          color: AppColors.white,
+                          size: 20.0,
+                        ),
                       ),
                       Container(
                         width: 2.0,
@@ -240,7 +257,11 @@ class BookingView extends GetView<BookingController> {
                   left: 12.0,
                   child: Row(
                     children: [
-                      Icon(Icons.location_on_outlined, color: AppColors.primary, size: 16.0),
+                      Icon(
+                        Icons.location_on_outlined,
+                        color: AppColors.primary,
+                        size: 16.0,
+                      ),
                       SizedBox(width: 4.0),
                       Text(
                         AppStrings.useCurrentLocation.tr,
@@ -266,18 +287,20 @@ class BookingView extends GetView<BookingController> {
             ),
           ),
           SizedBox(height: 16.0),
-          Obx(() => Column(
-                children: List.generate(controller.addresses.length, (index) {
-                  final address = controller.addresses[index];
-                  return AddressSelectionCard(
-                    title: address['title'] as String,
-                    address: address['address'] as String,
-                    isDefault: address['isDefault'] as bool,
-                    isSelected: controller.selectedAddressIndex.value == index,
-                    onTap: () => controller.selectedAddressIndex.value = index,
-                  );
-                }),
-              )),
+          Obx(
+            () => Column(
+              children: List.generate(controller.addresses.length, (index) {
+                final address = controller.addresses[index];
+                return AddressSelectionCard(
+                  title: address['title'] as String,
+                  address: address['address'] as String,
+                  isDefault: address['isDefault'] as bool,
+                  isSelected: controller.selectedAddressIndex.value == index,
+                  onTap: () => controller.selectedAddressIndex.value = index,
+                );
+              }),
+            ),
+          ),
           SizedBox(height: 8.0),
           // Add new address button dotted
           Container(
@@ -286,10 +309,15 @@ class BookingView extends GetView<BookingController> {
             decoration: BoxDecoration(
               color: AppColors.background,
               borderRadius: BorderRadius.circular(16.0),
-              border: Border.all(color: AppColors.primary.withAlpha(100), style: BorderStyle.none),
+              border: Border.all(
+                color: AppColors.primary.withAlpha(100),
+                style: BorderStyle.none,
+              ),
             ),
             child: CustomPaint(
-              painter: DashedBorderPainter(color: AppColors.primary.withAlpha(100)),
+              painter: DashedBorderPainter(
+                color: AppColors.primary.withAlpha(100),
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -300,7 +328,11 @@ class BookingView extends GetView<BookingController> {
                       color: AppColors.primary.withAlpha(20),
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(Icons.add, color: AppColors.primary, size: 16.0),
+                    child: Icon(
+                      Icons.add,
+                      color: AppColors.primary,
+                      size: 16.0,
+                    ),
                   ),
                   SizedBox(width: 12.0),
                   Text(
@@ -314,7 +346,7 @@ class BookingView extends GetView<BookingController> {
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -355,24 +387,33 @@ class BookingView extends GetView<BookingController> {
               maxLines: 6,
               maxLength: 500,
               decoration: InputDecoration(
-                hintText: 'Describe your issue, specific requirements, or any other details that would help the artisan...',
-                hintStyle: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.0),
+                hintText:
+                    'Describe your issue, specific requirements, or any other details that would help the artisan...',
+                hintStyle: GoogleFonts.poppins(
+                  color: AppColors.greyText,
+                  fontSize: 14.0,
+                ),
                 border: InputBorder.none,
                 counterText: '', // hide default counter
               ),
-              style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.0),
+              style: GoogleFonts.poppins(
+                color: AppColors.textColor,
+                fontSize: 14.0,
+              ),
             ),
           ),
           SizedBox(height: 8.0),
           Align(
             alignment: Alignment.centerRight,
-            child: Obx(() => Text(
-                  '${controller.notesLength}/500 characters',
-                  style: GoogleFonts.poppins(
-                    color: AppColors.greyText,
-                    fontSize: 12.0,
-                  ),
-                )),
+            child: Obx(
+              () => Text(
+                '${controller.notesLength}/500 characters',
+                style: GoogleFonts.poppins(
+                  color: AppColors.greyText,
+                  fontSize: 12.0,
+                ),
+              ),
+            ),
           ),
           SizedBox(height: 24.0),
           Text(
@@ -387,31 +428,39 @@ class BookingView extends GetView<BookingController> {
           Wrap(
             spacing: 12.0,
             runSpacing: 12.0,
-            children: controller.quickNotes.map((note) => GestureDetector(
-                  onTap: () => controller.addQuickNote(note),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                    decoration: BoxDecoration(
-                      color: AppColors.primary.withAlpha(20),
-                      borderRadius: BorderRadius.circular(20.0),
-                      border: Border.all(color: AppColors.primary.withAlpha(50)),
-                    ),
-                    child: Text(
-                      note,
-                      style: GoogleFonts.poppins(
-                        color: AppColors.primary,
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.w500,
+            children: controller.quickNotes
+                .map(
+                  (note) => GestureDetector(
+                    onTap: () => controller.addQuickNote(note),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 8.0,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.primary.withAlpha(20),
+                        borderRadius: BorderRadius.circular(20.0),
+                        border: Border.all(
+                          color: AppColors.primary.withAlpha(50),
+                        ),
+                      ),
+                      child: Text(
+                        note,
+                        style: GoogleFonts.poppins(
+                          color: AppColors.primary,
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
-                )).toList(),
+                )
+                .toList(),
           ),
         ],
       ),
     );
   }
-
 }
 
 // Simple painters for custom shapes
@@ -425,10 +474,15 @@ class DashedBorderPainter extends CustomPainter {
       ..color = color
       ..strokeWidth = 1.5
       ..style = PaintingStyle.stroke;
-    
+
     var path = Path();
-    path.addRRect(RRect.fromRectAndRadius(Rect.fromLTWH(0, 0, size.width, size.height), Radius.circular(16.0)));
-    
+    path.addRRect(
+      RRect.fromRectAndRadius(
+        Rect.fromLTWH(0, 0, size.width, size.height),
+        Radius.circular(16.0),
+      ),
+    );
+
     // Simplistic dash effect representation using pathMetrics (often requires external libs, but we can draw basic rects)
     // For exact dashed border, usually package 'dotted_border' is used. I'll just draw a solid border fallback if strict dash is tough in pure canvas, but here is a simple line dash.
     Path dashPath = Path();
@@ -440,7 +494,7 @@ class DashedBorderPainter extends CustomPainter {
         distance += 10;
       }
     }
-    
+
     canvas.drawPath(dashPath, paint);
   }
 
@@ -455,12 +509,19 @@ class MapLinesPainter extends CustomPainter {
       ..color = Colors.white
       ..strokeWidth = 6.0
       ..style = PaintingStyle.stroke;
-    
-    canvas.drawLine(Offset(0, size.height * 0.6), Offset(size.width, size.height * 0.6), paint);
-    canvas.drawLine(Offset(size.width * 0.4, 0), Offset(size.width * 0.4, size.height), paint);
+
+    canvas.drawLine(
+      Offset(0, size.height * 0.6),
+      Offset(size.width, size.height * 0.6),
+      paint,
+    );
+    canvas.drawLine(
+      Offset(size.width * 0.4, 0),
+      Offset(size.width * 0.4, size.height),
+      paint,
+    );
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
-

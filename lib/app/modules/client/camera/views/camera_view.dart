@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../core/constants/static/app_colors.dart';
 import '../controllers/camera_controller.dart';
 
 class CameraView extends GetView<CameraController> {
@@ -15,12 +14,8 @@ class CameraView extends GetView<CameraController> {
         child: Stack(
           children: [
             // Black background imitating viewfinder
-            Positioned.fill(
-              child: Container(
-                color: const Color(0xFF111111),
-              ),
-            ),
-            
+            Positioned.fill(child: Container(color: const Color(0xFF111111))),
+
             // Top App Bar Controls
             Positioned(
               top: 16.0,
@@ -129,16 +124,23 @@ class CameraView extends GetView<CameraController> {
             ],
           ),
         ),
-        
+
         // Next Gradient Button imitating the provided design
         GestureDetector(
           onTap: controller.proceedToNext,
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 16.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 40.0,
+              vertical: 16.0,
+            ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.0),
               gradient: const LinearGradient(
-                colors: [Color(0xFF8A2387), Color(0xFFE94057), Color(0xFFF27121)], // Warm instagram-like gradient seen in design
+                colors: [
+                  Color(0xFF8A2387),
+                  Color(0xFFE94057),
+                  Color(0xFFF27121),
+                ], // Warm instagram-like gradient seen in design
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
               ),

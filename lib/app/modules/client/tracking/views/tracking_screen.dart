@@ -53,7 +53,11 @@ class TrackingScreen extends GetView<TrackingController> {
       ),
       title: const Text(
         "Tracking",
-        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+        ),
       ),
       actions: [
         Center(
@@ -79,13 +83,17 @@ class TrackingScreen extends GetView<TrackingController> {
                   const SizedBox(width: 6),
                   const Text(
                     "Live",
-                    style: TextStyle(color: Color(0xFF4CAE79), fontWeight: FontWeight.w600, fontSize: 12),
-                  )
+                    style: TextStyle(
+                      color: Color(0xFF4CAE79),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12,
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
@@ -105,7 +113,10 @@ class TrackingScreen extends GetView<TrackingController> {
             children: [
               Text(
                 controller.artisanName,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
               const SizedBox(height: 4),
               Row(
@@ -127,10 +138,13 @@ class TrackingScreen extends GetView<TrackingController> {
             borderRadius: BorderRadius.circular(12),
           ),
           child: IconButton(
-            icon: const Icon(Icons.chat_bubble_outline, color: Color(0xFF34608D)),
+            icon: const Icon(
+              Icons.chat_bubble_outline,
+              color: Color(0xFF34608D),
+            ),
             onPressed: () => controller.goToChat(),
           ),
-        )
+        ),
       ],
     );
   }
@@ -151,7 +165,9 @@ class TrackingScreen extends GetView<TrackingController> {
                   value: controller.progressPercent,
                   strokeWidth: 8,
                   backgroundColor: Colors.grey.shade200,
-                  valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF34608D)),
+                  valueColor: const AlwaysStoppedAnimation<Color>(
+                    Color(0xFF34608D),
+                  ),
                   strokeCap: StrokeCap.round,
                 ),
               ),
@@ -161,10 +177,14 @@ class TrackingScreen extends GetView<TrackingController> {
                   const SizedBox(height: 4),
                   Text(
                     "${controller.elapsedMinutes} min",
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.black54),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13,
+                      color: Colors.black54,
+                    ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
           const SizedBox(height: 24),
@@ -224,9 +244,18 @@ class TrackingScreen extends GetView<TrackingController> {
             extraWidget: Row(
               children: [
                 const SizedBox(height: 24),
-                _buildDot(), _buildDot(), _buildDot(),
+                _buildDot(),
+                _buildDot(),
+                _buildDot(),
                 const SizedBox(width: 8),
-                const Text("In progress...", style: TextStyle(color: Color(0xFF34608D), fontSize: 12, fontWeight: FontWeight.w500))
+                const Text(
+                  "In progress...",
+                  style: TextStyle(
+                    color: Color(0xFF34608D),
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ],
             ),
           ),
@@ -279,7 +308,9 @@ class TrackingScreen extends GetView<TrackingController> {
               Container(
                 width: 2,
                 height: isCurrent ? 50 : 40,
-                color: isCompleted ? const Color(0xFF57A783) : Colors.grey.shade300,
+                color: isCompleted
+                    ? const Color(0xFF57A783)
+                    : Colors.grey.shade300,
               ),
           ],
         ),
@@ -302,14 +333,21 @@ class TrackingScreen extends GetView<TrackingController> {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.access_time, size: 12, color: Colors.grey.shade400),
+                      Icon(
+                        Icons.access_time,
+                        size: 12,
+                        color: Colors.grey.shade400,
+                      ),
                       const SizedBox(width: 4),
                       Text(
                         time,
-                        style: TextStyle(fontSize: 12, color: Colors.grey.shade500),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey.shade500,
+                        ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
               const SizedBox(height: 4),
@@ -320,11 +358,11 @@ class TrackingScreen extends GetView<TrackingController> {
                   color: isFaded ? Colors.grey.shade400 : Colors.grey.shade600,
                 ),
               ),
-              if (extraWidget != null) extraWidget,
+              ?extraWidget,
               const SizedBox(height: 16), // Bottom padding per step
             ],
           ),
-        )
+        ),
       ],
     );
   }
@@ -369,13 +407,14 @@ class TrackingScreen extends GetView<TrackingController> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          label,
-          style: const TextStyle(color: Colors.grey, fontSize: 14),
-        ),
+        Text(label, style: const TextStyle(color: Colors.grey, fontSize: 14)),
         Text(
           value,
-          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: Colors.black87),
+          style: const TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+            color: Colors.black87,
+          ),
         ),
       ],
     );
@@ -392,7 +431,9 @@ class TrackingScreen extends GetView<TrackingController> {
           child: ElevatedButton(
             onPressed: () => controller.viewCompletionWork(),
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF34608D), // Matches the Blue theme
+              backgroundColor: const Color(
+                0xFF34608D,
+              ), // Matches the Blue theme
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -400,7 +441,11 @@ class TrackingScreen extends GetView<TrackingController> {
             ),
             child: const Text(
               "View Completion work",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
           ),
         ),

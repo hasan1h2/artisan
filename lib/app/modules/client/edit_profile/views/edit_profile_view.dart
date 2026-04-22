@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/constants/static/app_colors.dart';
-import '../../../../core/constants/static/app_strings.dart';
 import '../../../../core/constants/static/app_images.dart';
 import '../controllers/edit_profile_controller.dart';
 
@@ -35,7 +34,10 @@ class EditProfileView extends GetView<EditProfileController> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24.0,
+                vertical: 32.0,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -61,7 +63,9 @@ class EditProfileView extends GetView<EditProfileController> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             image: const DecorationImage(
-              image: AssetImage(AppImages.homeMarcusJohnson), // Placeholder for Alex Johnson
+              image: AssetImage(
+                AppImages.homeMarcusJohnson,
+              ), // Placeholder for Alex Johnson
               fit: BoxFit.cover,
             ),
           ),
@@ -85,7 +89,11 @@ class EditProfileView extends GetView<EditProfileController> {
                   ),
                 ],
               ),
-              child: const Icon(Icons.edit_outlined, color: AppColors.greyText, size: 18.0),
+              child: const Icon(
+                Icons.edit_outlined,
+                color: AppColors.greyText,
+                size: 18.0,
+              ),
             ),
           ),
         ),
@@ -152,7 +160,9 @@ class EditProfileView extends GetView<EditProfileController> {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
             minimumSize: const Size(double.infinity, 56.0),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
             elevation: 0,
           ),
           child: Text(
@@ -168,4 +178,3 @@ class EditProfileView extends GetView<EditProfileController> {
     );
   }
 }
-

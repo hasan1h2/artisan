@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/constants/static/app_colors.dart';
 import '../../../../core/constants/static/app_strings.dart';
-import '../../../../core/constants/static/app_images.dart';
 import '../controllers/worker_verification_controller.dart';
 
 class WorkerVerificationView extends GetView<WorkerVerificationController> {
@@ -24,7 +23,9 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
           }
 
           return AppBar(
-            backgroundColor: isCamera ? const Color(0xFF0F172A) : AppColors.primary,
+            backgroundColor: isCamera
+                ? const Color(0xFF0F172A)
+                : AppColors.primary,
             elevation: 0,
             leading: IconButton(
               icon: const Icon(Icons.close, color: AppColors.white, size: 24.0),
@@ -58,16 +59,13 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
               return PageView(
                 controller: controller.pageController,
                 physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  _buildStep1(),
-                  _buildStep2(),
-                  _buildStep3(),
-                ],
+                children: [_buildStep1(), _buildStep2(), _buildStep3()],
               );
             }),
           ),
           Obx(() {
-            if (controller.currentStep.value == 3) return const SizedBox.shrink();
+            if (controller.currentStep.value == 3)
+              return const SizedBox.shrink();
             return Padding(
               padding: const EdgeInsets.all(24.0),
               child: ElevatedButton(
@@ -206,7 +204,11 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
     );
   }
 
-  Widget _docTypeCard({required String title, required IconData icon, required String type}) {
+  Widget _docTypeCard({
+    required String title,
+    required IconData icon,
+    required String type,
+  }) {
     return Obx(() {
       bool isSelected = controller.selectedDocType.value == type;
       return GestureDetector(
@@ -214,7 +216,9 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
         child: Container(
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFFF1F4F8) : const Color(0xFFF1F4F8).withOpacity(0.5),
+            color: isSelected
+                ? const Color(0xFFF1F4F8)
+                : const Color(0xFFF1F4F8).withOpacity(0.5),
             borderRadius: BorderRadius.circular(12.0),
             border: Border.all(
               color: isSelected ? AppColors.primary : Colors.transparent,
@@ -227,7 +231,9 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
                 width: 44,
                 height: 44,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF63B3ED).withOpacity(0.2), // Light blue circle
+                  color: const Color(
+                    0xFF63B3ED,
+                  ).withOpacity(0.2), // Light blue circle
                   shape: BoxShape.circle,
                 ),
                 child: Icon(icon, color: const Color(0xFF4299E1), size: 24.0),
@@ -244,7 +250,9 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
                 ),
               ),
               Icon(
-                isSelected ? Icons.radio_button_checked : Icons.radio_button_off,
+                isSelected
+                    ? Icons.radio_button_checked
+                    : Icons.radio_button_off,
                 color: isSelected ? AppColors.primary : const Color(0xFF9CA3AF),
                 size: 24.0,
               ),
@@ -283,7 +291,11 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
           const SizedBox(height: 24.0),
           _buildField("Date of birth", controller.dobController, 'mm/dd/yy'),
           const SizedBox(height: 24.0),
-          _buildField("ID  number", controller.idNumberController, '45246282554252'),
+          _buildField(
+            "ID  number",
+            controller.idNumberController,
+            '45246282554252',
+          ),
         ],
       ),
     );
@@ -311,11 +323,17 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
             controller: ctrl,
             decoration: InputDecoration(
               hintText: hint,
-              hintStyle: GoogleFonts.poppins(color: const Color(0xFF9CA3AF), fontSize: 14.0),
+              hintStyle: GoogleFonts.poppins(
+                color: const Color(0xFF9CA3AF),
+                fontSize: 14.0,
+              ),
               filled: true,
               fillColor: Colors.white,
               border: InputBorder.none,
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 16.0,
+              ),
             ),
             style: GoogleFonts.poppins(
               fontSize: 14.0,
@@ -381,11 +399,23 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.account_box_rounded, size: 80, color: Color(0xFF4299E1)),
+                        const Icon(
+                          Icons.account_box_rounded,
+                          size: 80,
+                          color: Color(0xFF4299E1),
+                        ),
                         const SizedBox(height: 12.0),
-                        Container(width: 100, height: 8, color: const Color(0xFFE2E8F0)),
+                        Container(
+                          width: 100,
+                          height: 8,
+                          color: const Color(0xFFE2E8F0),
+                        ),
                         const SizedBox(height: 4.0),
-                        Container(width: 80, height: 8, color: const Color(0xFFE2E8F0)),
+                        Container(
+                          width: 80,
+                          height: 8,
+                          color: const Color(0xFFE2E8F0),
+                        ),
                       ],
                     ),
                   ),
@@ -475,4 +505,3 @@ class WorkerVerificationView extends GetView<WorkerVerificationController> {
     );
   }
 }
-

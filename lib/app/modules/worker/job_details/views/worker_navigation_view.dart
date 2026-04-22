@@ -217,7 +217,7 @@ class WorkerNavigationView extends GetView<WorkerJobDetailsController> {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
                 ),
                 child: Text(
-                  AppStrings.cancelX.tr,
+                  AppStrings.cancel.tr,
                   style: GoogleFonts.poppins(
                     fontSize: 16.0,
                     fontWeight: FontWeight.w600,

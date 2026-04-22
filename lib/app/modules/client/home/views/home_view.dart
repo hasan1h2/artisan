@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart' hide Condition;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -7,7 +6,6 @@ import 'package:responsive_framework/responsive_framework.dart';
 import '../../../../core/constants/static/app_colors.dart';
 import '../../../../core/constants/static/app_images.dart';
 import '../../../../core/constants/static/app_strings.dart';
-import '../../../../core/components/service_category_card.dart';
 import '../../../../core/components/service_item_card.dart';
 import '../../../../core/components/artisan_profile_card.dart';
 import '../inner_widgets/promo_card.dart';
@@ -33,7 +31,9 @@ class HomeView extends GetView<HomeController> {
               child: Container(
                 decoration: BoxDecoration(
                   color: AppColors.background,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(24.0)),
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(24.0),
+                  ),
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.0),
@@ -64,7 +64,12 @@ class HomeView extends GetView<HomeController> {
     return Container(
       width: double.infinity,
       color: AppColors.primary,
-      padding: EdgeInsets.only(top: 60.0, left: 24.0, right: 24.0, bottom: 40.0),
+      padding: EdgeInsets.only(
+        top: 60.0,
+        left: 24.0,
+        right: 24.0,
+        bottom: 40.0,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -82,35 +87,47 @@ class HomeView extends GetView<HomeController> {
                       children: [
                         Row(
                           children: [
-                            Obx(() => Text(
-                              controller.selectedCity.value,
-                              style: GoogleFonts.poppins(
-                                color: AppColors.white,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.w600,
+                            Obx(
+                              () => Text(
+                                controller.selectedCity.value,
+                                style: GoogleFonts.poppins(
+                                  color: AppColors.white,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                            )),
-                            Icon(Icons.keyboard_arrow_down, color: AppColors.white, size: 20.0),
+                            ),
+                            Icon(
+                              Icons.keyboard_arrow_down,
+                              color: AppColors.white,
+                              size: 20.0,
+                            ),
                           ],
                         ),
-                        Obx(() => Text(
-                          controller.selectedAddress.value,
-                          style: GoogleFonts.poppins(
-                            color: AppColors.white.withAlpha(200),
-                            fontSize: 12.0,
+                        Obx(
+                          () => Text(
+                            controller.selectedAddress.value,
+                            style: GoogleFonts.poppins(
+                              color: AppColors.white.withAlpha(200),
+                              fontSize: 12.0,
+                            ),
                           ),
-                        )),
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
-                InkWell(
-                  onTap: () => Get.toNamed(Routes.NOTIFICATIONS),
-                  child: Icon(Icons.notifications_none, color: AppColors.white, size: 24.0),
+              InkWell(
+                onTap: () => Get.toNamed(Routes.NOTIFICATIONS),
+                child: Icon(
+                  Icons.notifications_none,
+                  color: AppColors.white,
+                  size: 24.0,
                 ),
-              ],
-            ),
+              ),
+            ],
+          ),
           SizedBox(height: 24.0),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
@@ -121,12 +138,14 @@ class HomeView extends GetView<HomeController> {
             child: TextField(
               decoration: InputDecoration(
                 hintText: AppStrings.searchService.tr,
-                hintStyle: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.0),
+                hintStyle: GoogleFonts.poppins(
+                  color: AppColors.greyText,
+                  fontSize: 14.0,
+                ),
                 icon: const Icon(Icons.search, color: AppColors.greyText),
                 border: InputBorder.none,
               ),
-            )
-
+            ),
           ),
           SizedBox(height: 24.0),
           ClipRRect(
@@ -137,7 +156,6 @@ class HomeView extends GetView<HomeController> {
               fit: BoxFit.cover,
             ),
           ),
-
         ],
       ),
     );
@@ -159,7 +177,11 @@ class HomeView extends GetView<HomeController> {
             ),
             GestureDetector(
               onTap: () => Get.toNamed(Routes.SERVICES),
-              child: Icon(Icons.arrow_forward, color: AppColors.textColor, size: 20.0),
+              child: Icon(
+                Icons.arrow_forward,
+                color: AppColors.textColor,
+                size: 20.0,
+              ),
             ),
           ],
         ),
@@ -208,7 +230,8 @@ class HomeView extends GetView<HomeController> {
               height: 50.0,
               width: 50.0,
               fit: BoxFit.contain,
-              errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, color: Colors.grey),
+              errorBuilder: (context, error, stackTrace) =>
+                  const Icon(Icons.broken_image, color: Colors.grey),
             ),
             SizedBox(height: 12.0),
             Flexible(
@@ -256,7 +279,11 @@ class HomeView extends GetView<HomeController> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  Icon(Icons.chevron_right, color: AppColors.primary, size: 20.0),
+                  Icon(
+                    Icons.chevron_right,
+                    color: AppColors.primary,
+                    size: 20.0,
+                  ),
                 ],
               ),
             ),
@@ -292,7 +319,10 @@ class HomeView extends GetView<HomeController> {
                 reviews: service['reviews'],
                 priceRange: service['priceRange'],
                 onTap: () {
-                  Get.toNamed(Routes.BOOKING, arguments: service);
+                  Get.toNamed(Routes.BOOKING, arguments: {
+                    'service': service,
+                    'source': 'popular_services',
+                  });
                 },
               );
             },
@@ -327,29 +357,31 @@ class HomeView extends GetView<HomeController> {
           ],
         ),
         SizedBox(height: 16.0),
-        Obx(() => ListView.separated(
-          padding: EdgeInsets.zero,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: controller.recommendedArtisans.length,
-          separatorBuilder: (context, index) => SizedBox(height: 16.0),
-          itemBuilder: (context, index) {
-            final artisan = controller.recommendedArtisans[index];
-            return ArtisanProfileCard(
-              name: artisan['name'],
-              role: artisan['role'],
-              avatarPath: artisan['avatar'],
-              isVerified: artisan['isVerified'],
-              rating: artisan['rating'],
-              reviews: artisan['reviews'],
-              pricePerHour: artisan['pricePerHour'],
-              distanceOrTime: artisan['distanceOrTime'],
-              onTap: () {
-                Get.toNamed(Routes.SERVICE_DETAILS, arguments: artisan);
-              },
-            );
-          },
-        )),
+        Obx(
+          () => ListView.separated(
+            padding: EdgeInsets.zero,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: controller.recommendedArtisans.length,
+            separatorBuilder: (context, index) => SizedBox(height: 16.0),
+            itemBuilder: (context, index) {
+              final artisan = controller.recommendedArtisans[index];
+              return ArtisanProfileCard(
+                name: artisan['name'],
+                role: artisan['role'],
+                avatarPath: artisan['avatar'],
+                isVerified: artisan['isVerified'],
+                rating: artisan['rating'],
+                reviews: artisan['reviews'],
+                pricePerHour: artisan['pricePerHour'],
+                distanceOrTime: artisan['distanceOrTime'],
+                onTap: () {
+                  Get.toNamed(Routes.SERVICE_DETAILS, arguments: artisan);
+                },
+              );
+            },
+          ),
+        ),
       ],
     );
   }
@@ -358,4 +390,3 @@ class HomeView extends GetView<HomeController> {
     return const PromoCard();
   }
 }
-

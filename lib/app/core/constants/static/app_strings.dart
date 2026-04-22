@@ -270,7 +270,7 @@ class AppStrings extends Translations {
   static const locationLabel = 'Location';
   static const serviceInfo = 'Service Information';
   static const iveArrived = 'I\'ve Arrived';
-  static const cancelX = 'Cancel X';
+  static const cancel = 'Cancel';
   static const cancelOrderTitle = 'Cancel this order?';
   static const cancelOrderSub = 'You can\'t undo this later';
   static const minElapsed = '%s min elapsed';
@@ -294,7 +294,6 @@ class AppStrings extends Translations {
   static const addPhotosDocs = 'Add photos or documents (optional)';
   static const submitReport = 'Submit Report';
   static const reportAProblem = 'Report a problem?';
-  static const cancel = 'Cancel';
   static const selectIssueType = 'Select issue type...';
 
   // Account Verification
@@ -711,7 +710,7 @@ class AppStrings extends Translations {
           locationLabel: locationLabel,
           serviceInfo: serviceInfo,
           iveArrived: iveArrived,
-          cancelX: cancelX,
+          cancel: cancel,
           cancelOrderTitle: cancelOrderTitle,
           cancelOrderSub: cancelOrderSub,
           serviceInProgress: serviceInProgress,

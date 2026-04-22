@@ -16,40 +16,42 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Obx(() => SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildTopSection(context),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 24.0),
-                  
-                  // New Request Banner (Only when online)
-                  if (controller.isOnline.value) ...[
-                    _buildIncomingRequestBanner(),
+      body: Obx(
+        () => SingleChildScrollView(
+          child: Column(
+            children: [
+              _buildTopSection(context),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     const SizedBox(height: 24.0),
+
+                    // New Request Banner (Only when online)
+                    if (controller.isOnline.value) ...[
+                      _buildIncomingRequestBanner(),
+                      const SizedBox(height: 24.0),
+                    ],
+
+                    // Schedule Section
+                    _buildSectionHeader("Today's Schedule", "See all"),
+                    const SizedBox(height: 16.0),
+                    _buildScheduleList(),
+
+                    const SizedBox(height: 24.0),
+
+                    // Weekly Summary Card
+                    _buildWeeklySummarySection(),
+
+                    const SizedBox(height: 120.0), // Gap for bottom navigation
                   ],
-
-                  // Schedule Section
-                  _buildSectionHeader("Today's Schedule", "See all"),
-                  const SizedBox(height: 16.0),
-                  _buildScheduleList(),
-
-                  const SizedBox(height: 24.0),
-
-                  // Weekly Summary Card
-                  _buildWeeklySummarySection(),
-                  
-                  const SizedBox(height: 120.0), // Gap for bottom navigation
-                ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 
@@ -91,11 +93,14 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                         width: 14,
                         height: 14,
                         decoration: BoxDecoration(
-                          color: controller.isOnline.value 
-                              ? AppColors.onlineGreen 
+                          color: controller.isOnline.value
+                              ? AppColors.onlineGreen
                               : AppColors.urgentRed,
                           shape: BoxShape.circle,
-                          border: Border.all(color: AppColors.primary, width: 2),
+                          border: Border.all(
+                            color: AppColors.primary,
+                            width: 2,
+                          ),
                         ),
                       ),
                     ),
@@ -135,7 +140,11 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                     ),
                     child: Stack(
                       children: [
-                        const Icon(Icons.notifications_outlined, color: Colors.white, size: 24),
+                        const Icon(
+                          Icons.notifications_outlined,
+                          color: Colors.white,
+                          size: 24,
+                        ),
                         Positioned(
                           right: 2,
                           top: 2,
@@ -155,7 +164,7 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
               ],
             ),
           ),
-          
+
           const SizedBox(height: 24.0),
 
           // Online/Offline Toggle Card
@@ -173,8 +182,8 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                     width: 12,
                     height: 12,
                     decoration: BoxDecoration(
-                      color: controller.isOnline.value 
-                          ? AppColors.onlineGreen 
+                      color: controller.isOnline.value
+                          ? AppColors.onlineGreen
                           : AppColors.urgentRed,
                       shape: BoxShape.circle,
                     ),
@@ -185,7 +194,9 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          controller.isOnline.value ? "You are Online" : "You are Offline",
+                          controller.isOnline.value
+                              ? "You are Online"
+                              : "You are Offline",
                           style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontSize: 16.0,
@@ -193,8 +204,8 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                           ),
                         ),
                         Text(
-                          controller.isOnline.value 
-                              ? "Receiving new requests" 
+                          controller.isOnline.value
+                              ? "Receiving new requests"
                               : "Not accepting requests",
                           style: GoogleFonts.poppins(
                             color: Colors.white.withOpacity(0.6),
@@ -210,7 +221,7 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
                       value: controller.isOnline.value,
                       onChanged: controller.toggleStatus,
                       activeTrackColor: AppColors.onlineGreen,
-                      activeColor: Colors.white,
+                      activeThumbColor: Colors.white,
                       inactiveTrackColor: Colors.white.withOpacity(0.3),
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
@@ -251,9 +262,9 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
   }
 
   Widget _buildCompactStatCard(
-    String title, 
-    String value, 
-    String subtitle, 
+    String title,
+    String value,
+    String subtitle,
     Color subtitleColor,
     IconData? icon,
   ) {
@@ -327,7 +338,11 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
               color: const Color(0xFFE8F5E9),
               shape: BoxShape.circle,
             ),
-            child: const Icon(Icons.notifications_active_outlined, color: AppColors.onlineGreen, size: 24),
+            child: const Icon(
+              Icons.notifications_active_outlined,
+              color: AppColors.onlineGreen,
+              size: 24,
+            ),
           ),
           const SizedBox(width: 16.0),
           Expanded(
@@ -352,7 +367,11 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
               ],
             ),
           ),
-          const Icon(Icons.arrow_forward_ios, color: AppColors.greyText, size: 16),
+          const Icon(
+            Icons.arrow_forward_ios,
+            color: AppColors.greyText,
+            size: 16,
+          ),
         ],
       ),
     );
@@ -435,8 +454,8 @@ class WorkerDashboardView extends GetView<WorkerHomeController> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: controller.weeklySummary.map((item) {
               return _buildSummaryItem(
-                item['icon']!, 
-                item['value']!, 
+                item['icon']!,
+                item['value']!,
                 item['label']!,
               );
             }).toList(),

@@ -89,7 +89,7 @@ class PaymentView extends GetView<PaymentController> {
           SafeArea(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: controller.processPayment,
@@ -101,14 +101,14 @@ class PaymentView extends GetView<PaymentController> {
                     ),
                     elevation: 0,
                   ),
-                    child: Text(
-                      'Pay Now >',
-                      style: GoogleFonts.poppins(
-                        color: AppColors.white,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w600,
-                      ),
+                  child: Text(
+                    'Pay Now >',
+                    style: GoogleFonts.poppins(
+                      color: AppColors.white,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w600,
                     ),
+                  ),
                 ),
               ),
             ),
@@ -135,7 +135,11 @@ class PaymentView extends GetView<PaymentController> {
             ),
             Row(
               children: [
-                Icon(Icons.lock_outline, color: AppColors.timelineActive, size: 16.0),
+                Icon(
+                  Icons.lock_outline,
+                  color: AppColors.timelineActive,
+                  size: 16.0,
+                ),
                 SizedBox(width: 4.0),
                 Text(
                   AppStrings.secured.tr,
@@ -151,10 +155,7 @@ class PaymentView extends GetView<PaymentController> {
         ),
         Text(
           AppStrings.securePaymentPortal.tr,
-          style: GoogleFonts.poppins(
-            color: AppColors.greyText,
-            fontSize: 14.0,
-          ),
+          style: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.0),
         ),
       ],
     );
@@ -262,7 +263,11 @@ class PaymentView extends GetView<PaymentController> {
         ),
         Text(
           value,
-          style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.0, fontWeight: FontWeight.w600),
+          style: GoogleFonts.poppins(
+            color: AppColors.textColor,
+            fontSize: 14.0,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ],
     );
@@ -289,7 +294,8 @@ class PaymentView extends GetView<PaymentController> {
           ),
           SizedBox(height: 16.0),
           _buildSavedCardItem(
-            iconPath: 'assets/images/visa.png', // Temporary path, replace if needed
+            iconPath:
+                'assets/images/visa.png', // Temporary path, replace if needed
             cardName: 'Visa •••••25544',
             expiry: 'Expires 11/26',
             isSelected: true,
@@ -297,7 +303,8 @@ class PaymentView extends GetView<PaymentController> {
           ),
           SizedBox(height: 16.0),
           _buildSavedCardItem(
-            iconPath: 'assets/images/master.png', // Temporary path, replace if needed
+            iconPath:
+                'assets/images/master.png', // Temporary path, replace if needed
             cardName: 'Master •••••25544',
             expiry: 'Expires 11/26',
             isSelected: false,
@@ -331,7 +338,9 @@ class PaymentView extends GetView<PaymentController> {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
             decoration: BoxDecoration(
-              color: iconType == 'visa' ? Colors.blue.withAlpha(20) : Colors.red.withAlpha(20),
+              color: iconType == 'visa'
+                  ? Colors.blue.withAlpha(20)
+                  : Colors.red.withAlpha(20),
               borderRadius: BorderRadius.circular(4.0),
             ),
             child: Text(
@@ -383,7 +392,11 @@ class PaymentView extends GetView<PaymentController> {
     );
   }
 
-  Widget _buildInputField(String hint, TextEditingController ctr, {IconData? icon}) {
+  Widget _buildInputField(
+    String hint,
+    TextEditingController ctr, {
+    IconData? icon,
+  }) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
@@ -394,9 +407,14 @@ class PaymentView extends GetView<PaymentController> {
       child: TextField(
         controller: ctr,
         decoration: InputDecoration(
-          icon: icon != null ? Icon(icon, color: AppColors.greyText, size: 20.0) : null,
+          icon: icon != null
+              ? Icon(icon, color: AppColors.greyText, size: 20.0)
+              : null,
           hintText: hint,
-          hintStyle: GoogleFonts.poppins(color: AppColors.greyText.withAlpha(150), fontSize: 14.0),
+          hintStyle: GoogleFonts.poppins(
+            color: AppColors.greyText.withAlpha(150),
+            fontSize: 14.0,
+          ),
           border: InputBorder.none,
         ),
         style: GoogleFonts.poppins(color: AppColors.textColor, fontSize: 14.0),
@@ -433,4 +451,3 @@ class PaymentView extends GetView<PaymentController> {
     );
   }
 }
-

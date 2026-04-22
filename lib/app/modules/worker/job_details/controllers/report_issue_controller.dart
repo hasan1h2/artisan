@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../core/components/success_dialog.dart';
 import '../views/report_problem_dialog.dart';
 
 class ReportIssueController extends GetxController {
@@ -52,20 +53,28 @@ class ReportIssueController extends GetxController {
   }
 
   void _processSubmission() {
+    // 1. Loading Show kora
     Get.dialog(
       const Center(child: CircularProgressIndicator()),
       barrierDismissible: false,
     );
-    
+
     Future.delayed(const Duration(seconds: 2), () {
-      Get.back(); // Close loading
-      Get.back(); // Go back from report screen
-      Get.snackbar(
-        "Report Submitted",
-        "Your report has been sent to support for review.",
-        backgroundColor: Colors.green,
-        colorText: Colors.white,
+      Get.back(); // Loading Dialog bondho kora
+
+      // 2. Success Dialog Show kora
+      Get.dialog(
+        const SuccessDialog(
+          message: "Your report has been sent to support for review.",
+        ),
+        barrierDismissible: false,
       );
+
+      // 3. Ektu opekkha kore screen theke ber hoye jawa
+      Future.delayed(const Duration(milliseconds: 2000), () {
+        Get.back(); // Success Dialog bondho kora
+        Get.back(); // Report screen theke ber hoye jawa
+      });
     });
   }
 

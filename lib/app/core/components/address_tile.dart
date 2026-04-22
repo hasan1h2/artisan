@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
-import '../constants/static/app_strings.dart';
-import 'package:get/get.dart';
 
 class AddressTile extends StatelessWidget {
   final String title;
@@ -33,16 +31,20 @@ class AddressTile extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(20.0),
           border: Border.all(
-            color: isSelected ? const Color(0xFF4CAF50) : const Color(0xFFF1F4F8),
+            color: isSelected
+                ? const Color(0xFF4CAF50)
+                : const Color(0xFFF1F4F8),
             width: 1.5,
           ),
-          boxShadow: isSelected ? [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            )
-          ] : [],
+          boxShadow: isSelected
+              ? [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ]
+              : [],
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -74,7 +76,10 @@ class AddressTile extends StatelessWidget {
                       if (isDefault) ...[
                         const SizedBox(width: 8.0),
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 2,
+                          ),
                           decoration: BoxDecoration(
                             color: const Color(0xFFE8F5E9),
                             borderRadius: BorderRadius.circular(4),
@@ -104,7 +109,11 @@ class AddressTile extends StatelessWidget {
               ),
             ),
             if (isSelected)
-              const Icon(Icons.check_circle, color: Color(0xFF4CAF50), size: 24),
+              const Icon(
+                Icons.check_circle,
+                color: Color(0xFF4CAF50),
+                size: 24,
+              ),
           ],
         ),
       ),

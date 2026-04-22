@@ -46,6 +46,9 @@ class BookingController extends GetxController {
   final notesController = TextEditingController();
   final notesLength = 0.obs;
   
+  // Navigation source
+  final source = ''.obs;
+  
   final quickNotes = [
     '+ Urgent repair',
     '+ Bring materials',
@@ -57,6 +60,11 @@ class BookingController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    // Initialize source from arguments
+    if (Get.arguments != null && Get.arguments is Map) {
+      source.value = Get.arguments['source'] ?? '';
+    }
+    
     notesController.addListener(() {
       notesLength.value = notesController.text.length;
     });

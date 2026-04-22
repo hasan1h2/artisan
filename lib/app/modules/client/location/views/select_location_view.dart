@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,10 +19,7 @@ class SelectLocationView extends GetView<SelectLocationController> {
             child: GestureDetector(
               onPanUpdate: (_) => controller.onMapInteraction(),
               onTap: () => controller.onMapInteraction(),
-              child: Image.asset(
-                AppImages.mapPlaceholder,
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset(AppImages.mapPlaceholder, fit: BoxFit.cover),
             ),
           ),
 
@@ -60,14 +56,21 @@ class SelectLocationView extends GetView<SelectLocationController> {
                             ),
                           ],
                         ),
-                        child: const Icon(Icons.arrow_back, color: AppColors.textColor, size: 20.0),
+                        child: const Icon(
+                          Icons.arrow_back,
+                          color: AppColors.textColor,
+                          size: 20.0,
+                        ),
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 16.0),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 4.0,
+                  ),
                   decoration: BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.circular(12.0),
@@ -82,7 +85,10 @@ class SelectLocationView extends GetView<SelectLocationController> {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: 'Search for address...',
-                      hintStyle: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 14.0),
+                      hintStyle: GoogleFonts.poppins(
+                        color: AppColors.greyText,
+                        fontSize: 14.0,
+                      ),
                       icon: const Icon(Icons.search, color: AppColors.greyText),
                       border: InputBorder.none,
                     ),
@@ -132,38 +138,44 @@ class SelectLocationView extends GetView<SelectLocationController> {
                       ),
                       const SizedBox(width: 12.0),
                       Expanded(
-                        child: Obx(() => Text(
-                          controller.selectedAddress.value,
-                          style: GoogleFonts.poppins(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.textColor,
+                        child: Obx(
+                          () => Text(
+                            controller.selectedAddress.value,
+                            style: GoogleFonts.poppins(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.textColor,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        )),
+                        ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 24.0),
-                  
+
                   // Dynamic Action Button (My Location vs Confirm Location)
                   Obx(() {
                     final bool isSelected = controller.isLocationSelected.value;
-                    
+
                     return SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: isSelected 
-                            ? controller.setAddress 
+                        onPressed: isSelected
+                            ? controller.setAddress
                             : controller.onMyLocationTapped,
                         style: ElevatedButton.styleFrom(
                           // Use a slightly lighter blue for "My Location" state as per image
-                          backgroundColor: isSelected ? AppColors.primary : const Color(0xFF6A95D0), 
+                          backgroundColor: isSelected
+                              ? AppColors.primary
+                              : const Color(0xFF6A95D0),
                           foregroundColor: AppColors.white,
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.0), // More rounded corners matching image
+                            borderRadius: BorderRadius.circular(
+                              16.0,
+                            ), // More rounded corners matching image
                           ),
                           elevation: 0,
                         ),

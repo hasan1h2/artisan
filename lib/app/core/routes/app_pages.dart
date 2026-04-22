@@ -78,7 +78,6 @@ import '../../modules/worker/job_details/controllers/worker_job_details_controll
 import '../../modules/worker/verification/views/worker_verification_view.dart';
 import '../../modules/worker/verification/controllers/worker_verification_controller.dart';
 import '../../modules/worker/job_details/views/worker_navigation_view.dart';
-import '../../modules/worker/job_details/views/worker_image_view.dart';
 import '../../modules/worker/job_details/views/worker_job_status_view.dart';
 import '../../modules/worker/job_details/views/worker_active_job_view.dart';
 import '../../modules/worker/job_details/views/report_issue_view.dart';
@@ -101,14 +100,8 @@ import '../../modules/worker/tracking/controllers/worker_tracking_controller.dar
 
 class AppPages {
   static final routes = [
-    GetPage(
-      name: Routes.SPLASH,
-      page: () => const SplashView(),
-    ),
-    GetPage(
-      name: Routes.ONBOARDING,
-      page: () => const OnboardingView(),
-    ),
+    GetPage(name: Routes.SPLASH, page: () => const SplashView()),
+    GetPage(name: Routes.ONBOARDING, page: () => const OnboardingView()),
     GetPage(
       name: Routes.LOGIN,
       page: () => const LoginView(),
@@ -151,10 +144,7 @@ class AppPages {
         Get.lazyPut<ResetPasswordController>(() => ResetPasswordController());
       }),
     ),
-    GetPage(
-      name: Routes.SUCCESS,
-      page: () => const ResetSuccessView(),
-    ),
+    GetPage(name: Routes.SUCCESS, page: () => const ResetSuccessView()),
     GetPage(
       name: Routes.DASHBOARD,
       page: () => const DashboardView(),
@@ -173,7 +163,9 @@ class AppPages {
       name: Routes.POPULAR_SERVICES,
       page: () => const PopularServicesView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<PopularServicesController>(() => PopularServicesController());
+        Get.lazyPut<PopularServicesController>(
+          () => PopularServicesController(),
+        );
       }),
     ),
     GetPage(
@@ -208,7 +200,9 @@ class AppPages {
       name: Routes.CONFIRM_BOOKING,
       page: () => const ConfirmBookingView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<BookingController>(() => BookingController()); // Share existing booking state
+        Get.lazyPut<BookingController>(
+          () => BookingController(),
+        ); // Share existing booking state
       }),
     ),
     GetPage(
@@ -231,7 +225,8 @@ class AppPages {
       binding: BindingsBuilder(() {
         Get.lazyPut<TrackingController>(() => TrackingController());
       }),
-    ), GetPage(
+    ),
+    GetPage(
       name: Routes.TRACKINGSCREEN,
       page: () => const TrackingScreen(),
       binding: BindingsBuilder(() {
@@ -319,29 +314,39 @@ class AppPages {
       name: Routes.WORKER_JOB_DETAILS,
       page: () => const WorkerJobDetailsView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<WorkerJobDetailsController>(() => WorkerJobDetailsController());
+        Get.lazyPut<WorkerJobDetailsController>(
+          () => WorkerJobDetailsController(),
+        );
       }),
     ),
     GetPage(
       name: Routes.WORKER_NAVIGATION,
       page: () => const WorkerNavigationView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<WorkerJobDetailsController>(() => WorkerJobDetailsController());
-        Get.lazyPut<WorkerJobStatusController>(() => WorkerJobStatusController());
+        Get.lazyPut<WorkerJobDetailsController>(
+          () => WorkerJobDetailsController(),
+        );
+        Get.lazyPut<WorkerJobStatusController>(
+          () => WorkerJobStatusController(),
+        );
       }),
     ),
     GetPage(
       name: Routes.WORKER_JOB_STATUS,
       page: () => const WorkerJobStatusView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<WorkerJobStatusController>(() => WorkerJobStatusController());
+        Get.lazyPut<WorkerJobStatusController>(
+          () => WorkerJobStatusController(),
+        );
       }),
     ),
     GetPage(
       name: Routes.WORKER_ACTIVE_JOB,
       page: () => const WorkerActiveJobView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<WorkerJobDetailsController>(() => WorkerJobDetailsController());
+        Get.lazyPut<WorkerJobDetailsController>(
+          () => WorkerJobDetailsController(),
+        );
       }),
     ),
     GetPage(
@@ -355,7 +360,9 @@ class AppPages {
       name: Routes.WORKER_VERIFICATION,
       page: () => const WorkerVerificationView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<WorkerVerificationController>(() => WorkerVerificationController());
+        Get.lazyPut<WorkerVerificationController>(
+          () => WorkerVerificationController(),
+        );
       }),
     ),
     GetPage(
@@ -425,21 +432,27 @@ class AppPages {
       name: Routes.WORKER_ACCOUNT_SETTINGS,
       page: () => const WorkerAccountSettingsView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<WorkerAccountSettingsController>(() => WorkerAccountSettingsController());
+        Get.lazyPut<WorkerAccountSettingsController>(
+          () => WorkerAccountSettingsController(),
+        );
       }),
     ),
     GetPage(
       name: Routes.WORKER_SAVED_ADDRESSES,
       page: () => const WorkerSavedAddressesView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<WorkerSavedAddressesController>(() => WorkerSavedAddressesController());
+        Get.lazyPut<WorkerSavedAddressesController>(
+          () => WorkerSavedAddressesController(),
+        );
       }),
     ),
     GetPage(
       name: Routes.WORKER_PAYMENT_METHOD,
       page: () => const WorkerPaymentMethodView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut<WorkerPaymentMethodController>(() => WorkerPaymentMethodController());
+        Get.lazyPut<WorkerPaymentMethodController>(
+          () => WorkerPaymentMethodController(),
+        );
       }),
     ),
     GetPage(

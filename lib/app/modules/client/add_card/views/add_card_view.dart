@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/static/app_colors.dart';
-import '../../../../core/constants/static/app_strings.dart';
 import '../controllers/add_card_controller.dart';
 
 class AddCardView extends GetView<AddCardController> {
@@ -33,7 +32,10 @@ class AddCardView extends GetView<AddCardController> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24.0,
+                vertical: 32.0,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -75,7 +77,11 @@ class AddCardView extends GetView<AddCardController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildTextField(controller.nameController, "Cardholder name", label: "Cardholder name"),
+          _buildTextField(
+            controller.nameController,
+            "Cardholder name",
+            label: "Cardholder name",
+          ),
           const SizedBox(height: 20.0),
           _buildTextField(
             controller.cardNumberController,
@@ -87,22 +93,39 @@ class AddCardView extends GetView<AddCardController> {
           Row(
             children: [
               Expanded(
-                child: _buildTextField(controller.expiryController, "12/28", label: "Expiry date"),
+                child: _buildTextField(
+                  controller.expiryController,
+                  "12/28",
+                  label: "Expiry date",
+                ),
               ),
               const SizedBox(width: 16.0),
               Expanded(
-                child: _buildTextField(controller.cvvController, "***", label: "CVV"),
+                child: _buildTextField(
+                  controller.cvvController,
+                  "***",
+                  label: "CVV",
+                ),
               ),
             ],
           ),
           const SizedBox(height: 20.0),
-          _buildTextField(controller.addressController, "Branch name", label: "Address"),
+          _buildTextField(
+            controller.addressController,
+            "Branch name",
+            label: "Address",
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildTextField(TextEditingController ctr, String hint, {String? label, IconData? icon}) {
+  Widget _buildTextField(
+    TextEditingController ctr,
+    String hint, {
+    String? label,
+    IconData? icon,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -127,10 +150,18 @@ class AddCardView extends GetView<AddCardController> {
             controller: ctr,
             decoration: InputDecoration(
               hintText: hint,
-              hintStyle: GoogleFonts.poppins(color: AppColors.greyText, fontSize: 13),
-              prefixIcon: icon != null ? Icon(icon, color: AppColors.greyText, size: 20) : null,
+              hintStyle: GoogleFonts.poppins(
+                color: AppColors.greyText,
+                fontSize: 13,
+              ),
+              prefixIcon: icon != null
+                  ? Icon(icon, color: AppColors.greyText, size: 20)
+                  : null,
               border: InputBorder.none,
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 14.0,
+              ),
             ),
             style: GoogleFonts.poppins(
               color: AppColors.textColor,
@@ -152,7 +183,9 @@ class AddCardView extends GetView<AddCardController> {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
             minimumSize: const Size(double.infinity, 56.0),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
             elevation: 0,
           ),
           child: Text(

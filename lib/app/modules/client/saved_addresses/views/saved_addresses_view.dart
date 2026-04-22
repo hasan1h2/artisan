@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/static/app_colors.dart';
-import '../../../../core/constants/static/app_strings.dart';
 import '../../../../core/constants/static/app_images.dart';
 import '../../../../core/components/address_tile.dart';
-import '../../../../core/components/map_placeholder.dart';
 import '../controllers/saved_addresses_controller.dart';
 
 import '../../../../core/components/dashed_container.dart';
@@ -56,23 +54,26 @@ class SavedAddressesView extends GetView<SavedAddressesController> {
                     ),
                   ),
                   const SizedBox(height: 16.0),
-                  Obx(() => ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                    itemCount: controller.savedAddresses.length,
-                    itemBuilder: (context, index) {
-                      final addr = controller.savedAddresses[index];
-                      return AddressTile(
-                        title: addr['title'],
-                        address: addr['address'],
-                        isDefault: addr['isDefault'],
-                        icon: addr['icon'],
-                        isSelected: index == 0, // Mockup shows first one selected
-                        onTap: () {},
-                      );
-                    },
-                  )),
+                  Obx(
+                    () => ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                      itemCount: controller.savedAddresses.length,
+                      itemBuilder: (context, index) {
+                        final addr = controller.savedAddresses[index];
+                        return AddressTile(
+                          title: addr['title'],
+                          address: addr['address'],
+                          isDefault: addr['isDefault'],
+                          icon: addr['icon'],
+                          isSelected:
+                              index == 0, // Mockup shows first one selected
+                          onTap: () {},
+                        );
+                      },
+                    ),
+                  ),
                   const SizedBox(height: 12.0),
                   _buildAddNewButton(),
                   const SizedBox(height: 24),
@@ -106,7 +107,10 @@ class SavedAddressesView extends GetView<SavedAddressesController> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
@@ -128,7 +132,11 @@ class SavedAddressesView extends GetView<SavedAddressesController> {
                   ),
                 ),
                 const SizedBox(height: 4),
-                const Icon(Icons.location_on, color: AppColors.primary, size: 40),
+                const Icon(
+                  Icons.location_on,
+                  color: AppColors.primary,
+                  size: 40,
+                ),
               ],
             ),
           ],
@@ -177,7 +185,9 @@ class SavedAddressesView extends GetView<SavedAddressesController> {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
             minimumSize: const Size(double.infinity, 56.0),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
             elevation: 0,
           ),
           child: Text(

@@ -192,7 +192,7 @@ class JobCompletionView extends GetView<JobCompletionController> {
       decoration: BoxDecoration(
         color: const Color(0xFFF9FAFB),
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: const Color(0xFFE5E7EB), style: BorderStyle.solid), // Fallback for dotted
+        border: Border.all(color: const Color(0xFFE5E7EB), style: BorderStyle.solid),
       ),
       child: Stack(
         children: [
@@ -200,29 +200,32 @@ class JobCompletionView extends GetView<JobCompletionController> {
             controller: controller.signatureController,
             backgroundColor: Colors.transparent,
           ),
-          Center(
-            child: PointerInterceptor(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.edit_note_rounded, color: Colors.grey, size: 40),
-                  const SizedBox(height: 8),
-                  Text(
-                    "Client signs here",
-                    style: GoogleFonts.poppins(
-                      color: Colors.grey[400],
-                      fontSize: 14,
+          Obx(() => Visibility(
+            visible: controller.isSignatureEmpty.value,
+            child: Center(
+              child: PointerInterceptor(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.edit_note_rounded, color: Colors.grey, size: 40),
+                    const SizedBox(height: 8),
+                    Text(
+                      "Client signs here",
+                      style: GoogleFonts.poppins(
+                        color: Colors.grey[400],
+                        fontSize: 14,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
+          )),
           Positioned(
             bottom: 12,
             right: 12,
             child: TextButton(
-              onPressed: () => controller.signatureController.clear(),
+              onPressed: () => controller.clearSignature(),
               child: Text(
                 "Clear",
                 style: GoogleFonts.poppins(color: Colors.redAccent, fontSize: 13),
@@ -248,24 +251,40 @@ class JobCompletionView extends GetView<JobCompletionController> {
         ],
       ),
       child: SafeArea(
-        child: ElevatedButton.icon(
-          onPressed: controller.completeJob,
-          icon: const Icon(Icons.check_circle, color: Colors.white, size: 20),
-          label: Text(
-            AppStrings.markAsComplete.tr,
-            style: GoogleFonts.poppins(
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
+        child: Obx(() => ElevatedButton(
+          onPressed: controller.isLoading.value ? null : controller.completeJob,
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
             minimumSize: const Size(double.infinity, 56.0),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
             elevation: 0,
+            disabledBackgroundColor: AppColors.primary.withOpacity(0.6),
           ),
-        ),
+          child: controller.isLoading.value
+              ? const SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
+                    strokeWidth: 2,
+                  ),
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.check_circle, color: Colors.white, size: 20),
+                    const SizedBox(width: 8),
+                    Text(
+                      AppStrings.markAsComplete.tr,
+                      style: GoogleFonts.poppins(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+        )),
       ),
     );
   }

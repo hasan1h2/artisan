@@ -19,8 +19,14 @@ class CameraController extends GetxController {
       final bookingController = Get.find<BookingController>();
       // Simulate saving an image path
       bookingController.capturedImagePath.value = 'dummy_path.jpg';
-      // Now naturally proceed to Confirm Booking
-      Get.toNamed(Routes.CONFIRM_BOOKING);
+      
+      // If originating from Popular Services, skip Confirm Booking
+      if (bookingController.source.value == 'popular_services') {
+        Get.offNamed(Routes.FINDING_ARTISAN);
+      } else {
+        // Otherwise, naturally proceed to Confirm Booking
+        Get.toNamed(Routes.CONFIRM_BOOKING);
+      }
     } catch (e) {
       Get.snackbar('Error', 'Booking session not found.');
     }

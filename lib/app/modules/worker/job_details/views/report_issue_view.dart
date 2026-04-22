@@ -18,7 +18,11 @@ class ReportIssueView extends GetView<ReportIssueController> {
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 20),
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
+            size: 20,
+          ),
           onPressed: () => Get.back(),
         ),
         title: Column(
@@ -48,7 +52,7 @@ class ReportIssueView extends GetView<ReportIssueController> {
           children: [
             _buildEmergencyBanner(),
             const SizedBox(height: 32),
-            _buildLabel(AppStrings.issueType.tr + " *"),
+            _buildLabel("${AppStrings.issueType.tr} *"),
             const SizedBox(height: 12),
             _buildDropdown(),
             const SizedBox(height: 32),
@@ -56,7 +60,7 @@ class ReportIssueView extends GetView<ReportIssueController> {
             const SizedBox(height: 12),
             _buildUrgencySelector(),
             const SizedBox(height: 32),
-            _buildLabel(AppStrings.description.tr + " *"),
+            _buildLabel("${AppStrings.description.tr} *"),
             const SizedBox(height: 12),
             _buildDescriptionField(),
             const SizedBox(height: 32),
@@ -80,19 +84,33 @@ class ReportIssueView extends GetView<ReportIssueController> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.warning_amber_rounded, color: Color(0xFFD48806), size: 24),
+          const Icon(
+            Icons.warning_amber_rounded,
+            color: Color(0xFFD48806),
+            size: 24,
+          ),
           const SizedBox(width: 12),
           Expanded(
             child: RichText(
               text: TextSpan(
-                style: GoogleFonts.poppins(fontSize: 13, color: const Color(0xFF7A5900), height: 1.5),
+                style: GoogleFonts.poppins(
+                  fontSize: 13,
+                  color: const Color(0xFF7A5900),
+                  height: 1.5,
+                ),
                 children: [
                   const TextSpan(text: "In an emergency, call "),
                   TextSpan(
                     text: "911",
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: const Color(0xFFC0392B)),
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFFC0392B),
+                    ),
                   ),
-                  const TextSpan(text: " immediately. Use this form to report non-emergency job issues."),
+                  const TextSpan(
+                    text:
+                        " immediately. Use this form to report non-emergency job issues.",
+                  ),
                 ],
               ),
             ),
@@ -114,40 +132,61 @@ class ReportIssueView extends GetView<ReportIssueController> {
   }
 
   Widget _buildDropdown() {
-    return Obx(() => Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xFFE5E7EB)),
-      ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton<String>(
-          value: controller.selectedIssueType.value.isEmpty ? null : controller.selectedIssueType.value,
-          hint: Text(AppStrings.selectIssueType.tr, style: GoogleFonts.poppins(color: Colors.grey, fontSize: 14)),
-          isExpanded: true,
-          icon: const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
-          items: controller.issueTypes.map((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value, style: GoogleFonts.poppins(fontSize: 14)),
-            );
-          }).toList(),
-          onChanged: controller.selectIssue,
+    return Obx(
+      () => Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: const Color(0xFFE5E7EB)),
+        ),
+        child: DropdownButtonHideUnderline(
+          child: DropdownButton<String>(
+            value: controller.selectedIssueType.value.isEmpty
+                ? null
+                : controller.selectedIssueType.value,
+            hint: Text(
+              AppStrings.selectIssueType.tr,
+              style: GoogleFonts.poppins(color: Colors.grey, fontSize: 14),
+            ),
+            isExpanded: true,
+            icon: const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+            items: controller.issueTypes.map((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value, style: GoogleFonts.poppins(fontSize: 14)),
+              );
+            }).toList(),
+            onChanged: controller.selectIssue,
+          ),
         ),
       ),
-    ));
+    );
   }
 
   Widget _buildUrgencySelector() {
-    return Obx(() => Row(
-      children: [
-        _buildUrgencyOption(AppStrings.low.tr, const Color(0xFF4CAF50), controller.urgencyLevel.value == "Low"),
-        const SizedBox(width: 12),
-        _buildUrgencyOption(AppStrings.medium.tr, const Color(0xFFFFC107), controller.urgencyLevel.value == "Medium"),
-        const SizedBox(width: 12),
-        _buildUrgencyOption(AppStrings.high.tr, const Color(0xFFF44336), controller.urgencyLevel.value == "High"),
-      ],
-    ));
+    return Obx(
+      () => Row(
+        children: [
+          _buildUrgencyOption(
+            AppStrings.low.tr,
+            const Color(0xFF4CAF50),
+            controller.urgencyLevel.value == "Low",
+          ),
+          const SizedBox(width: 12),
+          _buildUrgencyOption(
+            AppStrings.medium.tr,
+            const Color(0xFFFFC107),
+            controller.urgencyLevel.value == "Medium",
+          ),
+          const SizedBox(width: 12),
+          _buildUrgencyOption(
+            AppStrings.high.tr,
+            const Color(0xFFF44336),
+            controller.urgencyLevel.value == "High",
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildUrgencyOption(String label, Color color, bool isSelected) {
@@ -157,9 +196,13 @@ class ReportIssueView extends GetView<ReportIssueController> {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(
-            color: isSelected ? color.withOpacity(0.1) : const Color(0xFFF9FAFB),
+            color: isSelected
+                ? color.withOpacity(0.1)
+                : const Color(0xFFF9FAFB),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: isSelected ? color : const Color(0xFFE5E7EB)),
+            border: Border.all(
+              color: isSelected ? color : const Color(0xFFE5E7EB),
+            ),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -206,10 +249,12 @@ class ReportIssueView extends GetView<ReportIssueController> {
           ),
         ),
         const SizedBox(height: 8),
-        Obx(() => Text(
-          "${controller.characterCount.value}/500",
-          style: GoogleFonts.poppins(fontSize: 12, color: Colors.grey),
-        )),
+        Obx(
+          () => Text(
+            "${controller.characterCount.value}/500",
+            style: GoogleFonts.poppins(fontSize: 12, color: Colors.grey),
+          ),
+        ),
       ],
     );
   }
@@ -241,7 +286,11 @@ class ReportIssueView extends GetView<ReportIssueController> {
       width: double.infinity,
       child: ElevatedButton.icon(
         onPressed: controller.submitReport,
-        icon: const Icon(Icons.check_circle_outline, color: Colors.white, size: 20),
+        icon: const Icon(
+          Icons.check_circle_outline,
+          color: Colors.white,
+          size: 20,
+        ),
         label: Text(
           AppStrings.submitReport.tr,
           style: GoogleFonts.poppins(
@@ -253,7 +302,9 @@ class ReportIssueView extends GetView<ReportIssueController> {
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
           minimumSize: const Size(double.infinity, 56.0),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
           elevation: 0,
         ),
       ),

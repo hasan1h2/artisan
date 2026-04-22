@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/static/app_colors.dart';
-import '../../../../core/constants/static/app_strings.dart';
 import '../../../../core/components/payment_card_tile.dart';
 import '../controllers/payment_method_controller.dart';
 
@@ -46,21 +45,23 @@ class PaymentMethodView extends GetView<PaymentMethodController> {
               ),
             ),
             const SizedBox(height: 16.0),
-            Obx(() => ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: controller.savedCards.length,
-              itemBuilder: (context, index) {
-                final card = controller.savedCards[index];
-                return PaymentCardTile(
-                  type: card['type'],
-                  number: card['number'],
-                  expiry: card['expiry'],
-                  imagePath: card['image'],
-                  onTap: () {},
-                );
-              },
-            )),
+            Obx(
+              () => ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: controller.savedCards.length,
+                itemBuilder: (context, index) {
+                  final card = controller.savedCards[index];
+                  return PaymentCardTile(
+                    type: card['type'],
+                    number: card['number'],
+                    expiry: card['expiry'],
+                    imagePath: card['image'],
+                    onTap: () {},
+                  );
+                },
+              ),
+            ),
             const SizedBox(height: 24.0),
             _buildAddNewButton(),
             const SizedBox(height: 32.0),
@@ -115,7 +116,11 @@ class PaymentMethodView extends GetView<PaymentMethodController> {
   Widget _buildBadge(IconData icon, String text) {
     return Row(
       children: [
-        Icon(icon, size: 14, color: AppColors.ratingStar), // Mockup shows gold-ish icons? Actually light grey/beige in some mockups, but I'll use a subtle color.
+        Icon(
+          icon,
+          size: 14,
+          color: AppColors.ratingStar,
+        ), // Mockup shows gold-ish icons? Actually light grey/beige in some mockups, but I'll use a subtle color.
         const SizedBox(width: 6.0),
         Text(
           text,

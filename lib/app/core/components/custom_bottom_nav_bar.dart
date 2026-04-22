@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/static/app_colors.dart';
-import '../constants/static/app_images.dart';
 
 class NavItemData {
   final String label;
@@ -45,7 +44,11 @@ class CustomBottomNavBar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(items.length, (index) {
-              return _buildNavItem(index, items[index].label, items[index].icon);
+              return _buildNavItem(
+                index,
+                items[index].label,
+                items[index].icon,
+              );
             }),
           ),
         ),
@@ -60,7 +63,9 @@ class CustomBottomNavBar extends StatelessWidget {
       onTap: () => onTap(index),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        padding: isActive ? const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0) : const EdgeInsets.all(10.0),
+        padding: isActive
+            ? const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0)
+            : const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           color: isActive ? AppColors.bottomNavActiveBg : Colors.transparent,
           borderRadius: BorderRadius.circular(20.0),
@@ -78,7 +83,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-            ]
+            ],
           ],
         ),
       ),
@@ -100,4 +105,3 @@ class CustomBottomNavBar extends StatelessWidget {
     return const SizedBox();
   }
 }
-

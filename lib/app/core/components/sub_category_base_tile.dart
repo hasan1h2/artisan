@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/static/app_colors.dart';
@@ -45,10 +44,11 @@ class SubCategoryBaseTile extends StatelessWidget {
               height: 50.0,
               fit: BoxFit.contain,
               errorBuilder: (context, error, stackTrace) => Container(
-                  width: 50.0,
-                  height: 50.0,
-                  alignment: Alignment.center,
-                  child: const Icon(Icons.broken_image, color: Colors.grey)),
+                width: 50.0,
+                height: 50.0,
+                alignment: Alignment.center,
+                child: const Icon(Icons.broken_image, color: Colors.grey),
+              ),
             ),
             SizedBox(width: 16.0),
             // Text Details
@@ -77,15 +77,10 @@ class SubCategoryBaseTile extends StatelessWidget {
               ),
             ),
             // Right Arrow
-            Icon(
-              Icons.arrow_forward,
-              color: AppColors.textColor,
-              size: 20.0,
-            ),
+            Icon(Icons.arrow_forward, color: AppColors.textColor, size: 20.0),
           ],
         ),
       ),
     );
   }
 }
-

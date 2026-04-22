@@ -121,7 +121,7 @@ class WorkerJobDetailsView extends GetView<WorkerJobDetailsController> {
               ],
             ),
           ),
-          _buildActionButton(Icons.chat_bubble_outline, controller.chatClient),
+          // _buildActionButton(Icons.chat_bubble_outline, controller.chatClient),
         ],
       ),
     );
