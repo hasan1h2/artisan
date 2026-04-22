@@ -40,25 +40,26 @@ class ServiceItemCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
-              child: Image.asset(
-                imagePath,
-                height: 140.0,
-                width: double.infinity,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => Container(
-                  height: 130.0,
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
+                child: Image.asset(
+                  imagePath,
                   width: double.infinity,
-                  color: AppColors.border,
-                  child: Icon(Icons.image, color: AppColors.greyText, size: 40.0),
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Container(
+                    width: double.infinity,
+                    color: AppColors.border,
+                    child: Icon(Icons.image, color: AppColors.greyText, size: 40.0),
+                  ),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(12.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     title,
@@ -70,11 +71,11 @@ class ServiceItemCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 4.0),
                   Row(
                     children: [
-                      Icon(Icons.star, color: AppColors.ratingStar, size: 16.0),
-                      SizedBox(width: 4.0),
+                      const Icon(Icons.star, color: AppColors.ratingStar, size: 14.0),
+                      const SizedBox(width: 4.0),
                       Text(
                         '$rating',
                         style: GoogleFonts.poppins(
@@ -83,23 +84,22 @@ class ServiceItemCard extends StatelessWidget {
                           color: AppColors.textColor,
                         ),
                       ),
-                      SizedBox(width: 4.0),
+                      const SizedBox(width: 4.0),
                       Expanded(
                         child: Text(
                           '($reviews)',
                           style: GoogleFonts.poppins(
-                            fontSize: 12.0,
+                            fontSize: 11.0,
                             color: AppColors.greyText,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      SizedBox(width: 4.0),
                       Text(
                         priceRange,
                         style: GoogleFonts.poppins(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w700,
                           color: AppColors.primary,
                         ),
                       ),

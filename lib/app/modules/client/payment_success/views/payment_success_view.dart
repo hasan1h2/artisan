@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -206,17 +206,17 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
     return Column(
       children: [
         OutlinedButton(
-          onPressed: controller.downloadReceipt,
+          onPressed: controller.downloadOrPrintReceipt,
           style: OutlinedButton.styleFrom(
-            minimumSize: Size(double.infinity, 56.0),
-            side: BorderSide(color: AppColors.border),
+            minimumSize: const Size(double.infinity, 56.0),
+            side: const BorderSide(color: AppColors.border),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.download, color: AppColors.primary, size: 20.0),
-              SizedBox(width: 8.0),
+              const Icon(Icons.download, color: AppColors.primary, size: 20.0),
+              const SizedBox(width: 8.0),
               Text(
                 AppStrings.downloadReceipt.tr,
                 style: GoogleFonts.poppins(
@@ -228,31 +228,41 @@ class PaymentSuccessView extends GetView<PaymentSuccessController> {
             ],
           ),
         ),
-        SizedBox(height: 16.0),
-        ElevatedButton(
-          onPressed: controller.backToHome,
+        const SizedBox(height: 16.0),
+        Obx(() => ElevatedButton(
+          onPressed: controller.isLoadingHome.value ? null : controller.backToHome,
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
-            minimumSize: Size(double.infinity, 56.0),
+            minimumSize: const Size(double.infinity, 56.0),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
             elevation: 0,
+            disabledBackgroundColor: AppColors.primary.withOpacity(0.6),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.home_outlined, color: AppColors.white, size: 20.0),
-              SizedBox(width: 8.0),
-              Text(
-                AppStrings.backToHome.tr,
-                style: GoogleFonts.poppins(
-                  color: AppColors.white,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w600,
+          child: controller.isLoadingHome.value
+              ? const SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
+                    strokeWidth: 2,
+                  ),
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.home_outlined, color: Colors.white, size: 20.0),
+                    const SizedBox(width: 8.0),
+                    Text(
+                      AppStrings.backToHome.tr,
+                      style: GoogleFonts.poppins(
+                        color: AppColors.white,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-        ),
+        )),
       ],
     );
   }
